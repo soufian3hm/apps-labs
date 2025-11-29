@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react"
 import { Instagram, Twitter, Zap, Cookie } from "lucide-react"
-import { supabase } from "@/lib/supabase"
-import { useLanguage } from "@/contexts/LanguageContext"
-import { useCookieConsent } from "@/contexts/CookieConsentContext"
+import { supabase } from "lib/supabase"
+import { useLanguage } from "contexts/LanguageContext"
+import { useCookieConsent } from "contexts/CookieConsentContext"
 
 const getFooterColumns = (lang: 'en' | 'ar') => [
   {

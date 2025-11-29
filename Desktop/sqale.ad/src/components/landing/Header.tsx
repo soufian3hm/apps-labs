@@ -1,8 +1,8 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Button } from '@/components/ui/button'
+import { Button } from 'components/ui/button'
 import { Menu, X, ChevronDown, Globe } from 'lucide-react'
-import { useLanguage } from '@/contexts/LanguageContext'
+import { useLanguage } from 'contexts/LanguageContext'
 
 interface NavLink {
   name: string

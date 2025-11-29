@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header } from '../landing/Header'
 import { Footer } from '../landing/Footer'
-import { Button } from '@/components/ui/button'
+import { Button } from 'components/ui/button'
 import { motion } from 'framer-motion'
 import { Zap, Code, Eye, Rocket, CheckCircle, ArrowRight, Layout, Smartphone } from 'lucide-react'
 

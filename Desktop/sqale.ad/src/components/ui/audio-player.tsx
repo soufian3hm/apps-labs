@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "components/ui/button";
 import { Play, Pause, Volume2, Volume1, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "lib/utils";
 
 const formatTime = (seconds: number) => {
   const minutes = Math.floor(seconds / 60);

@@ -1,8 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
-import { useLanguage } from '@/contexts/LanguageContext'
+import { Button } from 'components/ui/button'
+import { useLanguage } from 'contexts/LanguageContext'
 
 const container = {
   hidden: { opacity: 0 },
