@@ -7,12 +7,15 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   
   // Create a process.env object with REACT_APP_ variables and NODE_ENV
-  const processEnv = {};
+  const processEnv: Record<string, string> = {};
   Object.keys(env).forEach(key => {
     if (key.startsWith('REACT_APP_') || key === 'NODE_ENV') {
       processEnv[key] = env[key];
     }
   });
+  
+  // Define PUBLIC_URL for compatibility
+  processEnv['PUBLIC_URL'] = env['PUBLIC_URL'] || '';
 
   return {
     define: {
