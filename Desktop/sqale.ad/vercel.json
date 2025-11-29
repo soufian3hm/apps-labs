@@ -5,7 +5,10 @@
   "framework": null,
   "build": {
     "env": {
-      "GENERATE_SOURCEMAP": "false"
+      "GENERATE_SOURCEMAP": "false",
+      "CI": "false",
+      "DISABLE_ESLINT_PLUGIN": "true"
     }
   }
 }
+
