@@ -1,14 +1,5 @@
 {
-  "buildCommand": "npm run build",
   "outputDirectory": "build",
-  "installCommand": "npm install",
-  "framework": null,
-  "build": {
-    "env": {
-      "GENERATE_SOURCEMAP": "false",
-      "CI": "false",
-      "DISABLE_ESLINT_PLUGIN": "true"
-    }
-  }
+  "installCommand": "npm install"
 }
 
