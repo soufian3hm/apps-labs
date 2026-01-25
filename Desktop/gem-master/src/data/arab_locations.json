@@ -1,0 +1,3777 @@
+[
+    {
+        "country": "Algeria",
+        "iso_code": "DZ",
+        "capital": "Algiers",
+        "divisions": [
+            {
+                "name": "Algiers",
+                "type": "Wilaya",
+                "cities": [
+                    "Algiers",
+                    "Casbah",
+                    "Bab El Oued",
+                    "Hydra",
+                    "Ben Aknoun",
+                    "Bir Mourad Rais",
+                    "El Biar",
+                    "Bouzareah",
+                    "Cheraga",
+                    "Ouled Fayet",
+                    "Draria",
+                    "El Achour",
+                    "Birtouta",
+                    "Baraki",
+                    "Dar El Beïda",
+                    "Bab Ezzouar",
+                    "Rouiba",
+                    "Reghaïa",
+                    "Ain Taya",
+                    "Bordj El Kiffan",
+                    "Bordj El Bahri",
+                    "El Harrach",
+                    "Oued Smar",
+                    "Hussein Dey",
+                    "Kouba",
+                    "Mohammadia",
+                    "Sidi M'Hamed",
+                    "Alger Centre"
+                ]
+            },
+            {
+                "name": "Oran",
+                "type": "Wilaya",
+                "cities": [
+                    "Oran",
+                    "Es Senia",
+                    "Bir El Djir",
+                    "Arzew",
+                    "Bethioua",
+                    "Gdyel",
+                    "Hassi Ben Okba",
+                    "Misserghin",
+                    "Boutlelis",
+                    "Ain El Turk",
+                    "Mers El Kebir",
+                    "Bousfer",
+                    "El Ançor",
+                    "Oued Tlelat",
+                    "Tafraoui"
+                ]
+            },
+            {
+                "name": "Constantine",
+                "type": "Wilaya",
+                "cities": [
+                    "Constantine",
+                    "El Khroub",
+                    "Ain Smara",
+                    "Hamma Bouziane",
+                    "Didouche Mourad",
+                    "Zighoud Youcef",
+                    "Ibn Ziad",
+                    "Ouled Rahmoune",
+                    "Ain Abid",
+                    "Ben Badis"
+                ]
+            },
+            {
+                "name": "Sétif",
+                "type": "Wilaya",
+                "cities": [
+                    "Sétif",
+                    "El Eulma",
+                    "Ain Arnat",
+                    "Ain Oulmene",
+                    "Ain Azel",
+                    "Ain El Kebira",
+                    "Bougaa",
+                    "Salah Bey",
+                    "Amoucha",
+                    "Babor",
+                    "Guidjel",
+                    "Hammam Sokhna",
+                    "Beni Aziz"
+                ]
+            },
+            {
+                "name": "Blida",
+                "type": "Wilaya",
+                "cities": [
+                    "Blida",
+                    "Boufarik",
+                    "Larbaa",
+                    "El Affroun",
+                    "Mouzaia",
+                    "Oued El Alleug",
+                    "Meftah",
+                    "Bougara",
+                    "Bouinan",
+                    "Beni Mered",
+                    "Ouled Yaich",
+                    "Chiffa"
+                ]
+            },
+            {
+                "name": "Annaba",
+                "type": "Wilaya",
+                "cities": [
+                    "Annaba",
+                    "El Bouni",
+                    "Sidi Amar",
+                    "El Hadjar",
+                    "Berrahal",
+                    "Chetaibi",
+                    "Seraidi",
+                    "Oued El Aneb",
+                    "Ain Berda"
+                ]
+            },
+            {
+                "name": "Tizi Ouzou",
+                "type": "Wilaya",
+                "cities": [
+                    "Tizi Ouzou",
+                    "Draa Ben Khedda",
+                    "Azazga",
+                    "Boghni",
+                    "Draa El Mizan",
+                    "Tigzirt",
+                    "Azeffoun",
+                    "Larbaa Nath Irathen",
+                    "Ain El Hammam",
+                    "Ouadhia",
+                    "Freha",
+                    "Mekla",
+                    "Beni Douala",
+                    "Yakouren"
+                ]
+            },
+            {
+                "name": "Batna",
+                "type": "Wilaya",
+                "cities": [
+                    "Batna",
+                    "Barika",
+                    "Ain Touta",
+                    "Merouana",
+                    "Tazoult",
+                    "N'Gaous",
+                    "Arris",
+                    "Ain Djasser",
+                    "Ras El Aioun",
+                    "Chemora",
+                    "Oued El Ma"
+                ]
+            },
+            {
+                "name": "Djelfa",
+                "type": "Wilaya",
+                "cities": [
+                    "Djelfa",
+                    "Ain Oussera",
+                    "Messaad",
+                    "Hassi Bahbah",
+                    "Dar Chioukh",
+                    "Charef",
+                    "El Idrissia",
+                    "Birine",
+                    "Sidi Ladjel",
+                    "Had Sahary"
+                ]
+            },
+            {
+                "name": "Chlef",
+                "type": "Wilaya",
+                "cities": [
+                    "Chlef",
+                    "Tenes",
+                    "Boukadir",
+                    "Oued Fodda",
+                    "El Karimia",
+                    "Ouled Fares",
+                    "Chettia",
+                    "Sidi Akkacha",
+                    "Zeboudja",
+                    "Ain Merane"
+                ]
+            },
+            {
+                "name": "Béjaïa",
+                "type": "Wilaya",
+                "cities": [
+                    "Béjaïa",
+                    "Akbou",
+                    "Amizour",
+                    "Kherrata",
+                    "Seddouk",
+                    "El Kseur",
+                    "Tazmalt",
+                    "Sidi Aich",
+                    "Aokas",
+                    "Tichy",
+                    "Adekar",
+                    "Beni Maouche"
+                ]
+            },
+            {
+                "name": "Tlemcen",
+                "type": "Wilaya",
+                "cities": [
+                    "Tlemcen",
+                    "Maghnia",
+                    "Remchi",
+                    "Hennaya",
+                    "Sebdou",
+                    "Ghazaouet",
+                    "Nedroma",
+                    "Chetouane",
+                    "Mansourah",
+                    "Sabra",
+                    "Beni Saf",
+                    "Ouled Mimoun"
+                ]
+            },
+            {
+                "name": "Ouargla",
+                "type": "Wilaya",
+                "cities": [
+                    "Ouargla",
+                    "Hassi Messaoud",
+                    "Rouissat",
+                    "Ain Beida",
+                    "Sidi Khouiled",
+                    "N'Goussa",
+                    "El Borma"
+                ]
+            },
+            {
+                "name": "Ghardaïa",
+                "type": "Wilaya",
+                "cities": [
+                    "Ghardaïa",
+                    "Metlili",
+                    "El Atteuf",
+                    "Bounoura",
+                    "Berriane",
+                    "Guerrara",
+                    "Zelfana",
+                    "Dhayet Bendhahoua"
+                ]
+            },
+            {
+                "name": "Adrar",
+                "type": "Wilaya",
+                "cities": [
+                    "Adrar",
+                    "Reggane",
+                    "Timimoun",
+                    "Aoulef",
+                    "Tsabit",
+                    "Fenoughil",
+                    "Tamest",
+                    "Bordj Badji Mokhtar"
+                ]
+            },
+            {
+                "name": "Tamanrasset",
+                "type": "Wilaya",
+                "cities": [
+                    "Tamanrasset",
+                    "Ain Salah",
+                    "In Guezzam",
+                    "Abalessa",
+                    "Tazrouk",
+                    "Idles"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Bahrain",
+        "iso_code": "BH",
+        "capital": "Manama",
+        "divisions": [
+            {
+                "name": "Capital Governorate",
+                "type": "Governorate",
+                "cities": [
+                    "Manama",
+                    "Juffair",
+                    "Adliya",
+                    "Gudaibiya",
+                    "Hoora",
+                    "Seef",
+                    "Sanabis",
+                    "Mahooz",
+                    "Umm Al Hassam",
+                    "Zinj",
+                    "Tubli",
+                    "Sitra",
+                    "Nabih Saleh"
+                ]
+            },
+            {
+                "name": "Muharraq Governorate",
+                "type": "Governorate",
+                "cities": [
+                    "Muharraq",
+                    "Busaiteen",
+                    "Arad",
+                    "Hidd",
+                    "Galali",
+                    "Amwaj Islands",
+                    "Diyar Al Muharraq",
+                    "Samaheej",
+                    "Dair"
+                ]
+            },
+            {
+                "name": "Northern Governorate",
+                "type": "Governorate",
+                "cities": [
+                    "Hamad Town",
+                    "Budaiya",
+                    "Saar",
+                    "Janabiyah",
+                    "Bani Jamra",
+                    "Diraz",
+                    "Barbar",
+                    "Jidhafs",
+                    "A'ali",
+                    "Salmabad",
+                    "Dumistan",
+                    "Karzakan",
+                    "Malkiya",
+                    "Sadad",
+                    "Shahrakkan",
+                    "Dar Kulaib"
+                ]
+            },
+            {
+                "name": "Southern Governorate",
+                "type": "Governorate",
+                "cities": [
+                    "Riffa",
+                    "East Riffa",
+                    "West Riffa",
+                    "Isa Town",
+                    "Awali",
+                    "Zallaq",
+                    "Sakhir",
+                    "Askar",
+                    "Jaww",
+                    "Durrat Al Bahrain"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Comoros",
+        "iso_code": "KM",
+        "capital": "Moroni",
+        "divisions": [
+            {
+                "name": "Grande Comore (Ngazidja)",
+                "type": "Island",
+                "cities": [
+                    "Moroni",
+                    "Iconi",
+                    "Mitsamiouli",
+                    "Foumbouni",
+                    "Ntsoudjini",
+                    "Mbeni",
+                    "Dembeni",
+                    "Tsidje",
+                    "Ouroveni",
+                    "Koimbani"
+                ]
+            },
+            {
+                "name": "Anjouan (Nzwani)",
+                "type": "Island",
+                "cities": [
+                    "Mutsamudu",
+                    "Domoni",
+                    "Ouani",
+                    "Sima",
+                    "Tsembehou",
+                    "Ongojou",
+                    "Bambao",
+                    "Moya"
+                ]
+            },
+            {
+                "name": "Mohéli (Mwali)",
+                "type": "Island",
+                "cities": [
+                    "Fomboni",
+                    "Nioumachoua",
+                    "Djoiezi",
+                    "Wanani",
+                    "Miringoni",
+                    "Ziroudani"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Djibouti",
+        "iso_code": "DJ",
+        "capital": "Djibouti City",
+        "divisions": [
+            {
+                "name": "Djibouti Region",
+                "type": "Region",
+                "cities": [
+                    "Djibouti City",
+                    "Balbala",
+                    "Boulaos"
+                ]
+            },
+            {
+                "name": "Ali Sabieh Region",
+                "type": "Region",
+                "cities": [
+                    "Ali Sabieh",
+                    "Holhol",
+                    "Dasbiyo",
+                    "Ali Adde"
+                ]
+            },
+            {
+                "name": "Arta Region",
+                "type": "Region",
+                "cities": [
+                    "Arta",
+                    "We'a",
+                    "Loyada",
+                    "Chabelley"
+                ]
+            },
+            {
+                "name": "Dikhil Region",
+                "type": "Region",
+                "cities": [
+                    "Dikhil",
+                    "As Eyla",
+                    "Galafi",
+                    "Yoboki",
+                    "Mouloud"
+                ]
+            },
+            {
+                "name": "Tadjourah Region",
+                "type": "Region",
+                "cities": [
+                    "Tadjourah",
+                    "Randa",
+                    "Dorra",
+                    "Balho",
+                    "Adailou",
+                    "Sagallou"
+                ]
+            },
+            {
+                "name": "Obock Region",
+                "type": "Region",
+                "cities": [
+                    "Obock",
+                    "Alaili Dadda",
+                    "Khôr Angar",
+                    "Moulhoule"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Egypt",
+        "iso_code": "EG",
+        "capital": "Cairo",
+        "divisions": [
+            {
+                "name": "Cairo",
+                "type": "Governorate",
+                "cities": [
+                    "Cairo",
+                    "Heliopolis",
+                    "Nasr City",
+                    "Maadi",
+                    "Zamalek",
+                    "Shoubra",
+                    "Helwan",
+                    "New Cairo",
+                    "El Marg",
+                    "El Salam",
+                    "El Basatin",
+                    "Ain Shams",
+                    "Matareya",
+                    "Zeitoun",
+                    "Sayeda Zeinab",
+                    "Old Cairo",
+                    "Mokattam",
+                    "Bulaq",
+                    "Abdeen"
+                ]
+            },
+            {
+                "name": "Giza",
+                "type": "Governorate",
+                "cities": [
+                    "Giza",
+                    "6th of October City",
+                    "Sheikh Zayed City",
+                    "Imbaba",
+                    "Mohandessin",
+                    "Dokki",
+                    "Agouza",
+                    "Haram",
+                    "Faisal",
+                    "Badrashein",
+                    "Hawamdia",
+                    "Ayat",
+                    "Saff",
+                    "Oseem",
+                    "Kerdasa",
+                    "Abu Nomros"
+                ]
+            },
+            {
+                "name": "Alexandria",
+                "type": "Governorate",
+                "cities": [
+                    "Alexandria",
+                    "Borg El Arab",
+                    "New Borg El Arab",
+                    "Montaza",
+                    "Sidi Gaber",
+                    "El Raml",
+                    "Mansheya",
+                    "Attarin",
+                    "Gomrok",
+                    "Amriya",
+                    "Agami"
+                ]
+            },
+            {
+                "name": "Dakahlia",
+                "type": "Governorate",
+                "cities": [
+                    "Mansoura",
+                    "Talkha",
+                    "Mit Ghamr",
+                    "Dekernes",
+                    "Aga",
+                    "Menia El Nasr",
+                    "Sinbillawain",
+                    "Sherbin",
+                    "Belqas",
+                    "Manzala",
+                    "Mataryia",
+                    "Gamasa"
+                ]
+            },
+            {
+                "name": "Red Sea",
+                "type": "Governorate",
+                "cities": [
+                    "Hurghada",
+                    "Safaga",
+                    "Marsa Alam",
+                    "Quseir",
+                    "Ras Gharib",
+                    "Shalateen",
+                    "Halaib"
+                ]
+            },
+            {
+                "name": "Beheira",
+                "type": "Governorate",
+                "cities": [
+                    "Damanhour",
+                    "Kafr El Dawar",
+                    "Rashid (Rosetta)",
+                    "Edku",
+                    "Abu Hummus",
+                    "Hosh Issa",
+                    "Shubrakhit",
+                    "Rahmaniya",
+                    "Mahmoudiyah",
+                    "Wadi El Natrun",
+                    "Nubariya"
+                ]
+            },
+            {
+                "name": "Gharbia",
+                "type": "Governorate",
+                "cities": [
+                    "Tanta",
+                    "El Mahalla El Kubra",
+                    "Kafr El Zayat",
+                    "Zefta",
+                    "Samannoud",
+                    "Basyoun",
+                    "Qutour",
+                    "El Santa"
+                ]
+            },
+            {
+                "name": "Sharqia",
+                "type": "Governorate",
+                "cities": [
+                    "Zagazig",
+                    "10th of Ramadan",
+                    "Minya El Qamh",
+                    "Belbeis",
+                    "Faqous",
+                    "Abu Kabir",
+                    "Hihya",
+                    "Kafr Saqr",
+                    "Awlad Saqr",
+                    "Husseiniea",
+                    "San El Hagar"
+                ]
+            },
+            {
+                "name": "Monufia",
+                "type": "Governorate",
+                "cities": [
+                    "Shibin El Kom",
+                    "Menouf",
+                    "Ashmoun",
+                    "Sers El Lyan",
+                    "Tala",
+                    "El Bagour",
+                    "Quesna",
+                    "Berkat El Saba",
+                    "Sadat City"
+                ]
+            },
+            {
+                "name": "Qalyubia",
+                "type": "Governorate",
+                "cities": [
+                    "Banha",
+                    "Shubra El Kheima",
+                    "Qalyub",
+                    "Qanater El Khayreya",
+                    "Khanka",
+                    "Kafr Shukr",
+                    "Tukh",
+                    "Obour City"
+                ]
+            },
+            {
+                "name": "Kafr El Sheikh",
+                "type": "Governorate",
+                "cities": [
+                    "Kafr El Sheikh",
+                    "Desouk",
+                    "Baltim",
+                    "Metoubes",
+                    "Sidi Salem",
+                    "Riyadh",
+                    "Qallin",
+                    "Fouwa",
+                    "Hamoul",
+                    "Burullus"
+                ]
+            },
+            {
+                "name": "Damietta",
+                "type": "Governorate",
+                "cities": [
+                    "Damietta",
+                    "New Damietta",
+                    "Ras El Bar",
+                    "Faraskour",
+                    "Zarqa",
+                    "Kafr Saad",
+                    "Kafr El Battikh"
+                ]
+            },
+            {
+                "name": "Port Said",
+                "type": "Governorate",
+                "cities": [
+                    "Port Said",
+                    "Port Fouad"
+                ]
+            },
+            {
+                "name": "Ismailia",
+                "type": "Governorate",
+                "cities": [
+                    "Ismailia",
+                    "Fayed",
+                    "Qantara West",
+                    "Qantara East",
+                    "Tell El Kebir",
+                    "Abu Suwir",
+                    "Kassassin"
+                ]
+            },
+            {
+                "name": "Suez",
+                "type": "Governorate",
+                "cities": [
+                    "Suez",
+                    "Attaka",
+                    "Arbaeen",
+                    "Ganayen"
+                ]
+            },
+            {
+                "name": "Faiyum",
+                "type": "Governorate",
+                "cities": [
+                    "Faiyum",
+                    "Sinnuris",
+                    "Ibsheway",
+                    "Itsa",
+                    "Tamia",
+                    "Yousef El Seddik"
+                ]
+            },
+            {
+                "name": "Beni Suef",
+                "type": "Governorate",
+                "cities": [
+                    "Beni Suef",
+                    "New Beni Suef",
+                    "Nasser",
+                    "Wasta",
+                    "Biba",
+                    "Samasta",
+                    "Ihnasiya",
+                    "Fashn"
+                ]
+            },
+            {
+                "name": "Minya",
+                "type": "Governorate",
+                "cities": [
+                    "Minya",
+                    "New Minya",
+                    "Mallawi",
+                    "Samalut",
+                    "Beni Mazar",
+                    "Maghagha",
+                    "Abu Qurqas",
+                    "Deir Mawas",
+                    "Matay",
+                    "Edwa"
+                ]
+            },
+            {
+                "name": "Asyut",
+                "type": "Governorate",
+                "cities": [
+                    "Asyut",
+                    "New Asyut",
+                    "Dairut",
+                    "Qusiya",
+                    "Manfalut",
+                    "Abnoub",
+                    "Abu Tig",
+                    "Ghanayem",
+                    "Sahel Selim",
+                    "Badari",
+                    "Sedfa"
+                ]
+            },
+            {
+                "name": "Sohag",
+                "type": "Governorate",
+                "cities": [
+                    "Sohag",
+                    "New Sohag",
+                    "Akhmim",
+                    "Girga",
+                    "Tahta",
+                    "Tema",
+                    "Maragha",
+                    "Juhayna",
+                    "Dar El Salam",
+                    "Balyana",
+                    "Sakulta",
+                    "Monsha'a"
+                ]
+            },
+            {
+                "name": "Qena",
+                "type": "Governorate",
+                "cities": [
+                    "Qena",
+                    "New Qena",
+                    "Luxor (Independent)",
+                    "Esna",
+                    "Armant",
+                    "Qus",
+                    "Nag Hammadi",
+                    "Dishna",
+                    "Farshut",
+                    "Abu Tesht",
+                    "Qift",
+                    "Naqada",
+                    "Waqf"
+                ]
+            },
+            {
+                "name": "Luxor",
+                "type": "Governorate",
+                "cities": [
+                    "Luxor",
+                    "Karnak",
+                    "New Thebes",
+                    "Armant",
+                    "Esna",
+                    "Tiba"
+                ]
+            },
+            {
+                "name": "Aswan",
+                "type": "Governorate",
+                "cities": [
+                    "Aswan",
+                    "New Aswan",
+                    "Kom Ombo",
+                    "Edfu",
+                    "Daraw",
+                    "Nasr Al Nuba",
+                    "Abu Simbel"
+                ]
+            },
+            {
+                "name": "Matrouh",
+                "type": "Governorate",
+                "cities": [
+                    "Marsa Matrouh",
+                    "El Alamein",
+                    "Dabaa",
+                    "Siwa",
+                    "Sidi Barrani",
+                    "Sallum",
+                    "Negila"
+                ]
+            },
+            {
+                "name": "New Valley",
+                "type": "Governorate",
+                "cities": [
+                    "Kharga",
+                    "Dakhla",
+                    "Farafra",
+                    "Baris",
+                    "Balat"
+                ]
+            },
+            {
+                "name": "North Sinai",
+                "type": "Governorate",
+                "cities": [
+                    "Arish",
+                    "Sheikh Zuweid",
+                    "Rafah",
+                    "Bir El Abd",
+                    "Hasana",
+                    "Nakhl"
+                ]
+            },
+            {
+                "name": "South Sinai",
+                "type": "Governorate",
+                "cities": [
+                    "Sharm El Sheikh",
+                    "Dahab",
+                    "Nuweiba",
+                    "Taba",
+                    "Saint Catherine",
+                    "Tor Sinai",
+                    "Ras Sidr",
+                    "Abu Zenima",
+                    "Abu Rudeis"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Iraq",
+        "iso_code": "IQ",
+        "capital": "Baghdad",
+        "divisions": [
+            {
+                "name": "Baghdad",
+                "type": "Governorate",
+                "cities": [
+                    "Baghdad",
+                    "Kadhimiya",
+                    "Sadr City",
+                    "Adhamiyah",
+                    "Mansour",
+                    "Karrada",
+                    "Doura",
+                    "Abu Ghraib",
+                    "Mahmoudiyah",
+                    "Taji",
+                    "Tarmiyah",
+                    "Madain"
+                ]
+            },
+            {
+                "name": "Basra",
+                "type": "Governorate",
+                "cities": [
+                    "Basra",
+                    "Zubair",
+                    "Abu Al-Khaseeb",
+                    "Qurna",
+                    "Fao",
+                    "Umm Qasr",
+                    "Shatt Al-Arab",
+                    "Midaina"
+                ]
+            },
+            {
+                "name": "Ninawa",
+                "type": "Governorate",
+                "cities": [
+                    "Mosul",
+                    "Tel Afar",
+                    "Sinjar",
+                    "Qaraqosh (Hamdaniya)",
+                    "Bartella",
+                    "Tel Keppe",
+                    "Shekhan",
+                    "Makhmur",
+                    "Hatra",
+                    "Ba'aj"
+                ]
+            },
+            {
+                "name": "Erbil",
+                "type": "Governorate",
+                "cities": [
+                    "Erbil",
+                    "Soran",
+                    "Shaqlawa",
+                    "Koya",
+                    "Rawanduz",
+                    "Choman",
+                    "Mergesor",
+                    "Khabat"
+                ]
+            },
+            {
+                "name": "Sulaymaniyah",
+                "type": "Governorate",
+                "cities": [
+                    "Sulaymaniyah",
+                    "Halabja",
+                    "Ranya",
+                    "Qaladiza",
+                    "Penjwen",
+                    "Dukan",
+                    "Darbandikhan",
+                    "Kalar",
+                    "Chamchamal"
+                ]
+            },
+            {
+                "name": "Kirkuk",
+                "type": "Governorate",
+                "cities": [
+                    "Kirkuk",
+                    "Hawija",
+                    "Daquq",
+                    "Dibis",
+                    "Altun Kupri"
+                ]
+            },
+            {
+                "name": "Najaf",
+                "type": "Governorate",
+                "cities": [
+                    "Najaf",
+                    "Kufa",
+                    "Manathera",
+                    "Mishkhab"
+                ]
+            },
+            {
+                "name": "Karbala",
+                "type": "Governorate",
+                "cities": [
+                    "Karbala",
+                    "Hindiya",
+                    "Ain Al-Tamur",
+                    "Hur"
+                ]
+            },
+            {
+                "name": "Saladin",
+                "type": "Governorate",
+                "cities": [
+                    "Tikrit",
+                    "Samarra",
+                    "Balad",
+                    "Baiji",
+                    "Dujail",
+                    "Shirqat",
+                    "Tooz Khurmato",
+                    "Al-Dour"
+                ]
+            },
+            {
+                "name": "Anbar",
+                "type": "Governorate",
+                "cities": [
+                    "Ramadi",
+                    "Fallujah",
+                    "Hit",
+                    "Haditha",
+                    "Rutba",
+                    "Al-Qaim",
+                    "Ana",
+                    "Rawa",
+                    "Khalidiya",
+                    "Karma"
+                ]
+            },
+            {
+                "name": "Diyala",
+                "type": "Governorate",
+                "cities": [
+                    "Baqubah",
+                    "Muqdadiya",
+                    "Khanaqin",
+                    "Khalis",
+                    "Balad Ruz",
+                    "Kifri",
+                    "Mandali"
+                ]
+            },
+            {
+                "name": "Babil",
+                "type": "Governorate",
+                "cities": [
+                    "Hilla",
+                    "Musayyib",
+                    "Mahawil",
+                    "Hashimiya",
+                    "Iskandariya",
+                    "Kifl"
+                ]
+            },
+            {
+                "name": "Wasit",
+                "type": "Governorate",
+                "cities": [
+                    "Kut",
+                    "Suwaira",
+                    "Hai",
+                    "Aziziyah",
+                    "Numaniyah",
+                    "Badra"
+                ]
+            },
+            {
+                "name": "Maysan",
+                "type": "Governorate",
+                "cities": [
+                    "Amarah",
+                    "Majar Al-Kabir",
+                    "Ali Al-Gharbi",
+                    "Ali Al-Sharqi",
+                    "Kahla",
+                    "Maimouna"
+                ]
+            },
+            {
+                "name": "Dhi Qar",
+                "type": "Governorate",
+                "cities": [
+                    "Nasiriyah",
+                    "Shatrah",
+                    "Rifa'i",
+                    "Suq Al-Shuyukh",
+                    "Chibayish",
+                    "Ghammas"
+                ]
+            },
+            {
+                "name": "Muthanna",
+                "type": "Governorate",
+                "cities": [
+                    "Samawah",
+                    "Rumaitha",
+                    "Khidhir",
+                    "Warka",
+                    "Salman"
+                ]
+            },
+            {
+                "name": "Qadisiyah",
+                "type": "Governorate",
+                "cities": [
+                    "Diwaniyah",
+                    "Shamiyah",
+                    "Afaq",
+                    "Hamza",
+                    "Daghara"
+                ]
+            },
+            {
+                "name": "Dohuk",
+                "type": "Governorate",
+                "cities": [
+                    "Dohuk",
+                    "Zakho",
+                    "Amadiya",
+                    "Semel",
+                    "Akre",
+                    "Shekhan"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Jordan",
+        "iso_code": "JO",
+        "capital": "Amman",
+        "divisions": [
+            {
+                "name": "Amman",
+                "type": "Governorate",
+                "cities": [
+                    "Amman",
+                    "Wadi Al-Seer",
+                    "Sahab",
+                    "Jiza",
+                    "Muwaqqar",
+                    "Na'our",
+                    "Qweismeh",
+                    "Jubaiha",
+                    "Tla' Al-Ali",
+                    "Sweileh"
+                ]
+            },
+            {
+                "name": "Zarqa",
+                "type": "Governorate",
+                "cities": [
+                    "Zarqa",
+                    "Russeifa",
+                    "Hashemiyah",
+                    "Dhuleil",
+                    "Azraq"
+                ]
+            },
+            {
+                "name": "Irbid",
+                "type": "Governorate",
+                "cities": [
+                    "Irbid",
+                    "Ramtha",
+                    "Aidoun",
+                    "Husn",
+                    "Sarih",
+                    "Beit Ras",
+                    "Mazar Al-Shamali",
+                    "Taiybeh",
+                    "Koura",
+                    "Der Abi Saeed",
+                    "Shuna Al-Shamaliyah"
+                ]
+            },
+            {
+                "name": "Balqa",
+                "type": "Governorate",
+                "cities": [
+                    "Salt",
+                    "Fuheis",
+                    "Mahis",
+                    "Ain Al-Basha",
+                    "Deir Alla",
+                    "Shuna Al-Janubiyah"
+                ]
+            },
+            {
+                "name": "Mafraq",
+                "type": "Governorate",
+                "cities": [
+                    "Mafraq",
+                    "Ruwaished",
+                    "Khalidiya",
+                    "Zaatari",
+                    "Belaama"
+                ]
+            },
+            {
+                "name": "Karak",
+                "type": "Governorate",
+                "cities": [
+                    "Karak",
+                    "Mazar Al-Janoubi",
+                    "Ayy",
+                    "Faqqu",
+                    "Qasr",
+                    "Ghor Al-Safi",
+                    "Ghor Al-Mazra'a"
+                ]
+            },
+            {
+                "name": "Ma'an",
+                "type": "Governorate",
+                "cities": [
+                    "Ma'an",
+                    "Petra (Wadi Musa)",
+                    "Shobak",
+                    "Hussainiya",
+                    "Jafr"
+                ]
+            },
+            {
+                "name": "Aqaba",
+                "type": "Governorate",
+                "cities": [
+                    "Aqaba",
+                    "Quweira",
+                    "Wadi Rum"
+                ]
+            },
+            {
+                "name": "Madaba",
+                "type": "Governorate",
+                "cities": [
+                    "Madaba",
+                    "Dhiban",
+                    "Ma'in"
+                ]
+            },
+            {
+                "name": "Jerash",
+                "type": "Governorate",
+                "cities": [
+                    "Jerash",
+                    "Souf",
+                    "Sakib",
+                    "Kitteh"
+                ]
+            },
+            {
+                "name": "Ajloun",
+                "type": "Governorate",
+                "cities": [
+                    "Ajloun",
+                    "Kufranjah",
+                    "Anjara",
+                    "Sakhra",
+                    "Ibbin"
+                ]
+            },
+            {
+                "name": "Tafilah",
+                "type": "Governorate",
+                "cities": [
+                    "Tafilah",
+                    "Busaira",
+                    "Hasa"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Kuwait",
+        "iso_code": "KW",
+        "capital": "Kuwait City",
+        "divisions": [
+            {
+                "name": "Capital (Al Asimah)",
+                "type": "Governorate",
+                "cities": [
+                    "Kuwait City",
+                    "Dasma",
+                    "Da'iya",
+                    "Mansouriya",
+                    "Abdullah Al-Salem",
+                    "Nuzha",
+                    "Faiha",
+                    "Shamiya",
+                    "Rawda",
+                    "Adailiya",
+                    "Khaldiya",
+                    "Qadsiya",
+                    "Qortuba",
+                    "Surra",
+                    "Yarmouk",
+                    "Shuwaikh",
+                    "Murgab",
+                    "Sharq",
+                    "Jibla"
+                ]
+            },
+            {
+                "name": "Hawalli",
+                "type": "Governorate",
+                "cities": [
+                    "Hawalli",
+                    "Salmiya",
+                    "Jabriya",
+                    "Rumaithiya",
+                    "Salwa",
+                    "Bayan",
+                    "Mishref",
+                    "Shaab",
+                    "Salam",
+                    "Hattīn",
+                    "Zahra",
+                    "Mubarak Al-Abdullah",
+                    "Shaab"
+                ]
+            },
+            {
+                "name": "Farwaniya",
+                "type": "Governorate",
+                "cities": [
+                    "Farwaniya",
+                    "Khaitan",
+                    "Omariya",
+                    "Rabiya",
+                    "Riggae",
+                    "Andalous",
+                    "Jleeb Al-Shuyoukh",
+                    "Sabah Al-Nasser",
+                    "Firdous",
+                    "Ardiya",
+                    "Ashbelia",
+                    "Abdullah Al-Mubarak"
+                ]
+            },
+            {
+                "name": "Ahmadi",
+                "type": "Governorate",
+                "cities": [
+                    "Ahmadi",
+                    "Fahaheel",
+                    "Mangaf",
+                    "Sabah Al-Ahmad",
+                    "Mahboula",
+                    "Abu Halifa",
+                    "Fintas",
+                    "Eqaila",
+                    "Hadiya",
+                    "Riqqah",
+                    "Sabahiya",
+                    "Wafra",
+                    "Khiran",
+                    "Bnaider",
+                    "Juleia",
+                    "Zour"
+                ]
+            },
+            {
+                "name": "Mubarak Al-Kabeer",
+                "type": "Governorate",
+                "cities": [
+                    "Mubarak Al-Kabeer",
+                    "Sabah Al-Salem",
+                    "Messila",
+                    "Adan",
+                    "Qurain",
+                    "Qusour",
+                    "Funaitees",
+                    "Abu Al Hasaniya"
+                ]
+            },
+            {
+                "name": "Jahra",
+                "type": "Governorate",
+                "cities": [
+                    "Jahra",
+                    "Saad Al-Abdullah",
+                    "Sulaibiya",
+                    "Tima",
+                    "Qasr",
+                    "Naeem",
+                    "Naseem",
+                    "Oyoun",
+                    "Abdali",
+                    "Mutla"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Lebanon",
+        "iso_code": "LB",
+        "capital": "Beirut",
+        "divisions": [
+            {
+                "name": "Beirut",
+                "type": "Governorate",
+                "cities": [
+                    "Beirut",
+                    "Achrafieh",
+                    "Hamra",
+                    "Ras Beirut",
+                    "Verdun",
+                    "Mazraa",
+                    "Mussaitbeh",
+                    "Bachoura",
+                    "Saifi",
+                    "Minet El Hosn",
+                    "Zokak El Blat"
+                ]
+            },
+            {
+                "name": "Mount Lebanon",
+                "type": "Governorate",
+                "cities": [
+                    "Baabda",
+                    "Jounieh",
+                    "Byblos (Jbeil)",
+                    "Aley",
+                    "Bhamdoun",
+                    "Bikfaya",
+                    "Broummana",
+                    "Beit Mery",
+                    "Hazmieh",
+                    "Hadath",
+                    "Choueifat",
+                    "Sin El Fil",
+                    "Jdeideh",
+                    "Antelias",
+                    "Zalka",
+                    "Dbayeh",
+                    "Ghobeiry",
+                    "Borj Hammoud",
+                    "Furn El Chebbak",
+                    "Deir el Qamar",
+                    "Beiteddine",
+                    "Damour"
+                ]
+            },
+            {
+                "name": "North",
+                "type": "Governorate",
+                "cities": [
+                    "Tripoli",
+                    "Mina",
+                    "Zgharta",
+                    "Ehden",
+                    "Batroun",
+                    "Chekka",
+                    "Bsharri",
+                    "Koura",
+                    "Amyoun",
+                    "Sir Dennieh",
+                    "Beddawi"
+                ]
+            },
+            {
+                "name": "Akkar",
+                "type": "Governorate",
+                "cities": [
+                    "Halba",
+                    "Kobayat",
+                    "Bireh",
+                    "Rahbeh",
+                    "Meshmesh",
+                    "Fneideq",
+                    "Abdeh"
+                ]
+            },
+            {
+                "name": "South",
+                "type": "Governorate",
+                "cities": [
+                    "Sidon (Saida)",
+                    "Tyre (Sour)",
+                    "Jezzine",
+                    "Sarafand",
+                    "Ghaziyeh",
+                    "Maghdouche",
+                    "Qana",
+                    "Naqoura"
+                ]
+            },
+            {
+                "name": "Nabatieh",
+                "type": "Governorate",
+                "cities": [
+                    "Nabatieh",
+                    "Marjayoun",
+                    "Hasbaya",
+                    "Bint Jbeil",
+                    "Khiam",
+                    "Tibnine"
+                ]
+            },
+            {
+                "name": "Beqaa",
+                "type": "Governorate",
+                "cities": [
+                    "Zahle",
+                    "Chtaura",
+                    "Masnaa",
+                    "Rachaya",
+                    "West Bekaa",
+                    "Joub Jannine",
+                    "Qaraoun"
+                ]
+            },
+            {
+                "name": "Baalbek-Hermel",
+                "type": "Governorate",
+                "cities": [
+                    "Baalbek",
+                    "Hermel",
+                    "Arsal",
+                    "Labweh",
+                    "Chmestar",
+                    "Bodai",
+                    "Qaa"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Libya",
+        "iso_code": "LY",
+        "capital": "Tripoli",
+        "divisions": [
+            {
+                "name": "Tripolitania (West)",
+                "type": "Region",
+                "cities": [
+                    "Tripoli",
+                    "Misrata",
+                    "Zawiya",
+                    "Zliten",
+                    "Khoms",
+                    "Tarhuna",
+                    "Gharyan",
+                    "Sabratha",
+                    "Zuwara",
+                    "Surman",
+                    "Bani Walid",
+                    "Sirte",
+                    "Msallata",
+                    "Tajoura",
+                    "Janzour",
+                    "Garabulli",
+                    "Aziziya",
+                    "Nalut",
+                    "Yefren",
+                    "Zintan",
+                    "Jadu",
+                    "Ghadames",
+                    "Mizda"
+                ]
+            },
+            {
+                "name": "Cyrenaica (East)",
+                "type": "Region",
+                "cities": [
+                    "Benghazi",
+                    "Bayda",
+                    "Tobruk",
+                    "Derna",
+                    "Ajdabiya",
+                    "Marj",
+                    "Shahat",
+                    "Toukra",
+                    "Qaminis",
+                    "Suluq",
+                    "Abyar",
+                    "Qubba",
+                    "Brega",
+                    "Ras Lanuf",
+                    "Jalo",
+                    "Awjila",
+                    "Kufra",
+                    "Tazirbu",
+                    "Jaghbub",
+                    "Musaid"
+                ]
+            },
+            {
+                "name": "Fezzan (South)",
+                "type": "Region",
+                "cities": [
+                    "Sabha",
+                    "Murzuq",
+                    "Ubari",
+                    "Ghat",
+                    "Brak",
+                    "Qatrun",
+                    "Waddan",
+                    "Hun",
+                    "Sokna",
+                    "Zella",
+                    "Traghan",
+                    "Idri"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Mauritania",
+        "iso_code": "MR",
+        "capital": "Nouakchott",
+        "divisions": [
+            {
+                "name": "Nouakchott",
+                "type": "Region",
+                "cities": [
+                    "Nouakchott",
+                    "Tevragh-Zeina",
+                    "Ksar",
+                    "Sebkha",
+                    "El Mina",
+                    "Riyadh",
+                    "Arafat",
+                    "Dar Naim",
+                    "Teyarett",
+                    "Toujounine"
+                ]
+            },
+            {
+                "name": "Dakhlet Nouadhibou",
+                "type": "Region",
+                "cities": [
+                    "Nouadhibou",
+                    "Boulenouar",
+                    "Chami"
+                ]
+            },
+            {
+                "name": "Trarza",
+                "type": "Region",
+                "cities": [
+                    "Rosso",
+                    "Boutilimit",
+                    "Rkiz",
+                    "Keur Macene",
+                    "Mederdra",
+                    "Ouad Naga"
+                ]
+            },
+            {
+                "name": "Hodh Ech Chargui",
+                "type": "Region",
+                "cities": [
+                    "Nema",
+                    "Timbedra",
+                    "Amourj",
+                    "Bassikounou",
+                    "Djiguenni",
+                    "Oualata"
+                ]
+            },
+            {
+                "name": "Hodh El Gharbi",
+                "type": "Region",
+                "cities": [
+                    "Aioun",
+                    "Tintane",
+                    "Tamchekett",
+                    "Kobenni"
+                ]
+            },
+            {
+                "name": "Assaba",
+                "type": "Region",
+                "cities": [
+                    "Kiffa",
+                    "Guerou",
+                    "Kankossa",
+                    "Barkewol",
+                    "Boumdeid"
+                ]
+            },
+            {
+                "name": "Gorgol",
+                "type": "Region",
+                "cities": [
+                    "Kaedi",
+                    "Maghama",
+                    "Mbout",
+                    "Monguel"
+                ]
+            },
+            {
+                "name": "Brakna",
+                "type": "Region",
+                "cities": [
+                    "Aleg",
+                    "Boghe",
+                    "Magta Lahjar",
+                    "Bababe",
+                    "Mbagne"
+                ]
+            },
+            {
+                "name": "Tagant",
+                "type": "Region",
+                "cities": [
+                    "Tidjikja",
+                    "Moudjeria",
+                    "Tichit"
+                ]
+            },
+            {
+                "name": "Adrar",
+                "type": "Region",
+                "cities": [
+                    "Atar",
+                    "Chinguetti",
+                    "Ouadane",
+                    "Aoujeft"
+                ]
+            },
+            {
+                "name": "Tiris Zemmour",
+                "type": "Region",
+                "cities": [
+                    "Zouerat",
+                    "Fderik",
+                    "Bir Moghrein"
+                ]
+            },
+            {
+                "name": "Inchiri",
+                "type": "Region",
+                "cities": [
+                    "Akjoujt",
+                    "Bennechab"
+                ]
+            },
+            {
+                "name": "Guidimaka",
+                "type": "Region",
+                "cities": [
+                    "Selibaby",
+                    "Ould Yenge",
+                    "Ghabou"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Morocco",
+        "iso_code": "MA",
+        "capital": "Rabat",
+        "divisions": [
+            {
+                "name": "Rabat-Salé-Kénitra",
+                "type": "Region",
+                "cities": [
+                    "Rabat",
+                    "Salé",
+                    "Kénitra",
+                    "Temara",
+                    "Skhirat",
+                    "Khemisset",
+                    "Tiflet",
+                    "Sidi Kacem",
+                    "Sidi Slimane",
+                    "Souk El Arbaa"
+                ]
+            },
+            {
+                "name": "Casablanca-Settat",
+                "type": "Region",
+                "cities": [
+                    "Casablanca",
+                    "Mohammedia",
+                    "Settat",
+                    "El Jadida",
+                    "Berrechid",
+                    "Benslimane",
+                    "Sidi Bennour",
+                    "Azemmour",
+                    "Tit Mellil",
+                    "Bouskoura",
+                    "Mediouna",
+                    "Nouaceur",
+                    "Deroua"
+                ]
+            },
+            {
+                "name": "Fès-Meknès",
+                "type": "Region",
+                "cities": [
+                    "Fes",
+                    "Meknes",
+                    "Taza",
+                    "Sefrou",
+                    "Ifrane",
+                    "Azrou",
+                    "El Hajeb",
+                    "Taounate",
+                    "Missour",
+                    "Boulemane"
+                ]
+            },
+            {
+                "name": "Marrakech-Safi",
+                "type": "Region",
+                "cities": [
+                    "Marrakech",
+                    "Safi",
+                    "Essaouira",
+                    "Ben Guerir",
+                    "Kelaat Sraghna",
+                    "Youssoufia",
+                    "Chichaoua",
+                    "Tahannaout",
+                    "Ait Ourir",
+                    "Amizmiz",
+                    "Imintanoute"
+                ]
+            },
+            {
+                "name": "Tanger-Tetouan-Al Hoceima",
+                "type": "Region",
+                "cities": [
+                    "Tangier",
+                    "Tetouan",
+                    "Al Hoceima",
+                    "Larache",
+                    "Ksar El Kebir",
+                    "Fnideq",
+                    "M'diq",
+                    "Martil",
+                    "Chefchaouen",
+                    "Ouezzane",
+                    "Asilah"
+                ]
+            },
+            {
+                "name": "Souss-Massa",
+                "type": "Region",
+                "cities": [
+                    "Agadir",
+                    "Inezgane",
+                    "Ait Melloul",
+                    "Taroudant",
+                    "Tiznit",
+                    "Oulad Teima",
+                    "Biougra",
+                    "Tafraout",
+                    "Tata"
+                ]
+            },
+            {
+                "name": "Oriental",
+                "type": "Region",
+                "cities": [
+                    "Oujda",
+                    "Nador",
+                    "Berkane",
+                    "Taourirt",
+                    "Jerada",
+                    "Guercif",
+                    "Figuig",
+                    "Bouarfa",
+                    "Driouch",
+                    "Saidia",
+                    "Ahfir"
+                ]
+            },
+            {
+                "name": "Béni Mellal-Khénifra",
+                "type": "Region",
+                "cities": [
+                    "Beni Mellal",
+                    "Khouribga",
+                    "Khenifra",
+                    "Fquih Ben Salah",
+                    "Azilal",
+                    "Oued Zem",
+                    "Kasba Tadla",
+                    "Midelt",
+                    "Mrirt"
+                ]
+            },
+            {
+                "name": "Drâa-Tafilalet",
+                "type": "Region",
+                "cities": [
+                    "Errachidia",
+                    "Ouarzazate",
+                    "Zagora",
+                    "Tinghir",
+                    "Erfoud",
+                    "Rissani",
+                    "Agdz",
+                    "Boumalne Dades",
+                    "Kelaat M'Gouna"
+                ]
+            },
+            {
+                "name": "Guelmim-Oued Noun",
+                "type": "Region",
+                "cities": [
+                    "Guelmim",
+                    "Tan-Tan",
+                    "Sidi Ifni",
+                    "Assa",
+                    "Mirleft"
+                ]
+            },
+            {
+                "name": "Laâyoune-Sakia El Hamra",
+                "type": "Region",
+                "cities": [
+                    "Laayoune",
+                    "Boujdour",
+                    "Tarfaya",
+                    "Es-Semara",
+                    "El Marsa"
+                ]
+            },
+            {
+                "name": "Dakhla-Oued Ed-Dahab",
+                "type": "Region",
+                "cities": [
+                    "Dakhla",
+                    "Lagouira",
+                    "Bir Gandouz"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Oman",
+        "iso_code": "OM",
+        "capital": "Muscat",
+        "divisions": [
+            {
+                "name": "Muscat",
+                "type": "Governorate",
+                "cities": [
+                    "Muscat",
+                    "Muttrah",
+                    "Seeb",
+                    "Bawshar",
+                    "Amerat",
+                    "Qurayyat"
+                ]
+            },
+            {
+                "name": "Dhofar",
+                "type": "Governorate",
+                "cities": [
+                    "Salalah",
+                    "Thumrait",
+                    "Taqah",
+                    "Mirbat",
+                    "Sadah",
+                    "Rakhyut",
+                    "Dhalkut",
+                    "Shalim",
+                    "Hallaniyat Islands"
+                ]
+            },
+            {
+                "name": "Musandam",
+                "type": "Governorate",
+                "cities": [
+                    "Khasab",
+                    "Dibba Al-Baya",
+                    "Bukha",
+                    "Madha"
+                ]
+            },
+            {
+                "name": "Buraimi",
+                "type": "Governorate",
+                "cities": [
+                    "Buraimi",
+                    "Mahdah",
+                    "Sunaynah"
+                ]
+            },
+            {
+                "name": "Ad Dakhiliyah",
+                "type": "Governorate",
+                "cities": [
+                    "Nizwa",
+                    "Bahla",
+                    "Manah",
+                    "Hamra",
+                    "Adam",
+                    "Izki",
+                    "Samail",
+                    "Bidbid"
+                ]
+            },
+            {
+                "name": "North Batinah",
+                "type": "Governorate",
+                "cities": [
+                    "Sohar",
+                    "Shinas",
+                    "Liwa",
+                    "Saham",
+                    "Khaburah",
+                    "Suwaiq"
+                ]
+            },
+            {
+                "name": "South Batinah",
+                "type": "Governorate",
+                "cities": [
+                    "Rustaq",
+                    "Barka",
+                    "Musannah",
+                    "Nakhal",
+                    "Wadi Al Maawil",
+                    "Awabi"
+                ]
+            },
+            {
+                "name": "North Sharqiyah",
+                "type": "Governorate",
+                "cities": [
+                    "Ibra",
+                    "Bidiyah",
+                    "Mudhaibi",
+                    "Qabil",
+                    "Wadi Bani Khalid",
+                    "Dema Wa Thaieen"
+                ]
+            },
+            {
+                "name": "South Sharqiyah",
+                "type": "Governorate",
+                "cities": [
+                    "Sur",
+                    "Jalan Bani Bu Ali",
+                    "Jalan Bani Bu Hasan",
+                    "Kamil W'al Wafi",
+                    "Masirah"
+                ]
+            },
+            {
+                "name": "Ad Dhahirah",
+                "type": "Governorate",
+                "cities": [
+                    "Ibri",
+                    "Yanqul",
+                    "Dhank"
+                ]
+            },
+            {
+                "name": "Al Wusta",
+                "type": "Governorate",
+                "cities": [
+                    "Haima",
+                    "Duqm",
+                    "Mahout",
+                    "Jazer"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Palestine",
+        "iso_code": "PS",
+        "capital": "Jerusalem (East)",
+        "divisions": [
+            {
+                "name": "West Bank",
+                "type": "Region",
+                "cities": [
+                    "Jerusalem (East)",
+                    "Ramallah",
+                    "Al-Bireh",
+                    "Bethlehem",
+                    "Beit Jala",
+                    "Beit Sahour",
+                    "Hebron",
+                    "Halhul",
+                    "Dura",
+                    "Yatta",
+                    "Nablus",
+                    "Jenin",
+                    "Tulkarm",
+                    "Qalqilya",
+                    "Jericho",
+                    "Salfit",
+                    "Tubas",
+                    "Qabatiya",
+                    "Bani Naim",
+                    "Dahiriya",
+                    "Samou",
+                    "Idhna",
+                    "Beitunia",
+                    "Abu Dis",
+                    "Eizariya",
+                    "Anata",
+                    "Ram",
+                    "Birzeit",
+                    "Turmus Ayya",
+                    "Silwad"
+                ]
+            },
+            {
+                "name": "Gaza Strip",
+                "type": "Region",
+                "cities": [
+                    "Gaza City",
+                    "Jabalia",
+                    "Beit Lahia",
+                    "Beit Hanoun",
+                    "Deir al-Balah",
+                    "Khan Yunis",
+                    "Rafah",
+                    "Nuseirat",
+                    "Bureij",
+                    "Maghazi",
+                    "Abasan al-Kabira",
+                    "Bani Suheila",
+                    "Khuza'a"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Qatar",
+        "iso_code": "QA",
+        "capital": "Doha",
+        "divisions": [
+            {
+                "name": "Doha",
+                "type": "Municipality",
+                "cities": [
+                    "Doha",
+                    "The Pearl",
+                    "West Bay",
+                    "Lusail (borders)",
+                    "Industrial Area"
+                ]
+            },
+            {
+                "name": "Al Rayyan",
+                "type": "Municipality",
+                "cities": [
+                    "Al Rayyan",
+                    "Muaither",
+                    "Abu Hamour",
+                    "Aziziyah",
+                    "Gharafa",
+                    "Shahaniya",
+                    "Umm Bab"
+                ]
+            },
+            {
+                "name": "Al Wakrah",
+                "type": "Municipality",
+                "cities": [
+                    "Al Wakrah",
+                    "Wukair",
+                    "Mesaieed"
+                ]
+            },
+            {
+                "name": "Al Khor",
+                "type": "Municipality",
+                "cities": [
+                    "Al Khor",
+                    "Al Thakhira",
+                    "Ras Laffan",
+                    "Simaisma"
+                ]
+            },
+            {
+                "name": "Umm Salal",
+                "type": "Municipality",
+                "cities": [
+                    "Umm Salal Ali",
+                    "Umm Salal Mohammed",
+                    "Kharaitiyat"
+                ]
+            },
+            {
+                "name": "Al Daayen",
+                "type": "Municipality",
+                "cities": [
+                    "Lusail",
+                    "Umm Qarn",
+                    "Kheesa"
+                ]
+            },
+            {
+                "name": "Al Shamal",
+                "type": "Municipality",
+                "cities": [
+                    "Madinat ash Shamal",
+                    "Ruwais",
+                    "Abu Dhalouf",
+                    "Zubarah"
+                ]
+            },
+            {
+                "name": "Al Shahaniya",
+                "type": "Municipality",
+                "cities": [
+                    "Al Shahaniya",
+                    "Dukhan",
+                    "Nasraniya"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Saudi Arabia",
+        "iso_code": "SA",
+        "capital": "Riyadh",
+        "divisions": [
+            {
+                "name": "Riyadh Region",
+                "type": "Region",
+                "cities": [
+                    "Riyadh",
+                    "Kharj",
+                    "Diriyah",
+                    "Majmaah",
+                    "Zulfi",
+                    "Dawadmi",
+                    "Wadi ad-Dawasir",
+                    "Afif",
+                    "Quwayiyah",
+                    "Muzahmiya",
+                    "Hawtat Bani Tamim",
+                    "Huraymila",
+                    "Shaqra",
+                    "Ghat",
+                    "Thadig",
+                    "Rumah",
+                    "Sulayyil",
+                    "Dhruma"
+                ]
+            },
+            {
+                "name": "Makkah Region",
+                "type": "Region",
+                "cities": [
+                    "Mecca",
+                    "Jeddah",
+                    "Taif",
+                    "Rabigh",
+                    "Qunfudhah",
+                    "Laith",
+                    "Khulais",
+                    "Jumum",
+                    "Khurmah",
+                    "Ranyah",
+                    "Turabah",
+                    "Kamil",
+                    "Adham",
+                    "Maysan"
+                ]
+            },
+            {
+                "name": "Madinah Region",
+                "type": "Region",
+                "cities": [
+                    "Medina",
+                    "Yanbu",
+                    "Badr",
+                    "Al Ula",
+                    "Mahd adh Dhahab",
+                    "Khaybar",
+                    "Henakiyah",
+                    "Wadi Al-Fara"
+                ]
+            },
+            {
+                "name": "Eastern Province",
+                "type": "Region",
+                "cities": [
+                    "Dammam",
+                    "Khobar",
+                    "Dhahran",
+                    "Jubail",
+                    "Ahsa (Hofuf/Mubarraz)",
+                    "Qatif",
+                    "Hafar Al-Batin",
+                    "Khafji",
+                    "Ras Tanura",
+                    "Abqaiq",
+                    "Nairyah",
+                    "Qaryat al-Ulya"
+                ]
+            },
+            {
+                "name": "Asir Region",
+                "type": "Region",
+                "cities": [
+                    "Abha",
+                    "Khamis Mushait",
+                    "Bisha",
+                    "Namas",
+                    "Muhayil",
+                    "Sarat Abidah",
+                    "Dhahran Al Janub",
+                    "Rijal Alma",
+                    "Bariq",
+                    "Majardah",
+                    "Tanomah"
+                ]
+            },
+            {
+                "name": "Tabuk Region",
+                "type": "Region",
+                "cities": [
+                    "Tabuk",
+                    "Wajh",
+                    "Duba",
+                    "Umluj",
+                    "Haql",
+                    "Tayma",
+                    "Al Bad",
+                    "Neom"
+                ]
+            },
+            {
+                "name": "Hail Region",
+                "type": "Region",
+                "cities": [
+                    "Hail",
+                    "Baqaa",
+                    "Ghazaleh",
+                    "Shinwan",
+                    "Samira",
+                    "Mawqaq"
+                ]
+            },
+            {
+                "name": "Northern Borders Region",
+                "type": "Region",
+                "cities": [
+                    "Arar",
+                    "Rafha",
+                    "Turaif"
+                ]
+            },
+            {
+                "name": "Jazan Region",
+                "type": "Region",
+                "cities": [
+                    "Jazan",
+                    "Sabya",
+                    "Abu Arish",
+                    "Samtah",
+                    "Baish",
+                    "Darb",
+                    "Farasan",
+                    "Ahad Al Masarihah",
+                    "Dayer",
+                    "Aridah"
+                ]
+            },
+            {
+                "name": "Najran Region",
+                "type": "Region",
+                "cities": [
+                    "Najran",
+                    "Sharurah",
+                    "Hubuna",
+                    "Thar",
+                    "Yadamah"
+                ]
+            },
+            {
+                "name": "Al Baha Region",
+                "type": "Region",
+                "cities": [
+                    "Al Baha",
+                    "Baljurashi",
+                    "Mandaq",
+                    "Mikhwah",
+                    "Qilwah",
+                    "Aqiq"
+                ]
+            },
+            {
+                "name": "Al Jawf Region",
+                "type": "Region",
+                "cities": [
+                    "Sakakah",
+                    "Dumat Al-Jandal",
+                    "Qurayyat",
+                    "Tabarjal"
+                ]
+            },
+            {
+                "name": "Qassim Region",
+                "type": "Region",
+                "cities": [
+                    "Buraidah",
+                    "Unaizah",
+                    "Rass",
+                    "Bukayriyah",
+                    "Badaya",
+                    "Mithnab",
+                    "Al Khabra",
+                    "Riyadh Al Khabra",
+                    "Uyun AlJiwa"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Somalia",
+        "iso_code": "SO",
+        "capital": "Mogadishu",
+        "divisions": [
+            {
+                "name": "Banaadir",
+                "type": "Region",
+                "cities": [
+                    "Mogadishu"
+                ]
+            },
+            {
+                "name": "Somaliland (Self-declared)",
+                "type": "Region",
+                "cities": [
+                    "Hargeisa",
+                    "Berbera",
+                    "Burao",
+                    "Gabiley",
+                    "Erigavo",
+                    "Las Anod",
+                    "Zeila",
+                    "Borama"
+                ]
+            },
+            {
+                "name": "Puntland (Autonomous)",
+                "type": "Region",
+                "cities": [
+                    "Garowe",
+                    "Bosaso",
+                    "Qardho",
+                    "Galkayo (North)",
+                    "Eyl",
+                    "Badhan"
+                ]
+            },
+            {
+                "name": "Jubaland",
+                "type": "Region",
+                "cities": [
+                    "Kismayo",
+                    "Afmadow",
+                    "Bardera",
+                    "Luuq",
+                    "Garbaharey",
+                    "Bu'ale",
+                    "Jilib"
+                ]
+            },
+            {
+                "name": "South West",
+                "type": "Region",
+                "cities": [
+                    "Baidoa",
+                    "Merca",
+                    "Barawe",
+                    "Wanlaweyn",
+                    "Qoryoley",
+                    "Afgoye",
+                    "Dinsoor"
+                ]
+            },
+            {
+                "name": "Hirshabelle",
+                "type": "Region",
+                "cities": [
+                    "Jowhar",
+                    "Beledweyne",
+                    "Buloburde",
+                    "Balcad",
+                    "Jalalaqsi",
+                    "Mahaday"
+                ]
+            },
+            {
+                "name": "Galmudug",
+                "type": "Region",
+                "cities": [
+                    "Dhusamareb",
+                    "Galkayo (South)",
+                    "Adado",
+                    "Hobyo",
+                    "Guriel",
+                    "Abudwak"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Sudan",
+        "iso_code": "SD",
+        "capital": "Khartoum",
+        "divisions": [
+            {
+                "name": "Khartoum",
+                "type": "State",
+                "cities": [
+                    "Khartoum",
+                    "Omdurman",
+                    "Khartoum North (Bahri)"
+                ]
+            },
+            {
+                "name": "Gezira",
+                "type": "State",
+                "cities": [
+                    "Wad Madani",
+                    "Hasaheisa",
+                    "Managil",
+                    "Rufa'a",
+                    "Kamlin"
+                ]
+            },
+            {
+                "name": "Red Sea",
+                "type": "State",
+                "cities": [
+                    "Port Sudan",
+                    "Suakin",
+                    "Tokar",
+                    "Sinkat"
+                ]
+            },
+            {
+                "name": "Kassala",
+                "type": "State",
+                "cities": [
+                    "Kassala",
+                    "Khashm el Girba",
+                    "Halfa El Jadida",
+                    "Aroma"
+                ]
+            },
+            {
+                "name": "Gedaref",
+                "type": "State",
+                "cities": [
+                    "Gedaref",
+                    "Faw",
+                    "Doka",
+                    "Gallabat"
+                ]
+            },
+            {
+                "name": "Sennar",
+                "type": "State",
+                "cities": [
+                    "Sennar",
+                    "Singa",
+                    "Dinder",
+                    "Suki"
+                ]
+            },
+            {
+                "name": "White Nile",
+                "type": "State",
+                "cities": [
+                    "Kosti",
+                    "Rabak",
+                    "Ed Dueim",
+                    "Geteina",
+                    "Tendelti"
+                ]
+            },
+            {
+                "name": "Blue Nile",
+                "type": "State",
+                "cities": [
+                    "Damazin",
+                    "Roseires",
+                    "Kurmuk"
+                ]
+            },
+            {
+                "name": "River Nile",
+                "type": "State",
+                "cities": [
+                    "Atbara",
+                    "Ed Damer",
+                    "Shendi",
+                    "Berber",
+                    "Abu Hamad",
+                    "Matamma"
+                ]
+            },
+            {
+                "name": "Northern",
+                "type": "State",
+                "cities": [
+                    "Dongola",
+                    "Wadi Halfa",
+                    "Karima",
+                    "Merowe",
+                    "Debba"
+                ]
+            },
+            {
+                "name": "North Kordofan",
+                "type": "State",
+                "cities": [
+                    "El Obeid",
+                    "Nahud",
+                    "Rahad",
+                    "Um Ruwaba",
+                    "Bara"
+                ]
+            },
+            {
+                "name": "South Kordofan",
+                "type": "State",
+                "cities": [
+                    "Kadugli",
+                    "Dilling",
+                    "Rashad",
+                    "Abu Jubaiha",
+                    "Talodi"
+                ]
+            },
+            {
+                "name": "West Kordofan",
+                "type": "State",
+                "cities": [
+                    "Fula",
+                    "Babanusa",
+                    "Muglad",
+                    "Ghubeish"
+                ]
+            },
+            {
+                "name": "North Darfur",
+                "type": "State",
+                "cities": [
+                    "El Fasher",
+                    "Kebkabiya",
+                    "Kutum",
+                    "Mellit",
+                    "Saraf Omra"
+                ]
+            },
+            {
+                "name": "South Darfur",
+                "type": "State",
+                "cities": [
+                    "Nyala",
+                    "Buram",
+                    "Tulus",
+                    "Ed Al Fursan",
+                    "Rahad al Berdi"
+                ]
+            },
+            {
+                "name": "West Darfur",
+                "type": "State",
+                "cities": [
+                    "Geneina",
+                    "Kulbus",
+                    "Beida",
+                    "Sirba"
+                ]
+            },
+            {
+                "name": "Central Darfur",
+                "type": "State",
+                "cities": [
+                    "Zalingei",
+                    "Golo",
+                    "Nertiti",
+                    "Mukjar"
+                ]
+            },
+            {
+                "name": "East Darfur",
+                "type": "State",
+                "cities": [
+                    "Ed Daein",
+                    "Adila",
+                    "Abu Karinka"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Syria",
+        "iso_code": "SY",
+        "capital": "Damascus",
+        "divisions": [
+            {
+                "name": "Damascus (Dimashq)",
+                "type": "Governorate",
+                "cities": [
+                    "Damascus",
+                    "Yarmouk"
+                ]
+            },
+            {
+                "name": "Rif Dimashq",
+                "type": "Governorate",
+                "cities": [
+                    "Douma",
+                    "Harasta",
+                    "Darayya",
+                    "Tell",
+                    "Jaramana",
+                    "Sayyidah Zaynab",
+                    "Qatana",
+                    "Zabadani",
+                    "Nabk",
+                    "Yabroud",
+                    "Kiswah"
+                ]
+            },
+            {
+                "name": "Aleppo",
+                "type": "Governorate",
+                "cities": [
+                    "Aleppo",
+                    "Manbij",
+                    "Al-Bab",
+                    "Afrin",
+                    "Azaz",
+                    "Safira",
+                    "Atarib",
+                    "Ayn al-Arab (Kobani)",
+                    "Jarabulus"
+                ]
+            },
+            {
+                "name": "Homs",
+                "type": "Governorate",
+                "cities": [
+                    "Homs",
+                    "Rastan",
+                    "Palmyra (Tadmur)",
+                    "Qusayr",
+                    "Talbiseh",
+                    "Talkalakh",
+                    "Mukharram"
+                ]
+            },
+            {
+                "name": "Hama",
+                "type": "Governorate",
+                "cities": [
+                    "Hama",
+                    "Salamiyah",
+                    "Masyaf",
+                    "Mahardah",
+                    "Suqaylabiyah"
+                ]
+            },
+            {
+                "name": "Latakia",
+                "type": "Governorate",
+                "cities": [
+                    "Latakia",
+                    "Jableh",
+                    "Qardaha",
+                    "Haffah"
+                ]
+            },
+            {
+                "name": "Tartus",
+                "type": "Governorate",
+                "cities": [
+                    "Tartus",
+                    "Baniyas",
+                    "Safita",
+                    "Dreikish",
+                    "Sheikh Badr"
+                ]
+            },
+            {
+                "name": "Idlib",
+                "type": "Governorate",
+                "cities": [
+                    "Idlib",
+                    "Maarrat al-Nu'man",
+                    "Jisr al-Shughur",
+                    "Ariha",
+                    "Harem",
+                    "Khan Shaykhun",
+                    "Saraqib",
+                    "Salqin",
+                    "Kafr Nabl"
+                ]
+            },
+            {
+                "name": "Al-Hasakah",
+                "type": "Governorate",
+                "cities": [
+                    "Hasakah",
+                    "Qamishli",
+                    "Ras al-Ayn",
+                    "Amuda",
+                    "Malikiyah",
+                    "Shaddadi"
+                ]
+            },
+            {
+                "name": "Deir ez-Zor",
+                "type": "Governorate",
+                "cities": [
+                    "Deir ez-Zor",
+                    "Mayadin",
+                    "Abu Kamal"
+                ]
+            },
+            {
+                "name": "Raqqa",
+                "type": "Governorate",
+                "cities": [
+                    "Raqqa",
+                    "Tabqa",
+                    "Tell Abyad",
+                    "Maadan"
+                ]
+            },
+            {
+                "name": "Daraa",
+                "type": "Governorate",
+                "cities": [
+                    "Daraa",
+                    "Nawa",
+                    "Sanameyn",
+                    "Izra",
+                    "Busra al-Sham",
+                    "Jasim",
+                    "Tafas"
+                ]
+            },
+            {
+                "name": "Suwayda",
+                "type": "Governorate",
+                "cities": [
+                    "Suwayda",
+                    "Shahba",
+                    "Salkhad"
+                ]
+            },
+            {
+                "name": "Quneitra",
+                "type": "Governorate",
+                "cities": [
+                    "Quneitra",
+                    "Baath City"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Tunisia",
+        "iso_code": "TN",
+        "capital": "Tunis",
+        "divisions": [
+            {
+                "name": "Tunis",
+                "type": "Governorate",
+                "cities": [
+                    "Tunis",
+                    "Le Bardo",
+                    "Le Kram",
+                    "La Goulette",
+                    "Carthage",
+                    "Sidi Bou Said",
+                    "La Marsa",
+                    "Sidi Hassine"
+                ]
+            },
+            {
+                "name": "Ariana",
+                "type": "Governorate",
+                "cities": [
+                    "Ariana",
+                    "La Soukra",
+                    "Raoued",
+                    "Kalâat el-Andalous",
+                    "Sidi Thabet",
+                    "Ettadhamen-Mnihla"
+                ]
+            },
+            {
+                "name": "Ben Arous",
+                "type": "Governorate",
+                "cities": [
+                    "Ben Arous",
+                    "El Mourouj",
+                    "Hammam Lif",
+                    "Hammam Chott",
+                    "Bou Mhel el-Bassatine",
+                    "Ezzahra",
+                    "Radès",
+                    "Mégrine",
+                    "Mohamedia-Fouchana",
+                    "Mornag",
+                    "Khalidia"
+                ]
+            },
+            {
+                "name": "Manouba",
+                "type": "Governorate",
+                "cities": [
+                    "Manouba",
+                    "Den Den",
+                    "Douar Hicher",
+                    "Oued Ellil",
+                    "Mornaguia",
+                    "Borj El Amri",
+                    "Djedeida",
+                    "Tebourba",
+                    "El Battan"
+                ]
+            },
+            {
+                "name": "Nabeul",
+                "type": "Governorate",
+                "cities": [
+                    "Nabeul",
+                    "Dar Chaabane",
+                    "Béni Khiar",
+                    "El Maâmoura",
+                    "Somâa",
+                    "Korba",
+                    "Tazerka",
+                    "Menzel Temime",
+                    "Menzel Horr",
+                    "El Mida",
+                    "Kelibia",
+                    "Azmour",
+                    "Hammam Ghezèze",
+                    "Dar Allouch",
+                    "El Haouaria",
+                    "Takelsa",
+                    "Soliman",
+                    "Korbous",
+                    "Menzel Bouzelfa",
+                    "Béni Khalled",
+                    "Zaouiet Djedidi",
+                    "Grombalia",
+                    "Bou Argoub",
+                    "Hammamet"
+                ]
+            },
+            {
+                "name": "Zaghouan",
+                "type": "Governorate",
+                "cities": [
+                    "Zaghouan",
+                    "Zriba",
+                    "Bir Mcherga",
+                    "Djebel Oust",
+                    "El Fahs",
+                    "Nadhour",
+                    "Saouaf"
+                ]
+            },
+            {
+                "name": "Bizerte",
+                "type": "Governorate",
+                "cities": [
+                    "Bizerte",
+                    "Sejnane",
+                    "Joumine",
+                    "Mateur",
+                    "Ghezala",
+                    "Menzel Bourguiba",
+                    "Tinja",
+                    "Utique",
+                    "Menzel Jemil",
+                    "Menzel Abderrahmane",
+                    "El Alia",
+                    "Ras Jebel",
+                    "Metline",
+                    "Raf Raf",
+                    "Ghar El Melh",
+                    "Aousja"
+                ]
+            },
+            {
+                "name": "Béja",
+                "type": "Governorate",
+                "cities": [
+                    "Béja",
+                    "El Maâgoula",
+                    "Zahret Medien",
+                    "Nefza",
+                    "Téboursouk",
+                    "Testour",
+                    "Goubellat",
+                    "Majaz al Bab",
+                    "Thibar"
+                ]
+            },
+            {
+                "name": "Jendouba",
+                "type": "Governorate",
+                "cities": [
+                    "Jendouba",
+                    "Bou Salem",
+                    "Tabarka",
+                    "Ain Draham",
+                    "Fernana",
+                    "Beni M'Tir",
+                    "Ghardimaou",
+                    "Oued Melliz"
+                ]
+            },
+            {
+                "name": "Kef",
+                "type": "Governorate",
+                "cities": [
+                    "El Kef",
+                    "Nebeur",
+                    "Touiref",
+                    "Sakiet Sidi Youssef",
+                    "Tajerouine",
+                    "Menzel Salem",
+                    "Kalaat es Senam",
+                    "Kalâat Khasba",
+                    "Jérissa",
+                    "El Ksour",
+                    "Dahmani",
+                    "Sers"
+                ]
+            },
+            {
+                "name": "Siliana",
+                "type": "Governorate",
+                "cities": [
+                    "Siliana",
+                    "Bou Arada",
+                    "Gaâfour",
+                    "El Krib",
+                    "Sidi Bou Rouis",
+                    "Maktar",
+                    "Rouhia",
+                    "Kesra",
+                    "Bargou",
+                    "El Aroussa"
+                ]
+            },
+            {
+                "name": "Sousse",
+                "type": "Governorate",
+                "cities": [
+                    "Sousse",
+                    "Ksibet Thrayet",
+                    "Ezzouhour",
+                    "Zaouiet Sousse",
+                    "Hammam Sousse",
+                    "Akouda",
+                    "Kalâa Kebira",
+                    "Sidi Bou Ali",
+                    "Hergla",
+                    "Enfidha",
+                    "Bouficha",
+                    "Sidi El Hani",
+                    "M'saken",
+                    "Kalâa Seghira",
+                    "Messaadine",
+                    "Kondar",
+                    "Zaouiet Sousse",
+                    "Sidi El Hani"
+                ]
+            },
+            {
+                "name": "Monastir",
+                "type": "Governorate",
+                "cities": [
+                    "Monastir",
+                    "Khniss",
+                    "Ouerdanin",
+                    "Sahline Moôtmar",
+                    "Sidi Ameur",
+                    "Zéramdine",
+                    "Beni Hassen",
+                    "Ghenada",
+                    "Jemmal",
+                    "Menzel Kamel",
+                    "Zaouiet Kontoch",
+                    "Bembla-Mnara",
+                    "Menzel Ennour",
+                    "Menzel Hayet",
+                    "Moknine",
+                    "Sidi Bennour",
+                    "Touza",
+                    "Ksar Hellal",
+                    "Ksibet el-Médiouni",
+                    "Lamta",
+                    "Sayada",
+                    "Bouhjar",
+                    "Bekalta",
+                    "Teboulba",
+                    "Bennane-Bodheur"
+                ]
+            },
+            {
+                "name": "Mahdia",
+                "type": "Governorate",
+                "cities": [
+                    "Mahdia",
+                    "Rejiche",
+                    "Bou Merdes",
+                    "Ouled Chamekh",
+                    "Chorbane",
+                    "Hebira",
+                    "Essouassi",
+                    "El Djem",
+                    "Kerker",
+                    "Chebba",
+                    "Melloulech",
+                    "Sidi Alouane",
+                    "Ksour Essef",
+                    "El Bradâa"
+                ]
+            },
+            {
+                "name": "Sfax",
+                "type": "Governorate",
+                "cities": [
+                    "Sfax",
+                    "Sakiet Ezzit",
+                    "Chihia",
+                    "Sakiet Eddaïer",
+                    "Gremda",
+                    "El Ain",
+                    "Thyna",
+                    "Agareb",
+                    "Jebiniana",
+                    "El Hencha",
+                    "Menzel Chaker",
+                    "Ghraïba",
+                    "Bir Ali Ben Khélifa",
+                    "Skhira",
+                    "Mahares",
+                    "Kerkennah"
+                ]
+            },
+            {
+                "name": "Kairouan",
+                "type": "Governorate",
+                "cities": [
+                    "Kairouan",
+                    "Chebika",
+                    "Sbikha",
+                    "Oueslatia",
+                    "Aïn Djeloula",
+                    "Haffouz",
+                    "Alaâ",
+                    "Hajeb El Ayoun",
+                    "Nasrallah",
+                    "Menzel Mehiri",
+                    "Echrarda",
+                    "Bou Hajla"
+                ]
+            },
+            {
+                "name": "Kasserine",
+                "type": "Governorate",
+                "cities": [
+                    "Kasserine",
+                    "Sbeitla",
+                    "Sbiba",
+                    "Jedelienne",
+                    "Thala",
+                    "Haïdra",
+                    "Foussana",
+                    "Fériana",
+                    "Thélepte",
+                    "Magel Bel Abbès"
+                ]
+            },
+            {
+                "name": "Sidi Bouzid",
+                "type": "Governorate",
+                "cities": [
+                    "Sidi Bouzid",
+                    "Jilma",
+                    "Cebalet",
+                    "Bir El Hafey",
+                    "Sidi Ali Ben Aoun",
+                    "Menzel Bouzaiane",
+                    "Meknassy",
+                    "Mezzouna",
+                    "Regueb",
+                    "Ouled Haffouz"
+                ]
+            },
+            {
+                "name": "Gabès",
+                "type": "Governorate",
+                "cities": [
+                    "Gabès",
+                    "Chenini Nahal",
+                    "Ghannouch",
+                    "Métouia",
+                    "Oudhref",
+                    "El Hamma",
+                    "Matmata",
+                    "Nouvelle Matmata",
+                    "Mareth",
+                    "Zarat"
+                ]
+            },
+            {
+                "name": "Medenine",
+                "type": "Governorate",
+                "cities": [
+                    "Medenine",
+                    "Beni Khedache",
+                    "Ben Gardane",
+                    "Zarzis",
+                    "Houmt Souk (Djerba)",
+                    "Midoun (Djerba)",
+                    "Ajim (Djerba)",
+                    "Sidi Makhlouf"
+                ]
+            },
+            {
+                "name": "Tataouine",
+                "type": "Governorate",
+                "cities": [
+                    "Tataouine",
+                    "Bir Lahmar",
+                    "Ghomrassen",
+                    "Dehiba",
+                    "Remada",
+                    "Smar"
+                ]
+            },
+            {
+                "name": "Gafsa",
+                "type": "Governorate",
+                "cities": [
+                    "Gafsa",
+                    "El Ksar",
+                    "Moularès",
+                    "Redeyef",
+                    "Métlaoui",
+                    "Mdhilla",
+                    "El Guettar",
+                    "Sened"
+                ]
+            },
+            {
+                "name": "Tozeur",
+                "type": "Governorate",
+                "cities": [
+                    "Tozeur",
+                    "Degache",
+                    "Hamet Jerid",
+                    "Nafta",
+                    "Tamerza"
+                ]
+            },
+            {
+                "name": "Kebili",
+                "type": "Governorate",
+                "cities": [
+                    "Kebili",
+                    "Douz",
+                    "Jemna",
+                    "Souk Lahad",
+                    "El Faouar"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "United Arab Emirates",
+        "iso_code": "AE",
+        "capital": "Abu Dhabi",
+        "divisions": [
+            {
+                "name": "Abu Dhabi",
+                "type": "Emirate",
+                "cities": [
+                    "Abu Dhabi",
+                    "Al Ain",
+                    "Madinat Zayed (Al Dhafra)",
+                    "Ruwais",
+                    "Liwa",
+                    "Ghayathi",
+                    "Sila",
+                    "Mirasfa",
+                    "Mussafah",
+                    "Bani Yas",
+                    "Khalifa City",
+                    "Mohammed Bin Zayed City",
+                    "Shahama"
+                ]
+            },
+            {
+                "name": "Dubai",
+                "type": "Emirate",
+                "cities": [
+                    "Dubai",
+                    "Hatta",
+                    "Jebel Ali",
+                    "Al Awir",
+                    "Lehbab",
+                    "Margham",
+                    "Al Lisaili"
+                ]
+            },
+            {
+                "name": "Sharjah",
+                "type": "Emirate",
+                "cities": [
+                    "Sharjah",
+                    "Khor Fakkan",
+                    "Kalba",
+                    "Dibba Al-Hisn",
+                    "Al Dhaid",
+                    "Al Madam",
+                    "Mleiha",
+                    "Al Batayeh",
+                    "Nahwa"
+                ]
+            },
+            {
+                "name": "Ajman",
+                "type": "Emirate",
+                "cities": [
+                    "Ajman",
+                    "Masfout",
+                    "Manama"
+                ]
+            },
+            {
+                "name": "Umm Al Quwain",
+                "type": "Emirate",
+                "cities": [
+                    "Umm Al Quwain",
+                    "Falaj Al Mualla"
+                ]
+            },
+            {
+                "name": "Ras Al Khaimah",
+                "type": "Emirate",
+                "cities": [
+                    "Ras Al Khaimah",
+                    "Jazirah Al Hamra",
+                    "Rams",
+                    "Khatt",
+                    "Masafi (shared)",
+                    "Ghalilah",
+                    "Sha'am"
+                ]
+            },
+            {
+                "name": "Fujairah",
+                "type": "Emirate",
+                "cities": [
+                    "Fujairah",
+                    "Dibba Al-Fujairah",
+                    "Masafi (shared)",
+                    "Murbeh",
+                    "Qidfa",
+                    "Bithnah",
+                    "Siji"
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Yemen",
+        "iso_code": "YE",
+        "capital": "Sana'a",
+        "divisions": [
+            {
+                "name": "Amanat Al Asimah",
+                "type": "Governorate",
+                "cities": [
+                    "Sana'a (Old City)",
+                    "Ma'ain",
+                    "Az'zal",
+                    "Al Sabeen",
+                    "Al Wahdah",
+                    "At Tahrir",
+                    "Shu'aub",
+                    "Bani Al Harith",
+                    "Ath'thaorah",
+                    "Assafi'yah"
+                ]
+            },
+            {
+                "name": "Sana'a",
+                "type": "Governorate",
+                "cities": [
+                    "Sanhan",
+                    "Hamdan",
+                    "Arhab",
+                    "Bani Hushaysh",
+                    "Bani Matar",
+                    "Bilad Ar Rus",
+                    "Jihanah",
+                    "Al Haymah Al Kharijiyah",
+                    "Al Haymah Ad Dakhiliyah",
+                    "Manakhah",
+                    "Sa'fan",
+                    "Khawlan",
+                    "Bani Dhabyan"
+                ]
+            },
+            {
+                "name": "Aden",
+                "type": "Governorate",
+                "cities": [
+                    "Crater (Seera)",
+                    "Khormaksar",
+                    "Ma'alla",
+                    "Tawahi",
+                    "Sheikh Othman",
+                    "Mansoura",
+                    "Dar Saad",
+                    "Buraiqeh"
+                ]
+            },
+            {
+                "name": "Taiz",
+                "type": "Governorate",
+                "cities": [
+                    "Taiz",
+                    "Al Mokha",
+                    "Dhubab",
+                    "Mawza",
+                    "Al Wazi'iyah",
+                    "Mawiyah",
+                    "Dimnat Khadir",
+                    "Salo",
+                    "Haifan",
+                    "Maqbanah",
+                    "Shar'ab ar Rawnah",
+                    "Shar'ab as Salam",
+                    "Jabal Habashy",
+                    "Mashra'a Wa Hadnan",
+                    "Sabir Al Mawadim",
+                    "Al Misrakh"
+                ]
+            },
+            {
+                "name": "Al Hudaydah",
+                "type": "Governorate",
+                "cities": [
+                    "Al Hudaydah",
+                    "Bayt al-Faqih",
+                    "Zabid",
+                    "Bajil",
+                    "Hays",
+                    "Al Khawkhah",
+                    "Ad Durayhimi",
+                    "Al Mansuriyah",
+                    "As Sukhnah",
+                    "Al Marawi'ah",
+                    "Az Zaydiyah",
+                    "Alluheyah",
+                    "Kamaran",
+                    "Az Zuhrah",
+                    "Al Qanawis"
+                ]
+            },
+            {
+                "name": "Ibb",
+                "type": "Governorate",
+                "cities": [
+                    "Ibb",
+                    "Yarim",
+                    "Jiblah",
+                    "Al Udayn",
+                    "Dhi As Sufal",
+                    "Al Makhadir",
+                    "Ba'dan",
+                    "As Sabrah",
+                    "As Saddah",
+                    "An Nadirah",
+                    "Hubaysh",
+                    "Al Qafr",
+                    "Far Al Udayn",
+                    "Hazm Al Udayn"
+                ]
+            },
+            {
+                "name": "Hadramaut",
+                "type": "Governorate",
+                "cities": [
+                    "Mukalla",
+                    "Seiyun",
+                    "Shibam",
+                    "Tarim",
+                    "Ash Shihr",
+                    "Ghayl Ba Wazir",
+                    "Hajr",
+                    "Dua'n",
+                    "Al Qatn",
+                    "Wadi al-Ayn",
+                    "Thamud",
+                    "Rumah"
+                ]
+            },
+            {
+                "name": "Dhamar",
+                "type": "Governorate",
+                "cities": [
+                    "Dhamar",
+                    "Ma'bar",
+                    "Dawran Aness",
+                    "Jabal Ash sharq",
+                    "Utmah",
+                    "Wusab Al Ali",
+                    "Wusab As Safil"
+                ]
+            },
+            {
+                "name": "Hajjah",
+                "type": "Governorate",
+                "cities": [
+                    "Hajjah",
+                    "Harad",
+                    "Abs",
+                    "Mabyan",
+                    "Kuhlan Affar",
+                    "Khayran Al Muharraq",
+                    "Mustaba",
+                    "Bakil Al Mir",
+                    "Kushar",
+                    "Al Jamimah",
+                    "Al Mahabishah",
+                    "Ash Shahil",
+                    "Ku'aydinah"
+                ]
+            },
+            {
+                "name": "Amran",
+                "type": "Governorate",
+                "cities": [
+                    "Amran",
+                    "Thula",
+                    "Raydah",
+                    "Khamir",
+                    "Huth",
+                    "Harf Sufyan",
+                    "Shaharah",
+                    "As Sawd",
+                    "As Sudah",
+                    "Habur Zulaymah"
+                ]
+            },
+            {
+                "name": "Abyan",
+                "type": "Governorate",
+                "cities": [
+                    "Zinjibar",
+                    "Ja'ar",
+                    "Lawdar",
+                    "Mudiyah",
+                    "Ahwar",
+                    "Shuqrah",
+                    "Mahfad",
+                    "Rasad",
+                    "Sarar",
+                    "Sibah"
+                ]
+            },
+            {
+                "name": "Lahj",
+                "type": "Governorate",
+                "cities": [
+                    "Huta",
+                    "Tuban",
+                    "Al Musaymir",
+                    "Al Milah",
+                    "Radfan",
+                    "Habilayn",
+                    "Halimayn",
+                    "Habil Jabr",
+                    "Yahr",
+                    "Al Maflahy",
+                    "Al Had",
+                    "Tur Al Bahah",
+                    "Al Qabbaytah",
+                    "Al Maqatirah"
+                ]
+            },
+            {
+                "name": "Al Bayda",
+                "type": "Governorate",
+                "cities": [
+                    "Al Bayda",
+                    "Rada'a",
+                    "Mukayras",
+                    "As Sawma'ah",
+                    "Az Zahir",
+                    "Dhi Na'im",
+                    "At Taffah",
+                    "Al Malagim",
+                    "Nati'",
+                    "Na'man",
+                    "Sabah",
+                    "Al Quraishyah",
+                    "Walad Rabi'",
+                    "Ar Ryashyyah",
+                    "Ash Sharyah",
+                    "As Sawadiyah"
+                ]
+            },
+            {
+                "name": "Shabwah",
+                "type": "Governorate",
+                "cities": [
+                    "Ataq",
+                    "Bayhan",
+                    "Usaylan",
+                    "Ain",
+                    "Nissab",
+                    "Habban",
+                    "Mayfa'a",
+                    "Rudum",
+                    "Jardan",
+                    "Arma",
+                    "Dahr",
+                    "Al Talh"
+                ]
+            },
+            {
+                "name": "Saada",
+                "type": "Governorate",
+                "cities": [
+                    "Saada",
+                    "Baqim",
+                    "Qatabir",
+                    "Monabbih",
+                    "Ghamr",
+                    "Razih",
+                    "Shada'a",
+                    "Adh Dhaher",
+                    "Haydan",
+                    "Saqayn",
+                    "Majz",
+                    "Sahar",
+                    "As Safra",
+                    "Al Hashwah",
+                    "Kitaf wa Al Boqe'e"
+                ]
+            },
+            {
+                "name": "Al Mahrah",
+                "type": "Governorate",
+                "cities": [
+                    "Al Ghaydah",
+                    "Sayhut",
+                    "Qishn",
+                    "Haswayn",
+                    "Al Masilah",
+                    "Hawf",
+                    "Shahan",
+                    "Man'ar",
+                    "Hat"
+                ]
+            },
+            {
+                "name": "Al Jawf",
+                "type": "Governorate",
+                "cities": [
+                    "Al Hazm",
+                    "Al Maton",
+                    "Al Maslub",
+                    "Al Ghayl",
+                    "Al Khalaq",
+                    "Az Zahir",
+                    "Al Humaydat",
+                    "Al Mutammah",
+                    "Az Zal",
+                    "Bart Al Anan",
+                    "Rajuzah",
+                    "Khabb wa ash Sha'af"
+                ]
+            },
+            {
+                "name": "Marib",
+                "type": "Governorate",
+                "cities": [
+                    "Marib",
+                    "Marib City",
+                    "Sirwah",
+                    "Bidbadah",
+                    "Harib",
+                    "Al Jubah",
+                    "Rahabah",
+                    "Mahliyah",
+                    "Al Abdiyah",
+                    "Raghwan",
+                    "Medghal",
+                    "Majzar"
+                ]
+            },
+            {
+                "name": "Al Mahwit",
+                "type": "Governorate",
+                "cities": [
+                    "Al Mahwit",
+                    "Shibam Kawkaban",
+                    "At Tawilah",
+                    "Ar Rujum",
+                    "Al Khabt",
+                    "Milhan",
+                    "Hufash",
+                    "Bani Sa'd"
+                ]
+            },
+            {
+                "name": "Raymah",
+                "type": "Governorate",
+                "cities": [
+                    "Al Jabin",
+                    "Al Jafariyah",
+                    "Kusmah",
+                    "As Salafiyah",
+                    "Bilad At Ta'am",
+                    "Mazhar"
+                ]
+            },
+            {
+                "name": "Ad Dali",
+                "type": "Governorate",
+                "cities": [
+                    "Ad Dali",
+                    "Damt",
+                    "Qa'atabah",
+                    "Al Husha",
+                    "Al Azariq",
+                    "Jahaf",
+                    "Al Hussein",
+                    "Ash Shu'ayb",
+                    "Juban"
+                ]
+            },
+            {
+                "name": "Socotra",
+                "type": "Governorate",
+                "cities": [
+                    "Hadibu",
+                    "Qulensya",
+                    "Abd al Kuri"
+                ]
+            }
+        ]
+    }
+]
