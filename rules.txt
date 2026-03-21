@@ -1,0 +1,744 @@
+You are a world-class creative frontend engineer, interaction designer, motion designer, brand designer, and conversion-focused product art director.
+
+You are building a 2026-level landing page for **Apps Labs**.
+
+This is not a generic agency page.
+This is not a template.
+This is not a startup cliché.
+This is not a “cool looking but useless” Dribbble shot.
+This must be a real, production-grade, conversion-focused, visually exceptional landing page that feels expensive, modern, deliberate, and highly memorable.
+
+The result must feel like a top-tier mix of:
+- elite product design studio
+- premium software company
+- editorial brand system
+- award-level frontend craft
+- high-conviction conversion design
+- world-class interaction design
+
+It must look like a company that can confidently charge serious money.
+
+==================================================
+PRIMARY GOAL
+==================================================
+
+Build a landing page that makes visitors immediately understand:
+
+1. Apps Labs can build almost anything on the web
+2. Apps Labs works with both companies and individuals
+3. Apps Labs can build:
+   - websites
+   - web apps
+   - internal tools
+   - SaaS products
+   - dashboards
+   - portals
+   - AI tools
+   - automations
+   - AI-powered workflows
+   - custom web-based systems
+4. Apps Labs is modern, clear, premium, and easy to work with
+5. The visitor should contact us and send a project inquiry
+
+The site should be easy to read.
+Easy to understand.
+Easy to trust.
+Easy to act on.
+
+It must not overwhelm people.
+It must not feel too complex.
+It must not feel too technical for non-technical buyers.
+It must not bore them either.
+
+The page must be impressive enough for serious companies,
+but simple enough for individuals and founders to immediately understand.
+
+==================================================
+NON-NEGOTIABLE CONSTRAINTS
+==================================================
+
+These are strict. Do not break them.
+
+1. USE NEXT.JS
+- Use Next.js App Router
+- Production-grade structure
+- TypeScript
+- Clean component architecture
+- Proper metadata
+- Clean routing
+
+2. LOCALES
+- Default locale is English on `/`
+- Arabic version must live under `/ar`
+- Proper locale-aware routing
+- Proper RTL support for Arabic
+- Arabic is not a fake toggle only
+- `/ar` must be a real localized route
+- English and Arabic content must be equivalent in meaning
+
+3. THEMING
+- Default theme = light mode
+- Dark mode must also exist
+- Theme switcher must be elegant and premium
+- Theme must not flash incorrectly on first load
+- Theme system must feel intentional, not bolted on
+- Keep both themes equally polished
+- Light mode is the default design priority
+- Dark mode should feel luxurious, not just inverted colors
+
+4. NEVER USE LUCIDE ICONS
+- Do not import lucide-react
+- Do not use Lucide
+- Do not use the default modern dev icon look
+- Do not use Heroicons either unless absolutely unavoidable
+- Prefer custom inline SVG icons or hand-crafted iconography
+- Every icon must feel bespoke and art-directed
+- If you need icons, create a tiny custom icon set specifically for this site
+
+5. NEVER FEEL VIBECODED
+This is critical.
+The page must NEVER feel:
+- AI-generated
+- generic Tailwind clone
+- random sections stacked together
+- “good enough”
+- developer-designed only
+- template-based
+- over-carded
+- too many same-shaped boxes
+- fake-premium
+- startup slop
+- common SaaS hero with fake dashboard
+- over-glowed gradient slop
+- one-size-fits-all layout
+- shallow or repetitive
+
+6. KEEP THE CONTENT THE SAME
+Do not change the business meaning.
+Do not rewrite the site into a different offer.
+Do not reposition the company.
+Do not invent different services.
+Do not change the structure of meaning.
+
+You may refine phrasing slightly for polish and consistency,
+but the actual content and messaging must remain the same in meaning as the content below.
+
+==================================================
+OFFICIAL CONTENT — KEEP SAME MEANING
+==================================================
+
+Navigation:
+- Apps Labs
+- Services
+- Projects
+- Process
+- FAQ
+- EN
+- AR
+- Start your project
+
+Hero:
+- Apps Labs
+- We build websites, web apps, internal tools, and AI projects.
+- If it lives on the web, we can build it. Apps Labs helps companies, startups, and individuals turn ideas into polished digital products that are fast, clear, and ready to use.
+- Get a quote
+- See what we build
+
+Hero support points:
+- For everyone
+- We work with companies, startups, founders, and individuals.
+
+- Anything web
+- From simple websites to full SaaS platforms and AI-powered tools.
+
+- Built to launch
+- We focus on clear execution, clean design, and real usability.
+
+Hero visual support:
+- What we can build
+- Business websites
+- Web apps & dashboards
+- Internal tools
+- AI tools & automations
+
+- Simple process
+- Tell us your idea. We scope it. We build it. We launch it.
+
+- Flexible clients
+- Need a landing page, SaaS product, private tool, AI workflow, or full platform? We handle it.
+
+Services section:
+- Services
+- We build the digital product you need.
+- The message is simple: if you need something on the web, Apps Labs can design and build it. We are not limited to one type of project.
+
+Service groups:
+1. Websites
+- Business websites
+- Landing pages
+- Portfolio sites
+- Marketing sites
+
+2. Web apps
+- Dashboards
+- SaaS products
+- Client portals
+- Booking and management systems
+
+3. Internal tools
+- Admin panels
+- Team dashboards
+- Workflow systems
+- Operations tools
+
+4. AI projects
+- AI-powered tools
+- Automations
+- AI workflows
+- Custom integrations
+
+Projects section:
+- Projects
+- Real examples of what we can ship.
+- Apps Labs has already built serious digital products. These examples show the level of execution, but your project does not need to look the same. We build around your actual needs.
+
+Project 1:
+- EcomEasy
+- Commerce and operations platform
+- A larger web product built for real business use, not just presentation.
+- Build something similar
+
+Project 2:
+- ORYX Fulfillment
+- Operations and logistics tool
+- An internal business system designed to support daily workflows and team operations.
+- Scope your tool
+
+Project 3:
+- GDM-IQ
+- Commercial SaaS product
+- A polished web-based product showing how Apps Labs can build software that people pay to use.
+- Start your SaaS
+
+Process section:
+- Process
+- Easy to understand. Easy to start.
+- We keep the process simple so clients do not feel lost. The goal is to move from idea to launch without confusion.
+
+Steps:
+01
+- Tell us what you need
+- Share your idea, business, or problem. It can be simple or detailed.
+
+02
+- We scope the project
+- We define what should be built, how it works, and what it will cost.
+
+03
+- We build it
+- We design and develop the project with a clean, modern, usable result.
+
+04
+- We launch and support
+- After launch, we can continue with maintenance, fixes, and new features.
+
+Why choose us:
+- Why choose us
+- Clear work. Clean results. Flexible projects.
+- Some clients need a simple website. Others need a full platform. Some need an AI workflow. The point is not the category — the point is that we can build the right web solution for the job.
+
+Points:
+- Simple communication
+- We explain things clearly so non-technical clients can still feel comfortable and confident.
+
+- Flexible project types
+- We are not locked into one niche. We can build websites, tools, apps, SaaS products, and AI projects.
+
+- Modern design
+- Projects should look polished and feel professional, not outdated or confusing.
+
+- Support after launch
+- If you need updates, fixes, or new features later, we can keep working with you.
+
+FAQ:
+- FAQ
+- Quick answers before you contact us.
+
+Questions:
+- What can you build?
+- Do you only work with companies?
+- Can you build AI projects too?
+- How do we start?
+- Do you support projects after launch?
+
+Answers must match the current meaning already defined on the site.
+
+Contact:
+- Contact
+- Tell us what you want to build.
+- Need a website, a web app, an AI tool, a dashboard, or a bigger platform? Send us the idea and we will help you shape it.
+
+Contact info:
+- Email
+- hello@appslabs.dev
+
+- Client type
+- Companies, startups, founders, individuals.
+
+- Project type
+- Anything web: sites, apps, tools, SaaS, AI, dashboards, portals.
+
+Form:
+- Your name
+- Company or personal brand
+- Email
+- Project type
+- Tell us what you want to build
+- Keep it simple. Even a short description is enough for us to start the conversation.
+- Send project inquiry
+
+Footer:
+- Apps Labs
+- We build websites, web apps, internal tools, SaaS products, and AI projects for companies and individuals.
+- Navigation
+- Services
+- Projects
+- Process
+- FAQ
+- Contact
+- hello@appslabs.dev
+- Start your project
+
+==================================================
+DESIGN DIRECTION
+==================================================
+
+The visual direction must be:
+- 2026 web
+- premium
+- clean
+- editorial
+- sharp
+- modern
+- high-end
+- minimal but not boring
+- expressive but controlled
+- luxurious without being flashy
+- interactive without being noisy
+- visually rich without feeling cluttered
+- clear enough for non-technical visitors
+
+This is not supposed to feel like a dev portfolio.
+It is supposed to feel like a serious digital company with taste.
+
+It should feel like:
+- excellent typography choices
+- excellent spacing rhythm
+- deliberate composition
+- signature art direction
+- strong hierarchy
+- beautiful motion restraint
+- premium UI detailing
+- custom visual language
+
+==================================================
+STYLE RULES
+==================================================
+
+1. Make it more beautiful than the current simple version
+but do NOT make it harder to read.
+
+2. Keep the copy straightforward.
+Do not use bloated startup language.
+Do not use jargon.
+Do not overcomplicate sentences.
+
+3. The site must be visually impressive in the first 3 seconds.
+
+4. Typography must do a lot of the heavy lifting.
+Use a premium combination.
+Prefer a strong editorial display face paired with a clean sans.
+Do not use boring defaults if better options are available.
+
+5. Use custom section pacing.
+Avoid every section feeling identical.
+
+6. Use asymmetry where it improves design.
+But do not break readability.
+
+7. Every section should have a distinct layout identity
+while still feeling like one coherent brand system.
+
+8. The CTA treatment must be strong and repeated intelligently.
+
+9. The layout must feel extremely intentional on:
+- desktop
+- tablet
+- mobile
+
+10. Arabic must feel first-class, not patched in.
+That includes:
+- spacing
+- typography
+- alignment
+- line lengths
+- RTL behavior
+- mirrored layout where appropriate
+
+==================================================
+LIGHT MODE / DARK MODE DIRECTION
+==================================================
+
+Default mode:
+- light
+- warm premium light background
+- subtle texture or softness allowed
+- refined shadows
+- sharp text contrast
+- elegant surface hierarchy
+
+Dark mode:
+- true premium dark
+- not flat black
+- not neon gamer style
+- not generic purple SaaS dark mode
+- high contrast but still refined
+- every component adapted intentionally
+- dark mode must feel designed, not auto-inverted
+
+Theme toggle:
+- elegant
+- custom-designed
+- visible but unobtrusive
+- no generic toggle component look
+- smooth transitions
+- no hydration flash issues
+
+==================================================
+TECH STACK REQUIREMENTS
+==================================================
+
+Use:
+- Next.js App Router
+- TypeScript
+- Tailwind CSS v4
+- Motion for React only where it improves the page
+- next-intl for localized routing
+- next-themes for theme management
+- React Hook Form + Zod for form validation
+- custom inline SVG icons
+- custom UI components
+- clean semantic HTML
+- excellent accessibility basics
+
+If a carousel is genuinely needed, use Embla.
+If not needed, do not force it.
+
+Do NOT use:
+- lucide-react
+- generic icon packs
+- bulky UI libraries that make the page look templated
+- random animation libraries stacked on top of each other
+- over-engineered 3D dependencies unless truly justified
+- cheesy illustrations
+- generic stock art
+- fake dashboard screenshots
+- generic glassmorphism spam
+
+==================================================
+INTERACTION DESIGN
+==================================================
+
+Motion must feel:
+- premium
+- subtle
+- useful
+- calm
+- intentional
+
+Use motion for:
+- hero reveal
+- micro-hover transitions
+- CTA emphasis
+- section reveal
+- language/theme switch polish
+- subtle background parallax or pointer response if tasteful
+- premium FAQ transitions
+- lightweight visual choreography
+
+Do NOT use:
+- floating blobs everywhere
+- exaggerated parallax
+- gimmicky constant motion
+- attention-seeking nonsense
+- effects that reduce clarity
+- over-animated cards
+- scroll hijacking
+- meaningless motion
+
+==================================================
+CONVERSION RULES
+==================================================
+
+The page must convert visitors into inquiries.
+
+That means:
+- clear hero
+- immediate trust
+- easy reading
+- useful proof
+- strong CTA placement
+- simple contact path
+- clean form UX
+- good mobile conversion behavior
+- clear explanations for non-technical clients
+
+Do not make visitors work to understand the offer.
+
+The page should answer:
+- what do you build?
+- who is it for?
+- can you build my thing?
+- are you credible?
+- how do we start?
+- how do I contact you?
+
+==================================================
+SECTION REQUIREMENTS
+==================================================
+
+Build these sections in this order:
+
+1. Header
+- brand
+- nav
+- locale switch
+- theme switch
+- CTA
+- sticky
+- elegant, compact, premium
+
+2. Hero
+- powerful but readable
+- strong headline
+- direct subcopy
+- two CTAs
+- three support points
+- a signature visual composition on the right
+- no fake dashboard cliché
+- no generic browser mockup
+- create a custom visual system instead
+
+3. Services
+- show breadth clearly
+- must make people think “yes they can build my thing”
+- avoid repetitive cards if a better layout is possible
+- still easy to scan
+
+4. Projects
+- high-trust presentation
+- premium project cards or panels
+- feel real, not fake portfolio filler
+- use the actual names given
+- elegant CTAs per project
+
+5. Process
+- extremely clear
+- zero confusion
+- easy to scan
+- strong visual rhythm
+- numbered steps with premium styling
+
+6. Why choose us
+- trust-building
+- clear and calm
+- easy for non-technical people to understand
+- premium presentation
+
+7. FAQ
+- concise
+- helpful
+- elegant interactions
+- not ugly accordions
+
+8. Contact
+- strong close
+- premium form
+- very easy to fill
+- not intimidating
+- polished supporting information
+- mobile-first conversion quality
+
+9. Footer
+- clean
+- premium
+- compact
+- useful
+
+==================================================
+ART DIRECTION NOTES
+==================================================
+
+The hero must be special.
+
+Do not use:
+- a fake analytics graph
+- generic code block art
+- a fake dashboard window
+- random floating rectangles with no meaning
+- overused glowing gradient orbs
+
+Instead create a custom abstract-but-structured visual system that suggests:
+- capability
+- flexibility
+- system design
+- digital craft
+- web product building
+- clarity and modularity
+
+This visual system can include:
+- structured panels
+- connection lines
+- modular tiles
+- blueprint-like UI fragments
+- precision grids
+- abstract interface architecture
+- animated SVG framework elements
+- modular product building blocks
+
+But it must still feel elegant and premium.
+
+==================================================
+TYPOGRAPHY
+==================================================
+
+Typography is extremely important.
+
+Use a premium editorial display face for hero and section headlines.
+Use a highly legible sans for UI and body.
+Pick fonts that also support Arabic well or define a solid Arabic pair.
+
+Typography should feel:
+- expensive
+- intentional
+- legible
+- high contrast
+- rhythmically beautiful
+
+Do not let typography feel default or lazy.
+
+==================================================
+ARABIC IMPLEMENTATION RULES
+==================================================
+
+Arabic is not an afterthought.
+
+Requirements:
+- dedicated `/ar` localized route
+- RTL layout
+- Arabic typography chosen intentionally
+- mirrored spacing/alignment where needed
+- no broken punctuation flow
+- no awkward English-style layout forced into Arabic
+- preserve the same content meaning as English
+- buttons, forms, nav, FAQ, footer all localized
+
+Make the Arabic version feel like a premium Arabic website,
+not just translated text pasted into the English UI.
+
+==================================================
+CODE QUALITY RULES
+==================================================
+
+Build this like a senior engineer with taste.
+
+Requirements:
+- clean file structure
+- reusable components
+- sensible separation
+- no spaghetti
+- no giant unreadable files
+- no lazy hardcoding everywhere
+- strong naming
+- accessible button/link semantics
+- no hydration mismatch issues
+- good metadata
+- clean theming architecture
+- clean locale architecture
+- polished responsive behavior
+
+==================================================
+DELIVERABLES
+==================================================
+
+Deliver a complete implementation.
+
+I want:
+1. Full Next.js App Router implementation
+2. Locale routing for English and Arabic
+3. Light and dark mode support
+4. Custom premium landing page UI
+5. Full responsive behavior
+6. Real components, not pseudo-code
+7. Polished form interactions
+8. Custom SVG icons instead of lucide
+9. A short explanation of the design system and component structure
+
+Also include:
+- folder structure
+- all relevant files
+- any setup notes
+- any package dependencies you used
+- explanation of how localization works
+- explanation of how theming works
+
+==================================================
+STRICT ANTI-PATTERNS
+==================================================
+
+Do NOT do any of these:
+- do not use lucide-react
+- do not make it look like a Tailwind starter kit
+- do not make every section a card grid
+- do not make all sections centered the same way
+- do not use fake charts
+- do not rely on one gradient trick
+- do not use cliché “agency” copy
+- do not invent new content
+- do not make the Arabic version lazy
+- do not make dark mode an afterthought
+- do not make the layout feel crowded
+- do not use shadcn defaults everywhere
+- do not output weak filler design
+- do not simplify the page into something generic
+- do not make it visually loud and messy
+- do not choose average design solutions when a better one exists
+
+==================================================
+FINAL INSTRUCTION
+==================================================
+
+Think like a brutal art director and a conversion-focused senior frontend architect at the same time.
+
+This must be:
+- beautiful
+- sharp
+- premium
+- modern
+- easy to understand
+- high-converting
+- bilingual
+- theme-aware
+- unforgettable
+
+Build the strongest possible version of this landing page.
+
+And again:
+- same content meaning
+- English default
+- Arabic under `/ar`
+- light + dark modes
+- Next.js
+- no lucide icons
+- top-tier UI
+- 2026-level polish
