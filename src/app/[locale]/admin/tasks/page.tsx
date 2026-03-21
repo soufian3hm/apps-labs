@@ -1,18 +1,18 @@
 import { createClient } from '@/utils/supabase/server'
-import { redirect } from 'next/navigation'
-import LoginForm from './login-form'
-import AdminDashboard from './dashboard'
+import LoginForm from '../login-form'
+import SmartTasksView from './smart-tasks-view'
 
-export default async function AdminPage() {
+export default async function AdminTasksPage() {
   const supabase = await createClient()
 
-  const { data: { user } } = await supabase.auth.getUser()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
 
   if (!user) {
     return <LoginForm />
   }
 
-  // Check admin role
   const { data: profile } = await supabase
     .from('profiles')
     .select('role')
@@ -33,12 +33,6 @@ export default async function AdminPage() {
     )
   }
 
-  // Fetch columns and leads
-  const { data: columns } = await supabase
-    .from('appslabs_kanban_columns')
-    .select('*')
-    .order('position', { ascending: true })
-
   const { data: leads } = await supabase
     .from('appslabs_leads')
     .select('*')
@@ -54,10 +48,5 @@ export default async function AdminPage() {
     .order('sort_order', { ascending: true })
     .order('created_at', { ascending: true })
 
-  return <AdminDashboard 
-    initialLeads={leads || []} 
-    initialColumns={columns || []} 
-    initialLogs={logs || []} 
-    initialTasks={tasks || []}
-  />
+  return <SmartTasksView initialLeads={leads || []} initialLogs={logs || []} initialTasks={tasks || []} />
 }

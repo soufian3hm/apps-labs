@@ -10,6 +10,7 @@ import { z } from 'zod';
 import { motion, AnimatePresence } from 'motion/react';
 import { SectionReveal } from './section-reveal';
 import { IconMail, IconUsers, IconLayers, IconSend, IconCheck } from './icons';
+import { event as trackEvent } from '@/components/pixel-provider';
 
 const contactSchema = z.object({
   name: z.string().min(1),
@@ -70,6 +71,7 @@ export function Contact() {
 
       if (!response.ok) throw new Error('Submission failed');
 
+      trackEvent('Lead', { currency: 'USD', value: 100.00 });
       setShowModal(false);
       setSubmitted(true);
     } catch (err) {

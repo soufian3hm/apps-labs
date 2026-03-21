@@ -1,18 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { formatDistanceToNowStrict } from 'date-fns'
 import { createClient } from '@/utils/supabase/server'
 
 export async function POST(req: NextRequest) {
   try {
-    const { leadId, email } = await req.json()
-    const normalizedEmail = typeof email === 'string' ? email.trim() : ''
+    const { leadId, email, meetingLink } = await req.json()
+    const normalizedMeetingLink = typeof meetingLink === 'string' ? meetingLink.trim() : ''
 
-    if (!leadId) {
-      throw new Error('Lead ID is required')
+    if (!normalizedMeetingLink) {
+      throw new Error('Meeting link is required')
     }
 
-    if (!normalizedEmail) {
-      throw new Error('Email is required')
+    let parsedMeetingUrl: URL
+    try {
+      parsedMeetingUrl = new URL(normalizedMeetingLink)
+    } catch {
+      throw new Error('Meeting link must be a valid URL')
     }
 
     const supabase = await createClient()
@@ -33,20 +35,6 @@ export async function POST(req: NextRequest) {
 
     if (error || !lead) throw new Error('Lead not found')
 
-    let countdownStr = 'soon'
-    let meetingStatusLabel = 'Upcoming Session'
-    if (lead.meeting_timestamp) {
-      const meetDate = new Date(lead.meeting_timestamp)
-      if (!Number.isNaN(meetDate.getTime())) {
-        if (meetDate > new Date()) {
-          countdownStr = formatDistanceToNowStrict(meetDate)
-        } else {
-          countdownStr = 'right now'
-          meetingStatusLabel = 'Session Time'
-        }
-      }
-    }
-
     const emailHtml = `
 <!DOCTYPE html>
 <html>
@@ -65,44 +53,34 @@ export async function POST(req: NextRequest) {
 
           <tr>
             <td style="padding: 40px;">
-              <h2 style="margin: 0 0 24px 0; font-size: 28px; color: #1a1a17; font-family: Georgia, serif; font-weight: normal;">Meeting Reminder.</h2>
+              <h2 style="margin: 0 0 24px 0; font-size: 28px; color: #1a1a17; font-family: Georgia, serif; font-weight: normal;">Your Meeting Link.</h2>
 
               <p style="margin: 0 0 24px 0; font-size: 16px; color: #42413d; line-height: 1.6;">
                 Hi ${lead.name},<br/><br/>
-                This is a reminder that your discovery session with Apps Labs is coming up on <strong style="color: #1a1a17;">${lead.meeting_date} at ${lead.meeting_time}</strong>.
+                Your discovery session is scheduled for <strong style="color: #1a1a17;">${lead.meeting_date} at ${lead.meeting_time}</strong>. Use the link below to join the meeting at the scheduled time.
               </p>
 
-              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 0 0 28px 0;">
+              <table border="0" cellspacing="0" cellpadding="0" style="margin: 0 0 28px 0;">
                 <tr>
-                  <td style="padding: 22px 24px; background-color: #f7f4ee; border: 1px solid #e5e2dc; border-radius: 14px;">
-                    <p style="margin: 0 0 10px 0; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #a66a2e;">
-                      ${meetingStatusLabel}
-                    </p>
-                    <p style="margin: 0 0 6px 0; font-size: 22px; font-weight: 700; color: #1a1a17;">
-                      ${countdownStr}
-                    </p>
-                    <p style="margin: 0; font-size: 14px; color: #6b685f; line-height: 1.6;">
-                      Keep an eye on your inbox. Your meeting link will be sent separately before the call.
-                    </p>
+                  <td align="center" bgcolor="#c17f3e" style="border-radius: 999px;">
+                    <a href="${parsedMeetingUrl.toString()}" style="display: inline-block; padding: 14px 28px; font-size: 14px; font-weight: 700; color: #ffffff; text-decoration: none;">
+                      Join Meeting
+                    </a>
                   </td>
                 </tr>
               </table>
 
-              <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 0 0 28px 0;">
-                <tr>
-                  <td style="padding: 20px 22px; background-color: #fcfbf8; border: 1px solid #ece7de; border-radius: 14px;">
-                    <p style="margin: 0 0 12px 0; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #8a867d;">
-                      Session Details
-                    </p>
-                    <p style="margin: 0 0 6px 0; font-size: 15px; color: #1a1a17;"><strong>Date:</strong> ${lead.meeting_date}</p>
-                    <p style="margin: 0; font-size: 15px; color: #1a1a17;"><strong>Time:</strong> ${lead.meeting_time}</p>
-                  </td>
-                </tr>
-              </table>
+              <p style="margin: 0 0 16px 0; font-size: 14px; color: #6b685f; line-height: 1.7;">
+                If the button does not open, copy and paste this link into your browser:
+              </p>
+
+              <p style="margin: 0 0 32px 0; padding: 16px 18px; background-color: #f7f4ee; border: 1px solid #e5e2dc; border-radius: 12px; font-size: 13px; color: #42413d; line-height: 1.6; word-break: break-all;">
+                ${parsedMeetingUrl.toString()}
+              </p>
 
               <div style="border-top: 1px solid #f0ede8; padding-top: 24px;">
                 <p style="margin: 0; font-size: 14px; color: #a3a19c; line-height: 1.6;">
-                  If you need to reschedule, reply to this email and we will help you arrange a different time.
+                  If you need to reschedule, reply to this email and we will help you adjust the meeting time.
                 </p>
               </div>
             </td>
@@ -125,15 +103,15 @@ export async function POST(req: NextRequest) {
 
     const { error: emailError } = await supabase.functions.invoke('appslabs-email-sender', {
       body: {
-        to: normalizedEmail,
-        subject: `Reminder: Strategy Call in ${countdownStr}`,
+        to: email,
+        subject: 'Your Apps Labs Meeting Link',
         html: emailHtml,
       },
     })
 
     if (emailError) {
-      console.error('Failed to send reminder via edge function:', emailError)
-      throw new Error('Failed to send reminder email')
+      console.error('Failed to send meeting link via edge function:', emailError)
+      throw new Error('Failed to send meeting link email')
     }
 
     await supabase.from('appslabs_leads').update({ status: 'contacted' }).eq('id', leadId)
