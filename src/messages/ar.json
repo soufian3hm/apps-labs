@@ -134,6 +134,7 @@
     "modalTitle": "اختر وقتاً للمكالمة",
     "modalSubtitle": "اختر موعداً لمدة 30 دقيقة يناسبك.",
     "modalConfirm": "تأكيد وإرسال",
+    "modalSending": "جارٍ الإرسال...",
     "modalCancel": "إلغاء",
     "modalNoSlots": "لا توجد مواعيد متاحة اليوم"
   },

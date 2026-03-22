@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { SectionReveal } from './section-reveal';
 import { IconMail, IconUsers, IconLayers, IconSend, IconCheck } from './icons';
 import { event as trackEvent } from '@/components/pixel-provider';
+import { AppslabsSettings, normalizeAppslabsSettings } from '@/lib/appslabs-settings';
 
 const contactSchema = z.object({
   name: z.string().min(1),
@@ -25,7 +26,6 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const MEETING_DAY_WINDOW = 7;
-const MIN_BOOKING_NOTICE_MINUTES = 60;
 
 type MeetingSlot = {
   display: string;
@@ -33,23 +33,28 @@ type MeetingSlot = {
   value: string;
 };
 
-export function Contact() {
+export function Contact({ bookingSettings }: { bookingSettings?: AppslabsSettings | null }) {
   const t = useTranslations('contact');
   const locale = useLocale();
+  const settings = normalizeAppslabsSettings(bookingSettings || {});
   const [submitted, setSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState<ContactFormData | null>(null);
+  const [isFinalizing, setIsFinalizing] = useState(false);
+  const bookingStartHour = Math.min(settings.booking_start_hour, settings.booking_end_hour);
+  const bookingEndHour = Math.max(settings.booking_start_hour, settings.booking_end_hour);
+  const bookingSlotMinutes = settings.booking_slot_minutes;
   
   // Modal selection states
   const nextDays = useMemo(
     () =>
-      Array.from({ length: MEETING_DAY_WINDOW }, (_, i) => {
+      Array.from({ length: settings.booking_day_window || MEETING_DAY_WINDOW }, (_, i) => {
         const d = new Date();
         d.setHours(0, 0, 0, 0);
         d.setDate(d.getDate() + i);
         return d;
       }),
-    []
+    [settings.booking_day_window]
   );
   const [selectedDate, setSelectedDate] = useState<Date>(nextDays[0]);
   const [selectedSlotIso, setSelectedSlotIso] = useState<string | null>(null);
@@ -69,12 +74,13 @@ export function Contact() {
   };
 
   const onFinalize = async () => {
-    if (!formData || !selectedDate || !selectedSlotIso) return;
+    if (!formData || !selectedDate || !selectedSlotIso || isFinalizing) return;
 
     const selectedSlot = currentSlots.find((slot) => slot.iso === selectedSlotIso);
     if (!selectedSlot) return;
 
     try {
+      setIsFinalizing(true);
       const response = await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -85,6 +91,8 @@ export function Contact() {
           meeting_time_value: selectedSlot.value,
           meeting_timestamp: selectedSlot.iso,
           meeting_timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+          client_locale: locale,
+          source_label: 'website',
         })
       });
 
@@ -97,16 +105,20 @@ export function Contact() {
     } catch (err) {
       console.error(err);
       alert('Something went wrong submitting your request. Please try again.');
+    } finally {
+      setIsFinalizing(false);
     }
   };
 
   const generateTimeSlots = (date: Date): MeetingSlot[] => {
     const slots: MeetingSlot[] = [];
     const now = new Date();
-    const earliestAllowedTime = new Date(now.getTime() + MIN_BOOKING_NOTICE_MINUTES * 60 * 1000);
+    const earliestAllowedTime = new Date(now.getTime() + settings.booking_min_notice_minutes * 60 * 1000);
+    const lastSlotStartMinutes = bookingEndHour * 60 + Math.max(0, 60 - bookingSlotMinutes);
     
-    for (let h = 9; h <= 20; h++) {
-      for (const m of [0, 30]) {
+    for (let totalMinutes = bookingStartHour * 60; totalMinutes <= lastSlotStartMinutes; totalMinutes += bookingSlotMinutes) {
+      const h = Math.floor(totalMinutes / 60)
+      const m = totalMinutes % 60
         const slot = new Date(date);
         slot.setHours(h, m, 0, 0);
 
@@ -117,7 +129,6 @@ export function Contact() {
             value: `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`,
           });
         }
-      }
     }
     return slots;
   };
@@ -396,6 +407,7 @@ export function Contact() {
                     <button
                       key={i}
                       type="button"
+                      disabled={isFinalizing}
                       onClick={() => { setSelectedDate(d); setSelectedSlotIso(null); }}
                       className={`shrink-0 rounded-xl px-4 py-3 text-center transition-colors duration-200 min-w-[5rem] ${
                         isSelected ? 'bg-accent text-white' : 'bg-bg hover:bg-edge/50 text-fg-muted'
@@ -426,12 +438,13 @@ export function Contact() {
                         <button
                           key={slot.iso}
                           type="button"
+                          disabled={isFinalizing}
                           onClick={() => setSelectedSlotIso(slot.iso)}
                           className={`rounded-lg py-2.5 text-sm font-medium transition-all duration-200 border ${
                             isSelected 
                               ? 'border-accent bg-accent/10 text-accent' 
                               : 'border-edge bg-transparent text-fg hover:border-accent hover:text-accent'
-                          }`}
+                          } ${isFinalizing ? 'cursor-not-allowed opacity-60' : ''}`}
                         >
                           {slot.display}
                         </button>
@@ -445,7 +458,11 @@ export function Contact() {
               <div className="flex items-center justify-end gap-3 mt-8 pt-5 border-t border-edge/50">
                 <button
                   type="button"
-                  onClick={() => setShowModal(false)}
+                  onClick={() => {
+                    if (isFinalizing) return;
+                    setShowModal(false);
+                  }}
+                  disabled={isFinalizing}
                   className="px-5 py-2.5 rounded-full text-sm font-medium text-fg-muted hover:text-fg hover:bg-edge/30 transition-colors"
                 >
                   {t('modalCancel')}
@@ -453,10 +470,21 @@ export function Contact() {
                 <button
                   type="button"
                   onClick={onFinalize}
-                  disabled={!selectedSlotIso}
+                  disabled={!selectedSlotIso || isFinalizing}
                   className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-white hover:bg-accent-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {t('modalConfirm')}
+                  {isFinalizing ? (
+                    <>
+                      <motion.span
+                        animate={{ rotate: 360 }}
+                        transition={{ repeat: Infinity, duration: 0.9, ease: 'linear' }}
+                        className="inline-block h-4 w-4 rounded-full border-2 border-white/35 border-t-white"
+                      />
+                      {t('modalSending')}
+                    </>
+                  ) : (
+                    t('modalConfirm')
+                  )}
                 </button>
               </div>
             </motion.div>

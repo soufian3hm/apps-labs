@@ -2,41 +2,42 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useMemo, useState } from 'react'
 import { 
   IconLayoutDashboard, 
   IconSettings, 
-  IconUsers, 
   IconLogout, 
   IconLayers, 
   IconFileText,
   IconMenu2, 
   IconX 
 } from '@/components/icons'
-import { useState } from 'react'
+import { getAdminCopy } from '@/lib/appslabs-admin-copy'
 
-export function AdminSidebar({ user }: { user: any }) {
+export function AdminSidebar({ user, locale }: { user: any, locale: string }) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+  const copy = useMemo(() => getAdminCopy(locale), [locale])
 
   const navItems = [
     { 
-      label: 'Pipeline', 
-      href: '/en/admin', 
+      label: copy.sidebar.pipeline, 
+      href: `/${locale}/admin`, 
       icon: <IconLayoutDashboard size={20} /> 
     },
     { 
-      label: 'Smart Tasks', 
-      href: '/en/admin/tasks', 
+      label: copy.sidebar.tasks, 
+      href: `/${locale}/admin/tasks`, 
       icon: <IconFileText size={20} /> 
     },
     { 
-      label: 'Settings', 
-      href: '/en/admin/settings', 
+      label: copy.sidebar.settings, 
+      href: `/${locale}/admin/settings`, 
       icon: <IconSettings size={20} /> 
     },
     { 
-      label: 'Visit Site', 
-      href: '/en', 
+      label: copy.sidebar.visitSite, 
+      href: `/${locale}`, 
       icon: <IconLayers size={20} /> 
     }
   ]
@@ -48,7 +49,7 @@ export function AdminSidebar({ user }: { user: any }) {
     <>
       {/* Mobile Header */}
       <div className="lg:hidden flex items-center justify-between p-4 border-b border-edge bg-surface sticky top-0 z-50">
-        <Link href="/en/admin" className="font-display font-bold text-xl text-fg">Apps Labs</Link>
+        <Link href={`/${locale}/admin`} className="font-display font-bold text-xl text-fg">Apps Labs</Link>
         <button onClick={() => setIsOpen(!isOpen)} className="p-2 rounded-lg border border-edge">
           {isOpen ? <IconX size={24} /> : <IconMenu2 size={24} />}
         </button>
@@ -70,7 +71,7 @@ export function AdminSidebar({ user }: { user: any }) {
         <div className="flex flex-col h-full">
           {/* Logo */}
           <div className="p-8 border-b border-edge flex items-center justify-between">
-            <Link href="/en/admin" className="font-display font-bold text-2xl tracking-tight text-fg">
+            <Link href={`/${locale}/admin`} className="font-display font-bold text-2xl tracking-tight text-fg">
               Apps Labs
             </Link>
             <button className="lg:hidden" onClick={() => setIsOpen(false)}>
@@ -106,7 +107,7 @@ export function AdminSidebar({ user }: { user: any }) {
                 <p className="text-sm font-bold text-fg truncate">
                   {user?.email?.split('@')[0]}
                 </p>
-                <p className="text-xs text-fg-tertiary truncate">Administrator</p>
+                <p className="text-xs text-fg-tertiary truncate">{copy.sidebar.administrator}</p>
               </div>
             </div>
 
@@ -116,7 +117,7 @@ export function AdminSidebar({ user }: { user: any }) {
                 className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-red-500 hover:bg-red-500/10 font-medium transition-colors"
               >
                 <IconLogout size={20} />
-                Sign out
+                {copy.sidebar.signOut}
               </button>
             </form>
           </div>

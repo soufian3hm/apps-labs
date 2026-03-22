@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { format, formatDistanceToNow } from 'date-fns'
 import { motion, AnimatePresence } from 'motion/react'
+import { useLocale } from 'next-intl'
 import { createClient } from '@/utils/supabase/client'
 import {
   IconCheck,
@@ -14,6 +15,8 @@ import {
   IconPalette,
   IconX,
 } from '@/components/icons'
+import { formatMeetingDateTime, getSafeTimeZone } from '@/lib/appslabs-meetings'
+import { getAdminCopy } from '@/lib/appslabs-admin-copy'
 
 type Lead = {
   id: string
@@ -29,6 +32,7 @@ type Lead = {
   meeting_date: string
   meeting_time: string
   meeting_timestamp: string
+  meeting_timezone?: string | null
   status: string
   created_at: string
 }
@@ -63,10 +67,16 @@ export default function SmartTasksView({
   initialLogs: EmailLog[]
   initialTasks: SmartTask[]
 }) {
-  const supabase = createClient()
+  const locale = useLocale()
+  const copy = getAdminCopy(locale)
+  const supabase = useMemo(() => createClient(), [])
+  const adminTimeZone = useMemo(
+    () => getSafeTimeZone(Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'),
+    []
+  )
 
-  const [leads] = useState<Lead[]>(initialLeads)
-  const [logs] = useState<EmailLog[]>(initialLogs)
+  const [leads, setLeads] = useState<Lead[]>(initialLeads)
+  const [logs, setLogs] = useState<EmailLog[]>(initialLogs)
   const [tasks, setTasks] = useState<SmartTask[]>(initialTasks)
   const [selectedLeadId, setSelectedLeadId] = useState<string | null>(null)
   const [taskModalId, setTaskModalId] = useState<string | null>(null)
@@ -78,6 +88,37 @@ export default function SmartTasksView({
   const seededTaskLeadIds = useRef(new Set<string>())
   const initialTaskLeadIds = useRef(new Set(initialTasks.map((task) => task.lead_id)))
 
+  const getMeetingDisplay = (lead: Pick<Lead, 'meeting_timestamp' | 'meeting_timezone' | 'meeting_date' | 'meeting_time'>) => {
+    if (!lead.meeting_timestamp) {
+      return {
+        adminDateTime: `${lead.meeting_date} at ${lead.meeting_time}`,
+        clientDateTime: `${lead.meeting_date} at ${lead.meeting_time}`,
+        clientTimeZone: getSafeTimeZone(lead.meeting_timezone || 'UTC'),
+        showClientReference: Boolean(lead.meeting_timezone),
+      }
+    }
+
+    const meetingDate = new Date(lead.meeting_timestamp)
+
+    if (Number.isNaN(meetingDate.getTime())) {
+      return {
+        adminDateTime: `${lead.meeting_date} at ${lead.meeting_time}`,
+        clientDateTime: `${lead.meeting_date} at ${lead.meeting_time}`,
+        clientTimeZone: getSafeTimeZone(lead.meeting_timezone || 'UTC'),
+        showClientReference: Boolean(lead.meeting_timezone),
+      }
+    }
+
+    const clientTimeZone = getSafeTimeZone(lead.meeting_timezone || 'UTC')
+
+    return {
+      adminDateTime: formatMeetingDateTime(meetingDate, locale, adminTimeZone),
+      clientDateTime: formatMeetingDateTime(meetingDate, locale, clientTimeZone),
+      clientTimeZone,
+      showClientReference: clientTimeZone !== adminTimeZone,
+    }
+  }
+
   const nearestLead = useMemo(
     () =>
       [...leads]
@@ -85,6 +126,7 @@ export default function SmartTasksView({
         .sort((a, b) => new Date(a.meeting_timestamp).getTime() - new Date(b.meeting_timestamp).getTime())[0] || null,
     [leads]
   )
+  const nearestLeadDisplay = nearestLead ? getMeetingDisplay(nearestLead) : null
 
   const nearestLeadTasks = useMemo(() => {
     if (!nearestLead) return []
@@ -117,6 +159,55 @@ export default function SmartTasksView({
       })
     })
   }
+
+  useEffect(() => {
+    const channel = supabase
+      .channel('appslabs-smart-tasks-live')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'appslabs_leads' }, (payload: any) => {
+        if (payload.eventType === 'DELETE') {
+          setLeads((current) => current.filter((lead) => lead.id !== payload.old.id))
+          return
+        }
+
+        if (payload.new) {
+          setLeads((current) => {
+            const next = current.filter((lead) => lead.id !== payload.new.id)
+            return [payload.new as Lead, ...next].sort(
+              (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+            )
+          })
+        }
+      })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'appslabs_email_logs' }, (payload: any) => {
+        if (payload.eventType === 'DELETE') {
+          setLogs((current) => current.filter((log) => log.id !== payload.old.id))
+          return
+        }
+
+        if (payload.new) {
+          setLogs((current) => {
+            const next = current.filter((log) => log.id !== payload.new.id)
+            return [...next, payload.new as EmailLog]
+          })
+        }
+      })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'appslabs_smart_tasks' }, (payload: any) => {
+        if (payload.eventType === 'DELETE') {
+          setTasks((current) => current.filter((task) => task.id !== payload.old.id))
+          return
+        }
+
+        if (payload.new) {
+          mergeTasks([payload.new as SmartTask])
+        }
+      })
+
+    channel.subscribe()
+
+    return () => {
+      void supabase.removeChannel(channel)
+    }
+  }, [supabase])
 
   useEffect(() => {
     const pendingLeads = leads.filter((lead) => lead.status === 'pending')
@@ -283,7 +374,11 @@ export default function SmartTasksView({
                   <h2 className="mt-2 text-2xl font-bold text-fg">{nearestLead.name}</h2>
                   <p className="mt-2 text-sm font-semibold text-fg-muted">{nearestLead.project_type} | {nearestLead.budget}</p>
                   <div className="mt-4 rounded-2xl border border-edge bg-bg-alt/50 p-4">
-                    <p className="text-sm font-bold text-fg">{nearestLead.meeting_date} at {nearestLead.meeting_time}</p>
+                    <p className="text-sm font-bold text-fg">{nearestLeadDisplay?.adminDateTime}</p>
+                    <p className="mt-1 text-[11px] font-semibold text-fg-tertiary">
+                      {copy.dashboard.clientTimezone}: {nearestLeadDisplay?.clientTimeZone}
+                      {nearestLeadDisplay?.showClientReference ? ` | ${nearestLeadDisplay.clientDateTime}` : ''}
+                    </p>
                     <p className="mt-2 line-clamp-4 text-[13px] leading-6 text-fg-muted">{nearestLead.message}</p>
                   </div>
                 </div>
@@ -291,7 +386,7 @@ export default function SmartTasksView({
                 <div className="rounded-[26px] border border-edge bg-fg p-5 text-bg">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">Nearest Meet</p>
                   <p className="mt-3 text-3xl font-bold">{formatDistanceToNow(new Date(nearestLead.meeting_timestamp))}</p>
-                  <p className="mt-2 text-sm text-white/75">{format(new Date(nearestLead.meeting_timestamp), 'MMM d, yyyy p')}</p>
+                  <p className="mt-2 text-sm text-white/75">{nearestLeadDisplay?.adminDateTime}</p>
                   <div className="mt-5 rounded-2xl bg-white/10 p-4">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/70">Pending Tasks</p>
                     <p className="mt-2 text-2xl font-bold">{nearestLeadTasks.length}</p>
@@ -408,7 +503,11 @@ export default function SmartTasksView({
                 <div className="mt-4 space-y-3">
                   <div className="rounded-2xl border border-edge bg-bg-alt/50 p-3">
                     <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-fg-tertiary">Meeting</p>
-                    <p className="mt-2 text-sm font-bold text-fg">{nearestLead.meeting_date} at {nearestLead.meeting_time}</p>
+                    <p className="mt-2 text-sm font-bold text-fg">{nearestLeadDisplay?.adminDateTime}</p>
+                    <p className="mt-1 text-[11px] font-semibold text-fg-tertiary">
+                      {copy.dashboard.clientTimezone}: {nearestLeadDisplay?.clientTimeZone}
+                      {nearestLeadDisplay?.showClientReference ? ` | ${nearestLeadDisplay.clientDateTime}` : ''}
+                    </p>
                   </div>
                   <div className="grid grid-cols-2 gap-2">
                     <div className="rounded-2xl border border-edge bg-white p-3">
@@ -601,7 +700,11 @@ export default function SmartTasksView({
                   <div className="border-l border-edge bg-bg-alt/30 px-6 py-6">
                     <div className="rounded-[24px] border border-edge bg-white p-5">
                       <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-fg-tertiary">Meeting Context</p>
-                      <h4 className="mt-3 text-lg font-bold text-fg">{nearestLead.meeting_date} at {nearestLead.meeting_time}</h4>
+                      <h4 className="mt-3 text-lg font-bold text-fg">{nearestLeadDisplay?.adminDateTime}</h4>
+                      <p className="mt-1 text-[11px] font-semibold text-fg-tertiary">
+                        {copy.dashboard.clientTimezone}: {nearestLeadDisplay?.clientTimeZone}
+                        {nearestLeadDisplay?.showClientReference ? ` | ${nearestLeadDisplay.clientDateTime}` : ''}
+                      </p>
                       <p className="mt-2 text-sm text-fg-muted">Starts in {formatDistanceToNow(new Date(activeTask.due_at || nearestLead.meeting_timestamp))}</p>
                       <p className="mt-4 line-clamp-6 text-[13px] leading-6 text-fg-muted">{nearestLead.message}</p>
                       <button

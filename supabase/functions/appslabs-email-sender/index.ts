@@ -18,6 +18,10 @@ type AdminNotification = {
   message?: string
   meetingDate?: string
   meetingTime?: string
+  meetingTimezone?: string
+  clientMeetingDate?: string
+  clientMeetingTime?: string
+  clientMeetingTimezone?: string
 }
 
 function buildAdminLeadEmail(notification: AdminNotification) {
@@ -40,7 +44,7 @@ function buildAdminLeadEmail(notification: AdminNotification) {
           <tr>
             <td style="padding: 32px 40px 40px;">
               <p style="margin: 0 0 24px 0; font-size: 16px; color: #42413d; line-height: 1.6;">
-                ${notification.name || 'A visitor'} has submitted a lead and booked a discovery session for <strong style="color: #1a1a17;">${notification.meetingDate || 'Unknown date'} at ${notification.meetingTime || 'Unknown time'}</strong>.
+                ${notification.name || 'A visitor'} has submitted a lead and booked a discovery session for <strong style="color: #1a1a17;">${notification.meetingDate || 'Unknown date'} at ${notification.meetingTime || 'Unknown time'}</strong>${notification.meetingTimezone ? ` <span style="color: #8a867d; font-weight: 600;">(${notification.meetingTimezone})</span>` : ''}.
               </p>
 
               <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
@@ -70,7 +74,11 @@ function buildAdminLeadEmail(notification: AdminNotification) {
                 </tr>
                 <tr>
                   <td style="padding: 14px 0; border-top: 1px solid #f0ede8; font-size: 14px; color: #a66a2e; font-weight: 600;">Meeting</td>
-                  <td style="padding: 14px 0; border-top: 1px solid #f0ede8; font-size: 15px; color: #1a1a17;">${notification.meetingDate || 'Unknown date'} at ${notification.meetingTime || 'Unknown time'}</td>
+                  <td style="padding: 14px 0; border-top: 1px solid #f0ede8; font-size: 15px; color: #1a1a17;">${notification.meetingDate || 'Unknown date'} at ${notification.meetingTime || 'Unknown time'}${notification.meetingTimezone ? ` (${notification.meetingTimezone})` : ''}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 14px 0; border-top: 1px solid #f0ede8; font-size: 14px; color: #a66a2e; font-weight: 600;">Client Local Time</td>
+                  <td style="padding: 14px 0; border-top: 1px solid #f0ede8; font-size: 15px; color: #1a1a17;">${notification.clientMeetingDate || notification.meetingDate || 'Unknown date'} at ${notification.clientMeetingTime || notification.meetingTime || 'Unknown time'}${notification.clientMeetingTimezone ? ` (${notification.clientMeetingTimezone})` : ''}</td>
                 </tr>
                 <tr>
                   <td style="padding: 14px 0; border-top: 1px solid #f0ede8; border-bottom: 1px solid #f0ede8; font-size: 14px; color: #a66a2e; font-weight: 600; vertical-align: top;">Message</td>
@@ -95,7 +103,7 @@ serve(async (req) => {
   }
 
   try {
-    const { to, subject, html, adminNotification } = await req.json()
+    const { to, subject, html, adminNotification, adminNotificationEmail } = await req.json()
 
     // Create reusable transporter object using manual SMTP configuration
     // These keys must be set in your Supabase project Vault/Secrets
@@ -121,7 +129,7 @@ serve(async (req) => {
     if (adminNotification) {
       const adminInfo = await transporter.sendMail({
         from: '"Apps Labs" <hello@apps-labs.co>',
-        to: ADMIN_EMAIL,
+        to: adminNotificationEmail || ADMIN_EMAIL,
         subject: `New session booked by ${adminNotification.name || 'New lead'}`,
         html: buildAdminLeadEmail(adminNotification),
       })

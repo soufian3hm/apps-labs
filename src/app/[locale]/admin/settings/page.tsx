@@ -1,13 +1,21 @@
 import { createClient } from '@/utils/supabase/server'
 import { redirect } from 'next/navigation'
 import SettingsForm from './settings-form'
+import { getAdminCopy } from '@/lib/appslabs-admin-copy'
+import { normalizeAppslabsSettings } from '@/lib/appslabs-settings'
 
-export default async function AdminSettingsPage() {
+export default async function AdminSettingsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const copy = getAdminCopy(locale)
   const supabase = await createClient()
 
   // 1. Authenticate user
   const { data: { user } } = await supabase.auth.getUser()
-  if (!user) return redirect('/en/admin')
+  if (!user) return redirect(`/${locale}/admin`)
 
   // 2. Authorize role = admin
   const { data: profile } = await supabase
@@ -17,7 +25,7 @@ export default async function AdminSettingsPage() {
     .single()
 
   if (profile?.role !== 'admin') {
-    return redirect('/en/admin')
+    return redirect(`/${locale}/admin`)
   }
 
   // 3. Fetch current settings
@@ -27,5 +35,5 @@ export default async function AdminSettingsPage() {
     .eq('id', 1)
     .single()
 
-  return <SettingsForm initialSettings={settings || {}} />
+  return <SettingsForm initialSettings={normalizeAppslabsSettings(settings || {})} locale={locale} copy={copy} />
 }

@@ -8,8 +8,13 @@ import { Testimonials } from '@/components/testimonials';
 import { Faq } from '@/components/faq';
 import { Contact } from '@/components/contact';
 import { Footer } from '@/components/footer';
+import { createClient } from '@/utils/supabase/server';
+import { normalizeAppslabsSettings } from '@/lib/appslabs-settings';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const supabase = await createClient();
+  const { data: settings } = await supabase.from('appslabs_settings').select('*').eq('id', 1).single();
+
   return (
     <>
       <Header />
@@ -21,7 +26,7 @@ export default function HomePage() {
         <ProcessSection />
         <WhyChooseUs />
         <Faq />
-        <Contact />
+        <Contact bookingSettings={normalizeAppslabsSettings(settings || {})} />
       </main>
       <Footer />
     </>
