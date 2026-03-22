@@ -2,15 +2,22 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 // We removed Resend in favor of edge function
 
+const MIN_BOOKING_NOTICE_MS = 60 * 60 * 1000;
+
 export async function POST(req: NextRequest) {
   try {
     const data = await req.json()
     const supabase = await createClient()
 
-    // Parse meeting timestamp
-    const dateObj = new Date(data.meeting_raw_date)
-    const [hours, minutes] = data.meeting_time.split(':')
-    dateObj.setHours(parseInt(hours, 10), parseInt(minutes, 10), 0, 0)
+    const meetingTimestamp = new Date(data.meeting_timestamp)
+
+    if (Number.isNaN(meetingTimestamp.getTime())) {
+      return NextResponse.json({ error: 'Invalid meeting time selected.' }, { status: 400 })
+    }
+
+    if (meetingTimestamp.getTime() < Date.now() + MIN_BOOKING_NOTICE_MS) {
+      return NextResponse.json({ error: 'Please choose a meeting time at least one hour from now.' }, { status: 400 })
+    }
 
     // Insert into database
     const { data: lead, error } = await supabase
@@ -26,7 +33,7 @@ export async function POST(req: NextRequest) {
           message: data.message,
           meeting_date: data.meeting_date_str,
           meeting_time: data.meeting_time,
-          meeting_timestamp: dateObj.toISOString(),
+          meeting_timestamp: meetingTimestamp.toISOString(),
         }
       ])
       .select()
@@ -35,7 +42,7 @@ export async function POST(req: NextRequest) {
     if (error) throw error
 
     // Send confirmation email
-    const emailHtml = `
+    const confirmationEmailHtml = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,8 +66,8 @@ export async function POST(req: NextRequest) {
               <h2 style="margin: 0 0 24px 0; font-size: 28px; color: #1a1a17; font-family: Georgia, serif; font-weight: normal;">Request Received.</h2>
               
               <p style="margin: 0 0 24px 0; font-size: 16px; color: #42413d; line-height: 1.6;">
-                Hi \${data.name},<br/><br/>
-                Thank you for your interest! We have successfully received your project details and scheduled your discovery call for <strong style="color: #1a1a17;">\${data.meeting_date_str} at \${data.meeting_time}</strong>.
+                Hi ${data.name},<br/><br/>
+                Thank you for your interest! We have successfully received your project details and scheduled your discovery call for <strong style="color: #1a1a17;">${data.meeting_date_str} at ${data.meeting_time}</strong>.
               </p>
               
               <div style="background-color: #f5e6d3; border: 1px solid rgba(193, 127, 62, 0.2); border-radius: 12px; padding: 24px; margin-bottom: 32px;">
@@ -92,12 +99,22 @@ export async function POST(req: NextRequest) {
 </html>
     `
 
-    // Call out to Supabase Edge Function to deliver email manually via SMTP
-    const { data: emailData, error: emailError } = await supabase.functions.invoke('appslabs-email-sender', {
+    const { error: emailError } = await supabase.functions.invoke('appslabs-email-sender', {
       body: {
         to: data.email,
         subject: 'Your Strategy Call with Apps Labs is Scheduled',
-        html: emailHtml,
+        html: confirmationEmailHtml,
+        adminNotification: {
+          name: data.name,
+          company: data.company,
+          email: data.email,
+          whatsapp: data.whatsapp,
+          budget: data.budget,
+          projectType: data.projectType,
+          message: data.message,
+          meetingDate: data.meeting_date_str,
+          meetingTime: data.meeting_time,
+        },
       }
     })
 

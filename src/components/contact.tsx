@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -24,6 +24,15 @@ const contactSchema = z.object({
 
 type ContactFormData = z.infer<typeof contactSchema>;
 
+const MEETING_DAY_WINDOW = 7;
+const MIN_BOOKING_NOTICE_MINUTES = 60;
+
+type MeetingSlot = {
+  display: string;
+  iso: string;
+  value: string;
+};
+
 export function Contact() {
   const t = useTranslations('contact');
   const locale = useLocale();
@@ -32,13 +41,18 @@ export function Contact() {
   const [formData, setFormData] = useState<ContactFormData | null>(null);
   
   // Modal selection states
-  const next5Days = Array.from({ length: 5 }).map((_, i) => {
-    const d = new Date();
-    d.setDate(d.getDate() + i);
-    return d;
-  });
-  const [selectedDate, setSelectedDate] = useState<Date>(next5Days[0]);
-  const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const nextDays = useMemo(
+    () =>
+      Array.from({ length: MEETING_DAY_WINDOW }, (_, i) => {
+        const d = new Date();
+        d.setHours(0, 0, 0, 0);
+        d.setDate(d.getDate() + i);
+        return d;
+      }),
+    []
+  );
+  const [selectedDate, setSelectedDate] = useState<Date>(nextDays[0]);
+  const [selectedSlotIso, setSelectedSlotIso] = useState<string | null>(null);
 
   const {
     register,
@@ -55,7 +69,10 @@ export function Contact() {
   };
 
   const onFinalize = async () => {
-    if (!formData || !selectedDate || !selectedTime) return;
+    if (!formData || !selectedDate || !selectedSlotIso) return;
+
+    const selectedSlot = currentSlots.find((slot) => slot.iso === selectedSlotIso);
+    if (!selectedSlot) return;
 
     try {
       const response = await fetch('/api/leads', {
@@ -64,12 +81,15 @@ export function Contact() {
         body: JSON.stringify({
           ...formData,
           meeting_date_str: selectedDate.toLocaleDateString(locale, { weekday: 'short', month: 'short', day: 'numeric' }),
-          meeting_time: selectedTime,
-          meeting_raw_date: selectedDate.toISOString()
+          meeting_time: selectedSlot.display,
+          meeting_time_value: selectedSlot.value,
+          meeting_timestamp: selectedSlot.iso,
+          meeting_timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         })
       });
 
-      if (!response.ok) throw new Error('Submission failed');
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Submission failed');
 
       trackEvent('Lead', { currency: 'USD', value: 100.00 });
       setShowModal(false);
@@ -80,17 +100,22 @@ export function Contact() {
     }
   };
 
-  const generateTimeSlots = (date: Date) => {
-    const slots = [];
+  const generateTimeSlots = (date: Date): MeetingSlot[] => {
+    const slots: MeetingSlot[] = [];
     const now = new Date();
-    const isToday = date.toDateString() === now.toDateString();
+    const earliestAllowedTime = new Date(now.getTime() + MIN_BOOKING_NOTICE_MINUTES * 60 * 1000);
     
     for (let h = 9; h <= 20; h++) {
       for (const m of [0, 30]) {
         const slot = new Date(date);
         slot.setHours(h, m, 0, 0);
-        if (!isToday || slot > now) {
-          slots.push(slot.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' }));
+
+        if (slot.getTime() >= earliestAllowedTime.getTime()) {
+          slots.push({
+            display: slot.toLocaleTimeString(locale, { hour: '2-digit', minute: '2-digit' }),
+            iso: slot.toISOString(),
+            value: `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`,
+          });
         }
       }
     }
@@ -365,13 +390,13 @@ export function Contact() {
 
               {/* Day selector */}
               <div className="flex gap-3 overflow-x-auto pb-4 scrollbar-hide mb-2 border-b border-edge/50">
-                {next5Days.map((d, i) => {
+                {nextDays.map((d, i) => {
                   const isSelected = selectedDate.getTime() === d.getTime();
                   return (
                     <button
                       key={i}
                       type="button"
-                      onClick={() => { setSelectedDate(d); setSelectedTime(null); }}
+                      onClick={() => { setSelectedDate(d); setSelectedSlotIso(null); }}
                       className={`shrink-0 rounded-xl px-4 py-3 text-center transition-colors duration-200 min-w-[5rem] ${
                         isSelected ? 'bg-accent text-white' : 'bg-bg hover:bg-edge/50 text-fg-muted'
                       }`}
@@ -395,20 +420,20 @@ export function Contact() {
                   </div>
                 ) : (
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    {currentSlots.map(time => {
-                      const isSelected = selectedTime === time;
+                    {currentSlots.map((slot) => {
+                      const isSelected = selectedSlotIso === slot.iso;
                       return (
                         <button
-                          key={time}
+                          key={slot.iso}
                           type="button"
-                          onClick={() => setSelectedTime(time)}
+                          onClick={() => setSelectedSlotIso(slot.iso)}
                           className={`rounded-lg py-2.5 text-sm font-medium transition-all duration-200 border ${
                             isSelected 
                               ? 'border-accent bg-accent/10 text-accent' 
                               : 'border-edge bg-transparent text-fg hover:border-accent hover:text-accent'
                           }`}
                         >
-                          {time}
+                          {slot.display}
                         </button>
                       );
                     })}
@@ -428,7 +453,7 @@ export function Contact() {
                 <button
                   type="button"
                   onClick={onFinalize}
-                  disabled={!selectedTime}
+                  disabled={!selectedSlotIso}
                   className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-2.5 text-sm font-medium text-white hover:bg-accent-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {t('modalConfirm')}
