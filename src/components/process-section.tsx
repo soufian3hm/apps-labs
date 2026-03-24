@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { SectionReveal } from './section-reveal';
 
-const stepKeys = [1, 2, 3, 4] as const;
+const allStepKeys = [1, 2, 3, 4, 5] as const;
 
 export function ProcessSection() {
   const t = useTranslations('process');
@@ -28,12 +28,12 @@ export function ProcessSection() {
 
         <div className="relative">
           {/* Connection line (desktop) */}
-          <div className="hidden lg:block absolute top-16 left-0 right-0 h-px bg-edge" />
+          <div className="hidden xl:block absolute top-16 left-0 right-0 h-px bg-edge" />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
-            {stepKeys.map((num, i) => (
+          <div className="grid sm:grid-cols-2 xl:grid-cols-5 gap-8 xl:gap-0">
+            {allStepKeys.map((num, i) => (
               <SectionReveal key={num} delay={i * 0.12}>
-                <div className={`relative ${i > 0 ? 'lg:ps-10' : ''} ${i < 3 ? 'lg:pe-10' : ''}`}>
+                <div className={`relative ${i > 0 ? 'xl:ps-8' : ''} ${i < 4 ? 'xl:pe-8' : ''}`}>
                   {/* Step number */}
                   <div className="relative z-10 w-12 h-12 rounded-full border-2 border-edge bg-bg-alt flex items-center justify-center mb-6 lg:mb-8">
                     <span className="text-sm font-bold text-accent">
@@ -42,7 +42,7 @@ export function ProcessSection() {
                   </div>
 
                   {/* Connector dot on the line (desktop) */}
-                  <div className="hidden lg:block absolute top-[3.75rem] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-accent" />
+                  <div className="hidden xl:block absolute top-[3.75rem] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-accent" />
 
                   <h3 className="text-lg font-semibold text-fg mb-3">
                     {t(`step${num}Title`)}

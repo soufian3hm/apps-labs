@@ -67,7 +67,7 @@ export function Footer() {
 
             <div>
               <p className="text-sm font-semibold text-fg mb-4 uppercase tracking-wider">
-                Contact
+                {t('contact')}
               </p>
               <a
                 href="mailto:hello@apps-labs.co"

@@ -2,14 +2,14 @@
 
 import { useTranslations } from 'next-intl';
 import { SectionReveal } from './section-reveal';
-import { IconMessageCircle, IconLayers, IconPalette, IconShield } from './icons';
+import { IconLayers, IconZap, IconCode, IconLink } from './icons';
 import type { ReactNode } from 'react';
 
 const pointIcons: ReactNode[] = [
-  <IconMessageCircle key="msg" size={22} />,
   <IconLayers key="layers" size={22} />,
-  <IconPalette key="palette" size={22} />,
-  <IconShield key="shield" size={22} />,
+  <IconZap key="zap" size={22} />,
+  <IconCode key="code" size={22} />,
+  <IconLink key="link" size={22} />,
 ];
 
 const pointKeys = [1, 2, 3, 4] as const;

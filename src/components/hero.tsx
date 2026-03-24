@@ -228,12 +228,7 @@ function HeroVisual() {
 
 export function Hero() {
   const t = useTranslations('hero');
-
-  const supportPoints = [
-    { title: t('forEveryoneTitle'), desc: t('forEveryoneDesc') },
-    { title: t('anythingWebTitle'), desc: t('anythingWebDesc') },
-    { title: t('builtToLaunchTitle'), desc: t('builtToLaunchDesc') },
-  ];
+  const supportPointKeys = [1, 2, 3, 4] as const;
 
   return (
     <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
@@ -264,7 +259,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-fg-muted text-lg leading-relaxed max-w-xl mb-10"
+              className="text-fg-muted text-lg leading-relaxed max-w-xl mb-8"
             >
               {t('description')}
             </motion.p>
@@ -273,7 +268,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-wrap gap-4 mb-16"
+              className="flex flex-wrap gap-4 mb-8"
             >
               <a
                 href="#contact"
@@ -286,7 +281,7 @@ export function Hero() {
                 />
               </a>
               <a
-                href="#projects"
+                href="#services"
                 className="group inline-flex items-center gap-2.5 rounded-full border border-edge px-7 py-3.5 text-sm font-medium text-fg hover:border-fg transition-colors duration-200"
               >
                 {t('cta2')}
@@ -297,22 +292,16 @@ export function Hero() {
               </a>
             </motion.div>
 
-            {/* Support points */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="grid sm:grid-cols-3 gap-6 sm:gap-0 sm:divide-x rtl:sm:divide-x-reverse divide-edge"
+              className="grid sm:grid-cols-2 gap-3 max-w-2xl"
             >
-              {supportPoints.map((point, i) => (
-                <div
-                  key={i}
-                  className={`${i > 0 ? 'sm:ps-6' : ''} ${
-                    i < supportPoints.length - 1 ? 'sm:pe-6' : ''
-                  }`}
-                >
-                  <p className="text-sm font-semibold text-fg mb-1">{point.title}</p>
-                  <p className="text-sm text-fg-muted leading-relaxed">{point.desc}</p>
+              {supportPointKeys.map((num) => (
+                <div key={num} className="flex items-center gap-2.5 text-sm text-fg-muted">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                  <span>{t(`point${num}Title`)}</span>
                 </div>
               ))}
             </motion.div>

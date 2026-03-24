@@ -8,7 +8,6 @@ import { routing } from '@/i18n/routing';
 import { ThemeProvider } from '@/components/theme-provider';
 import { createClient } from '@/utils/supabase/server';
 import Script from 'next/script';
-import '@/app/globals.css';
 
 const instrumentSerif = Instrument_Serif({
   weight: '400',
@@ -69,49 +68,46 @@ export default async function LocaleLayout({ children, params }: Props) {
   const pixelId = settings?.fb_pixel_id || null;
 
   return (
-    <html
+    <div
       lang={locale}
       dir={isArabic ? 'rtl' : 'ltr'}
-      className={`${instrumentSerif.variable} ${plusJakarta.variable} ${amiri.variable} ${ibmPlexArabic.variable}`}
-      suppressHydrationWarning
+      className={`${instrumentSerif.variable} ${plusJakarta.variable} ${amiri.variable} ${ibmPlexArabic.variable} min-h-screen font-sans`}
     >
-      <body className="bg-bg text-fg antialiased">
-        {pixelId && (
-          <>
-            <Script
-              id="fb-pixel"
-              strategy="afterInteractive"
-              dangerouslySetInnerHTML={{
-                __html: `
-                  !function(f,b,e,v,n,t,s)
-                  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                  n.queue=[];t=b.createElement(e);t.async=!0;
-                  t.src=v;s=b.getElementsByTagName(e)[0];
-                  s.parentNode.insertBefore(t,s)}(window, document,'script',
-                  'https://connect.facebook.net/en_US/fbevents.js');
-                  fbq('init', '${pixelId}');
-                  fbq('track', 'PageView');
-                `,
-              }}
+      {pixelId && (
+        <>
+          <Script
+            id="fb-pixel"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '${pixelId}');
+                fbq('track', 'PageView');
+              `,
+            }}
+          />
+          <noscript>
+            <img
+              height="1"
+              width="1"
+              style={{ display: 'none' }}
+              src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
             />
-            <noscript>
-              <img
-                height="1"
-                width="1"
-                style={{ display: 'none' }}
-                src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
-              />
-            </noscript>
-          </>
-        )}
-        <ThemeProvider>
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+          </noscript>
+        </>
+      )}
+      <ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
+      </ThemeProvider>
+    </div>
   );
 }

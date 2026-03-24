@@ -52,12 +52,10 @@ export default async function AdminLayout({
 
   // Admin and Authenticated
   return (
-    <div className="flex min-h-screen bg-bg">
-      {/* Sidebar - Desktop Always visible / Fixed */}
+    <div className="flex min-h-screen w-full max-w-full overflow-x-hidden bg-bg">
       <AdminSidebar user={user} locale={locale} />
       
-      {/* Main Content Area */}
-      <main className="flex-1 lg:ml-64 p-6 lg:p-10 transition-all">
+      <main className="min-w-0 flex-1 overflow-x-hidden px-4 pb-28 pt-20 transition-all lg:ml-64 lg:p-10">
         {children}
       </main>
     </div>

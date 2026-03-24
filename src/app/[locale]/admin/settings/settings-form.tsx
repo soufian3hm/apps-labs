@@ -70,27 +70,27 @@ export default function SettingsForm({
     'w-full rounded-xl border border-edge bg-bg px-4 py-3 text-sm text-fg placeholder-fg-tertiary focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-200'
 
   return (
-    <div className="min-h-screen bg-bg text-fg p-6 lg:p-12">
-      <div className="mx-auto max-w-[920px]">
-        <div className="mb-10 border-b border-edge pb-6">
-          <div className="flex flex-wrap items-center justify-between gap-4">
+    <div className="text-fg">
+      <div className="mx-auto max-w-[920px] pb-32 lg:pb-0">
+        <div className="mb-5 rounded-[28px] border border-edge/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,244,238,0.98))] p-4 shadow-[0_24px_60px_rgba(0,0,0,0.05)] lg:mb-10 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:pb-6 lg:shadow-none">
+          <div className="flex flex-col gap-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-between">
             <div>
               <h1 className="font-display text-3xl font-bold">{copy.pages.settingsTitle}</h1>
               <p className="mt-2 max-w-2xl text-sm text-fg-muted">{copy.pages.settingsSubtitle}</p>
             </div>
             <Link
               href={`/${locale}/admin`}
-              className="rounded-lg border border-edge bg-surface px-4 py-2 text-sm font-medium transition-colors hover:text-accent"
+              className="inline-flex w-full items-center justify-center rounded-2xl border border-edge bg-surface px-4 py-3 text-sm font-medium transition-colors hover:text-accent lg:w-auto lg:rounded-lg lg:py-2"
             >
               &larr; {copy.pages.backToPipeline}
             </Link>
           </div>
         </div>
 
-        <form onSubmit={handleSave} className="space-y-8">
-          <section className="rounded-2xl border border-edge bg-surface p-8 shadow-sm">
+        <form id="admin-settings-form" onSubmit={handleSave} className="space-y-5 lg:space-y-8">
+          <section className="rounded-[28px] border border-edge bg-surface p-5 shadow-sm lg:rounded-2xl lg:p-8">
             <h2 className="text-xl font-semibold">{copy.settings.bookingTitle}</h2>
-            <div className="mt-6 grid gap-5 md:grid-cols-2">
+            <div className="mt-5 grid gap-4 md:grid-cols-2 lg:mt-6 lg:gap-5">
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-fg mb-1.5" htmlFor="adminNotificationEmail">
                   {copy.settings.adminEmail}
@@ -212,10 +212,10 @@ export default function SettingsForm({
             </div>
           </section>
 
-          <section className="rounded-2xl border border-edge bg-surface p-8 shadow-sm">
+          <section className="rounded-[28px] border border-edge bg-surface p-5 shadow-sm lg:rounded-2xl lg:p-8">
             <h2 className="text-xl font-semibold">{copy.settings.marketingTitle}</h2>
 
-            <div className="mt-6 space-y-6">
+            <div className="mt-5 space-y-5 lg:mt-6 lg:space-y-6">
               <div>
                 <label className="block text-sm font-medium text-fg mb-1.5" htmlFor="fbPixelId">
                   {copy.settings.pixelId}
@@ -250,11 +250,22 @@ export default function SettingsForm({
           <button
             type="submit"
             disabled={saving}
-            className="rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover disabled:opacity-50"
+            className="hidden rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover disabled:opacity-50 lg:inline-flex"
           >
             {saving ? copy.pages.savingSettings : copy.pages.saveSettings}
           </button>
         </form>
+      </div>
+
+      <div className="fixed inset-x-4 bottom-[calc(env(safe-area-inset-bottom)+5.25rem)] z-40 lg:hidden">
+        <button
+          type="submit"
+          form="admin-settings-form"
+          disabled={saving}
+          className="w-full rounded-[22px] bg-accent px-6 py-4 text-sm font-bold text-white shadow-[0_18px_40px_rgba(0,0,0,0.14)] transition-colors hover:bg-accent-hover disabled:opacity-50"
+        >
+          {saving ? copy.pages.savingSettings : copy.pages.saveSettings}
+        </button>
       </div>
     </div>
   )

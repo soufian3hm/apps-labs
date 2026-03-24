@@ -2,17 +2,26 @@
 
 import { useTranslations } from 'next-intl';
 import { SectionReveal } from './section-reveal';
-import { IconGlobe, IconCode, IconGrid, IconCpu } from './icons';
+import {
+  IconGlobe,
+  IconCode,
+  IconLayoutDashboard,
+  IconCpu,
+  IconFileText,
+  IconLayers,
+} from './icons';
 import type { ReactNode } from 'react';
 
 const serviceIcons: Record<string, ReactNode> = {
-  websites: <IconGlobe size={24} />,
-  webApps: <IconCode size={24} />,
-  internalTools: <IconGrid size={24} />,
-  aiProjects: <IconCpu size={24} />,
+  commerce: <IconGlobe size={24} />,
+  platforms: <IconCode size={24} />,
+  operations: <IconLayoutDashboard size={24} />,
+  automation: <IconCpu size={24} />,
+  content: <IconFileText size={24} />,
+  experiences: <IconLayers size={24} />,
 };
 
-const serviceKeys = ['websites', 'webApps', 'internalTools', 'aiProjects'] as const;
+const serviceKeys = ['commerce', 'platforms', 'operations', 'automation', 'content', 'experiences'] as const;
 
 export function Services() {
   const t = useTranslations('services');
@@ -39,9 +48,9 @@ export function Services() {
           </div>
         </SectionReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-edge rounded-2xl overflow-hidden border border-edge">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-px bg-edge rounded-2xl overflow-hidden border border-edge">
           {serviceKeys.map((key, i) => {
-            const items = t(`${key}Items`).split(',');
+            const items = t(`${key}Items`).split('|');
             return (
               <SectionReveal key={key} delay={i * 0.1}>
                 <div className="bg-bg-alt p-8 lg:p-10 h-full group hover:bg-surface transition-colors duration-300">
@@ -51,6 +60,9 @@ export function Services() {
                   <h3 className="text-lg font-semibold text-fg mb-4">
                     {t(`${key}Title`)}
                   </h3>
+                  <p className="text-sm text-fg-muted leading-relaxed mb-5">
+                    {t(`${key}Desc`)}
+                  </p>
                   <ul className="space-y-2.5">
                     {items.map((item, j) => (
                       <li

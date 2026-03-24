@@ -285,3 +285,14 @@ export function IconFileText({ size, ...props }: IconProps) {
     </svg>
   );
 }
+
+export function IconReceipt({ size, ...props }: IconProps) {
+  return (
+    <svg {...defaults(size)} {...props}>
+      <path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z" />
+      <line x1="9" y1="8" x2="15" y2="8" />
+      <line x1="9" y1="12" x2="15" y2="12" />
+      <line x1="9" y1="16" x2="13" y2="16" />
+    </svg>
+  );
+}

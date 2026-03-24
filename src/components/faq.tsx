@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { SectionReveal } from './section-reveal';
 import { IconChevronDown } from './icons';
 
-const faqKeys = [1, 2, 3, 4, 5] as const;
+const faqKeys = [1, 2, 3, 4, 5, 6, 7, 8] as const;
 
 function FaqItem({
   question,
@@ -73,6 +73,9 @@ export function Faq() {
               <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight text-fg">
                 {t('title')}
               </h2>
+              <p className="text-fg-muted text-lg leading-relaxed mt-5 max-w-md">
+                {t('description')}
+              </p>
             </div>
           </SectionReveal>
 

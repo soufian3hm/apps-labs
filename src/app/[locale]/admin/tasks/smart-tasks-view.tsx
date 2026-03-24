@@ -351,8 +351,157 @@ export default function SmartTasksView({
   }
 
   return (
-    <div className="min-h-[calc(100vh-5rem)]">
-      <div className="grid min-h-[calc(100vh-6rem)] gap-5 xl:grid-cols-[minmax(0,1.25fr)_390px]">
+    <div className="min-h-full">
+      <div className="space-y-4 lg:hidden">
+        <section className="rounded-[28px] border border-edge/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,244,238,0.98))] p-4 shadow-[0_24px_60px_rgba(0,0,0,0.06)]">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-accent">Smart Tasks</p>
+          <h1 className="mt-3 text-2xl font-bold text-fg">Meeting Preparation Workspace</h1>
+          <p className="mt-2 text-sm leading-6 text-fg-muted">
+            This mobile view stays locked on the nearest meeting so prep, notes, and lead context remain usable on one screen.
+          </p>
+        </section>
+
+        {!nearestLead || !nearestLeadDisplay ? (
+          <section className="rounded-[28px] border border-dashed border-edge bg-bg-alt/30 p-6 text-sm text-fg-muted">
+            No upcoming meeting found yet, so there is no active smart task list to prepare.
+          </section>
+        ) : (
+          <>
+            <section className="rounded-[28px] border border-edge/70 bg-fg p-4 text-bg shadow-[0_24px_60px_rgba(0,0,0,0.08)]">
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/60">{nearestLead.company || 'Direct Lead'}</p>
+                  <h2 className="mt-2 text-xl font-bold text-white">{nearestLead.name}</h2>
+                  <p className="mt-1 text-xs font-semibold text-white/70">{nearestLead.project_type} | {nearestLead.budget}</p>
+                </div>
+                <div className="rounded-2xl bg-white/10 px-3 py-2 text-right">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/60">Pending</p>
+                  <p className="mt-1 text-2xl font-bold text-white">{nearestLeadTasks.length}</p>
+                </div>
+              </div>
+
+              <div className="mt-4 rounded-[24px] border border-white/10 bg-white/10 p-4">
+                <p className="text-sm font-bold text-white">{nearestLeadDisplay.adminDateTime}</p>
+                <p className="mt-1 text-[11px] font-semibold text-white/70">
+                  {copy.dashboard.clientTimezone}: {nearestLeadDisplay.clientTimeZone}
+                  {nearestLeadDisplay.showClientReference ? ` | ${nearestLeadDisplay.clientDateTime}` : ''}
+                </p>
+                <p className="mt-3 text-sm text-white/75">Starts in {formatDistanceToNow(new Date(nearestLead.meeting_timestamp))}</p>
+              </div>
+
+              <button
+                onClick={() => setSelectedLeadId(nearestLead.id)}
+                className="mt-4 w-full rounded-2xl bg-white px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-fg"
+              >
+                SEE FULL DETAILS
+              </button>
+            </section>
+
+            <section className="rounded-[28px] border border-edge bg-white/90 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.04)]">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-fg-tertiary">Add New Task</p>
+              <div className="mt-4 space-y-3">
+                <input
+                  value={newTaskTitle}
+                  onChange={(e) => setNewTaskTitle(e.target.value)}
+                  placeholder="Task title"
+                  className="rounded-2xl border border-edge bg-bg-alt/60 px-4 py-3 text-sm text-fg focus:outline-none focus:ring-1 focus:ring-accent"
+                />
+                <input
+                  value={newTaskDetails}
+                  onChange={(e) => setNewTaskDetails(e.target.value)}
+                  placeholder="Short overview or what to prepare"
+                  className="rounded-2xl border border-edge bg-bg-alt/60 px-4 py-3 text-sm text-fg focus:outline-none focus:ring-1 focus:ring-accent"
+                />
+                <button
+                  onClick={handleAddTask}
+                  disabled={savingTaskId === 'new-task'}
+                  className="w-full rounded-2xl bg-accent px-4 py-3 text-[11px] font-semibold tracking-[0.18em] text-white"
+                >
+                  {savingTaskId === 'new-task' ? 'ADDING...' : 'ADD TASK'}
+                </button>
+              </div>
+            </section>
+
+            <section className="space-y-3">
+              {nearestLeadTasks.length === 0 ? (
+                <div className="rounded-[28px] border border-dashed border-edge bg-bg-alt/30 p-6 text-sm text-fg-muted">
+                  No pending tasks remain for the nearest meeting.
+                </div>
+              ) : (
+                nearestLeadTasks.map((task) => {
+                  const countdownTarget = task.due_at || nearestLead.meeting_timestamp
+                  return (
+                    <div key={task.id} className="rounded-[26px] border border-edge bg-white/95 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.04)]">
+                      <div className="flex items-start gap-3">
+                        <button
+                          onClick={() => handleToggleTask(task)}
+                          disabled={savingTaskId === task.id}
+                          className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent text-accent transition-colors hover:bg-accent hover:text-white"
+                        >
+                          <IconCheck size={15} />
+                        </button>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-start justify-between gap-3">
+                            <div>
+                              <h3 className="text-base font-bold text-fg">{task.title}</h3>
+                              <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-accent">
+                                Due in {countdownTarget ? formatDistanceToNow(new Date(countdownTarget)) : 'Soon'}
+                              </p>
+                            </div>
+                            <button
+                              onClick={() => handleDeleteTask(task.id)}
+                              disabled={savingTaskId === task.id}
+                              className="rounded-xl border border-edge px-3 py-2 text-[10px] font-semibold tracking-[0.16em] text-fg-tertiary hover:bg-bg-alt"
+                            >
+                              DELETE
+                            </button>
+                          </div>
+
+                          <p className="mt-3 line-clamp-3 text-[13px] leading-6 text-fg-muted">
+                            {task.details || 'No overview added yet. Open the workspace to write the full call brief, summary, or client-facing preparation notes.'}
+                          </p>
+
+                          <div className="mt-4 grid grid-cols-2 gap-2">
+                            <button
+                              onClick={() => openTaskModal(task)}
+                              className="rounded-2xl bg-fg px-4 py-3 text-[10px] font-semibold tracking-[0.18em] text-bg"
+                            >
+                              OPEN WORKSPACE
+                            </button>
+                            <button
+                              onClick={() => setSelectedLeadId(nearestLead.id)}
+                              className="rounded-2xl border border-edge bg-white px-4 py-3 text-[10px] font-semibold tracking-[0.18em] text-fg"
+                            >
+                              SEE DETAILS
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })
+              )}
+            </section>
+
+            <section className="rounded-[28px] border border-edge bg-white/90 p-4 shadow-[0_16px_40px_rgba(0,0,0,0.04)]">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-accent">Lead Brief</p>
+              <p className="mt-3 line-clamp-5 text-[13px] leading-6 text-fg-muted">{nearestLead.message}</p>
+              <div className="mt-4 grid grid-cols-2 gap-2">
+                <div className="rounded-2xl bg-bg-alt/60 p-3">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-fg-tertiary">Reminders</p>
+                  <p className="mt-2 text-xl font-bold text-fg">{getLogStats(nearestLead.id).reminders}</p>
+                </div>
+                <div className="rounded-2xl bg-bg-alt/60 p-3">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-fg-tertiary">Links</p>
+                  <p className="mt-2 text-xl font-bold text-fg">{getLogStats(nearestLead.id).links}</p>
+                </div>
+              </div>
+            </section>
+          </>
+        )}
+      </div>
+
+      <div className="hidden min-h-[calc(100vh-6rem)] gap-5 lg:grid xl:grid-cols-[minmax(0,1.25fr)_390px]">
         <section className="min-w-0 rounded-[30px] border border-edge/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(247,244,238,0.98))] p-6 shadow-[0_24px_60px_rgba(0,0,0,0.06)]">
           <div className="border-b border-edge/70 pb-5">
             <p className="text-[10px] font-semibold uppercase tracking-[0.26em] text-accent">Smart Tasks</p>
@@ -580,23 +729,23 @@ export default function SmartTasksView({
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed bottom-0 right-0 top-0 z-[101] flex w-full max-w-lg flex-col border-l border-edge bg-surface pt-20 shadow-[-20px_0_50px_rgba(0,0,0,0.1)]"
+              className="fixed inset-0 z-[101] flex w-full flex-col bg-surface pt-16 shadow-[-20px_0_50px_rgba(0,0,0,0.1)] lg:bottom-0 lg:left-auto lg:right-0 lg:top-0 lg:max-w-lg lg:border-l lg:pt-20"
             >
-              <button onClick={() => setSelectedLeadId(null)} className="absolute left-8 top-8 rounded-full p-3 text-fg-muted hover:bg-bg-alt">
+              <button onClick={() => setSelectedLeadId(null)} className="absolute left-4 top-4 rounded-full p-3 text-fg-muted hover:bg-bg-alt lg:left-8 lg:top-8">
                 <IconX size={24} />
               </button>
 
-              <div className="custom-scrollbar flex-1 overflow-y-auto px-12 pb-12">
+              <div className="custom-scrollbar flex-1 overflow-y-auto px-4 pb-28 lg:px-12 lg:pb-12">
                 <div className="mb-12">
                   <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">{selectedLead.company || 'Individual Client'}</p>
-                  <h2 className="mb-4 text-4xl font-bold leading-tight text-fg">{selectedLead.name}</h2>
+                  <h2 className="mb-4 text-3xl font-bold leading-tight text-fg lg:text-4xl">{selectedLead.name}</h2>
                   <div className="flex flex-wrap gap-4 text-sm font-medium text-fg-muted">
                     <a href={`mailto:${selectedLead.email}`} className="flex items-center gap-2 hover:text-accent"><IconMail size={16} /> {selectedLead.email}</a>
                     <a href={`https://wa.me/${selectedLead.whatsapp.replace(/\D/g, '')}`} target="_blank" className="flex items-center gap-2 hover:text-accent"><IconMessageCircle size={16} /> {selectedLead.whatsapp}</a>
                   </div>
                 </div>
 
-                <div className="mb-16 grid grid-cols-2 gap-8">
+                <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:gap-8">
                   <div>
                     <p className="mb-2 text-[10px] font-semibold uppercase tracking-widest text-fg-tertiary">Project Type</p>
                     <div className="flex items-center gap-2 font-bold text-fg">
@@ -668,10 +817,10 @@ export default function SmartTasksView({
               initial={{ opacity: 0, y: 18, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 18, scale: 0.98 }}
-              className="fixed inset-4 z-[111] rounded-[32px] border border-edge bg-surface shadow-[0_30px_80px_rgba(0,0,0,0.18)]"
+              className="fixed inset-0 z-[111] rounded-none border border-edge bg-surface shadow-[0_30px_80px_rgba(0,0,0,0.18)] lg:inset-4 lg:rounded-[32px]"
             >
               <div className="flex h-full min-h-0 flex-col">
-                <div className="flex items-center justify-between border-b border-edge px-6 py-5">
+                <div className="flex items-center justify-between border-b border-edge px-4 py-4 lg:px-6 lg:py-5">
                   <div>
                     <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">{nearestLead.name}</p>
                     <h3 className="mt-2 text-2xl font-bold text-fg">Task Workspace</h3>
@@ -682,7 +831,7 @@ export default function SmartTasksView({
                 </div>
 
                 <div className="grid min-h-0 flex-1 gap-0 xl:grid-cols-[minmax(0,1fr)_320px]">
-                  <div className="custom-scrollbar min-h-0 overflow-y-auto px-6 py-6">
+                  <div className="custom-scrollbar min-h-0 overflow-y-auto px-4 py-4 lg:px-6 lg:py-6">
                     <input
                       value={taskModalTitle}
                       onChange={(e) => setTaskModalTitle(e.target.value)}
@@ -693,11 +842,11 @@ export default function SmartTasksView({
                       value={taskModalDetails}
                       onChange={(e) => setTaskModalDetails(e.target.value)}
                       placeholder="Add the full overview, analysis, talking points, summary, or client-facing notes here."
-                      className="mt-4 h-[calc(100vh-280px)] min-h-[320px] w-full resize-none rounded-[24px] border border-edge bg-white px-5 py-5 text-sm leading-7 text-fg focus:outline-none focus:ring-1 focus:ring-accent custom-scrollbar"
+                      className="mt-4 h-[42vh] min-h-[260px] w-full resize-none rounded-[24px] border border-edge bg-white px-5 py-5 text-sm leading-7 text-fg focus:outline-none focus:ring-1 focus:ring-accent custom-scrollbar lg:h-[calc(100vh-280px)] lg:min-h-[320px]"
                     />
                   </div>
 
-                  <div className="border-l border-edge bg-bg-alt/30 px-6 py-6">
+                  <div className="border-t border-edge bg-bg-alt/30 px-4 py-4 lg:border-l lg:border-t-0 lg:px-6 lg:py-6">
                     <div className="rounded-[24px] border border-edge bg-white p-5">
                       <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-fg-tertiary">Meeting Context</p>
                       <h4 className="mt-3 text-lg font-bold text-fg">{nearestLeadDisplay?.adminDateTime}</h4>

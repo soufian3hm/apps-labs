@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/utils/supabase/server'
 import { formatMeetingStrings, getSafeTimeZone } from '@/lib/appslabs-meetings'
 import { getLeadLanguage, normalizeLeadLocaleCode } from '@/lib/appslabs-lead-locale'
+import { sendMetaLeadEvent } from '@/lib/appslabs-meta'
 // We removed Resend in favor of edge function
 
 const MIN_BOOKING_NOTICE_MS = 60 * 60 * 1000;
@@ -101,7 +102,7 @@ export async function POST(req: NextRequest) {
     const supabase = await createClient()
     const { data: settings } = await supabase
       .from('appslabs_settings')
-      .select('admin_notification_email, booking_timezone')
+      .select('admin_notification_email, booking_timezone, fb_pixel_id, fb_pixel_token')
       .eq('id', 1)
       .single()
 
@@ -155,33 +156,66 @@ export async function POST(req: NextRequest) {
       localeCode: clientLocaleCode,
     })
 
-    const { error: emailError } = await supabase.functions.invoke('appslabs-email-sender', {
-      body: {
-        to: data.email,
-        subject: confirmationEmail.subject,
-        html: confirmationEmail.html,
-        adminNotificationEmail: settings?.admin_notification_email || undefined,
-        adminNotification: {
-          name: data.name,
-          company: data.company,
-          email: data.email,
-          whatsapp: data.whatsapp,
-          budget: data.budget,
-          projectType: data.projectType,
-          message: data.message,
-          meetingDate: formattedAdminMeeting.meetingDate,
-          meetingTime: formattedAdminMeeting.meetingTime,
-          meetingTimezone: adminMeetingTimeZone,
-          clientMeetingDate: formattedMeeting.meetingDate,
-          clientMeetingTime: formattedMeeting.meetingTime,
-          clientMeetingTimezone: meetingTimeZone,
-        },
-      }
-    })
+    const metaEventId =
+      typeof data.meta_event_id === 'string' && data.meta_event_id.trim()
+        ? data.meta_event_id.trim()
+        : `appslabs-lead-${lead.id}`
 
-    if (emailError) {
-      console.error('Edge Function Email Delivery failed:', emailError)
+    const tasks = [
+      supabase.functions.invoke('appslabs-email-sender', {
+        body: {
+          to: data.email,
+          subject: confirmationEmail.subject,
+          html: confirmationEmail.html,
+          adminNotificationEmail: settings?.admin_notification_email || undefined,
+          adminNotification: {
+            name: data.name,
+            company: data.company,
+            email: data.email,
+            whatsapp: data.whatsapp,
+            budget: data.budget,
+            projectType: data.projectType,
+            message: data.message,
+            meetingDate: formattedAdminMeeting.meetingDate,
+            meetingTime: formattedAdminMeeting.meetingTime,
+            meetingTimezone: adminMeetingTimeZone,
+            clientMeetingDate: formattedMeeting.meetingDate,
+            clientMeetingTime: formattedMeeting.meetingTime,
+            clientMeetingTimezone: meetingTimeZone,
+          },
+        }
+      }).then(({ error: emailError }) => {
+        if (emailError) {
+          console.error('Edge Function Email Delivery failed:', emailError)
+        }
+      }),
+    ]
+
+    const metaPixelId = settings?.fb_pixel_id?.trim()
+    const metaAccessToken = settings?.fb_pixel_token?.trim()
+
+    if (metaPixelId && metaAccessToken) {
+      tasks.push(
+        sendMetaLeadEvent({
+          pixelId: metaPixelId,
+          accessToken: metaAccessToken,
+          eventId: metaEventId,
+          sourceUrl: typeof data.source_url === 'string' ? data.source_url : req.headers.get('referer'),
+          email: data.email,
+          phone: data.whatsapp,
+          name: data.name,
+          externalId: lead.id,
+          projectType: data.projectType,
+          budget: data.budget,
+          headers: req.headers,
+          cookies: req.cookies,
+        }).catch((metaError) => {
+          console.error('Meta CAPI lead tracking failed:', metaError)
+        })
+      )
     }
+
+    await Promise.allSettled(tasks)
 
     return NextResponse.json({ success: true, lead })
   } catch (error: any) {

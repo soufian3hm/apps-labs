@@ -12,9 +12,13 @@ export const pageview = () => {
 }
 
 // Custom events
-export const event = (name: string, options = {}) => {
+export const event = (
+  name: string,
+  params: Record<string, unknown> = {},
+  trackingOptions: Record<string, unknown> = {}
+) => {
   if (typeof window !== 'undefined' && (window as any).fbq) {
-    (window as any).fbq('track', name, options)
+    ;(window as any).fbq('track', name, params, trackingOptions)
   }
 }
 
