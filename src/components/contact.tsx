@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useForm, Controller } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -48,6 +48,7 @@ export function Contact({ bookingSettings }: { bookingSettings?: AppslabsSetting
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState<ContactFormData | null>(null);
   const [isFinalizing, setIsFinalizing] = useState(false);
+  const [pendingLeadEventId, setPendingLeadEventId] = useState<string | null>(null);
   const bookingStartHour = Math.min(settings.booking_start_hour, settings.booking_end_hour);
   const bookingEndHour = Math.max(settings.booking_start_hour, settings.booking_end_hour);
   const bookingSlotMinutes = settings.booking_slot_minutes;
@@ -112,6 +113,42 @@ export function Contact({ bookingSettings }: { bookingSettings?: AppslabsSetting
 
   const currentSlots = generateTimeSlots(selectedDate);
 
+  useEffect(() => {
+    if (!pendingLeadEventId) return;
+
+    let attempts = 0;
+    let timeoutId: number | undefined;
+
+    const tryTrackLead = () => {
+      attempts += 1;
+
+      const tracked = trackEvent(
+        'Lead',
+        { currency: 'USD', value: 100.0 },
+        { eventID: pendingLeadEventId }
+      );
+
+      if (tracked || attempts >= 10) {
+        if (!tracked) {
+          console.warn('Meta Pixel Lead event could not be tracked because fbq was unavailable.');
+        }
+
+        setPendingLeadEventId(null);
+        return;
+      }
+
+      timeoutId = window.setTimeout(tryTrackLead, 500);
+    };
+
+    tryTrackLead();
+
+    return () => {
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId);
+      }
+    };
+  }, [pendingLeadEventId]);
+
   const onFinalize = async () => {
     if (!formData || !selectedDate || !selectedSlotIso || isFinalizing) return;
 
@@ -147,9 +184,9 @@ export function Contact({ bookingSettings }: { bookingSettings?: AppslabsSetting
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Submission failed');
 
-      trackEvent('Lead', { currency: 'USD', value: 100.0 }, { eventID: metaEventId });
       setShowModal(false);
       setSubmitted(true);
+      setPendingLeadEventId(metaEventId);
     } catch (err) {
       console.error(err);
       alert('Something went wrong submitting your request. Please try again.');

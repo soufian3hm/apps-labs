@@ -19,7 +19,10 @@ export const event = (
 ) => {
   if (typeof window !== 'undefined' && (window as any).fbq) {
     ;(window as any).fbq('track', name, params, trackingOptions)
+    return true
   }
+
+  return false
 }
 
 export function FacebookPixel({ pixelId }: { pixelId: string | null }) {
