@@ -14,7 +14,7 @@ export function Footer() {
   };
 
   const links = [
-    { label: nav('services'), href: '#services' },
+    { label: nav('services'), href: '#problems' },
     { label: nav('projects'), href: '#projects' },
     { label: nav('process'), href: '#process' },
     { label: nav('faq'), href: '#faq' },

@@ -8,7 +8,7 @@ import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
 import { z } from 'zod';
 import { SectionReveal } from './section-reveal';
-import { IconMail, IconUsers, IconLayers, IconSend, IconCheck } from './icons';
+import { IconClock, IconUsers, IconLayers, IconSend, IconCheck } from './icons';
 import { event as trackEvent } from '@/components/pixel-provider';
 import { AppslabsSettings, normalizeAppslabsSettings } from '@/lib/appslabs-settings';
 
@@ -17,9 +17,9 @@ const contactSchema = z.object({
   company: z.string().optional(),
   email: z.string().email(),
   whatsapp: z.string().min(1),
-  budget: z.string().min(1),
   projectType: z.string().min(1),
-  message: z.string().min(1),
+  budget: z.string().optional(),
+  message: z.string().optional(),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -165,6 +165,8 @@ export function Contact({ bookingSettings }: { bookingSettings?: AppslabsSetting
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...formData,
+          budget: formData.budget?.trim() || t('formBudgetFallback'),
+          message: formData.message?.trim() || t('formMessageFallback'),
           meeting_date_str: selectedDate.toLocaleDateString(locale, {
             weekday: 'short',
             month: 'short',
@@ -199,13 +201,9 @@ export function Contact({ bookingSettings }: { bookingSettings?: AppslabsSetting
     .split('|')
     .map((opt) => opt.trim())
     .filter(Boolean);
-  const budgetOptions = t('formBudgetOptions')
-    .split('|')
-    .map((opt) => opt.trim())
-    .filter(Boolean);
 
   const infoPanels = [
-    { icon: <IconMail size={18} />, label: t('emailLabel'), value: t('emailValue') },
+    { icon: <IconClock size={18} />, label: t('emailLabel'), value: t('emailValue') },
     { icon: <IconUsers size={18} />, label: t('clientTypeLabel'), value: t('clientTypeValue') },
     { icon: <IconLayers size={18} />, label: t('projectTypeLabel'), value: t('projectTypeValue') },
   ];
@@ -216,7 +214,7 @@ export function Contact({ bookingSettings }: { bookingSettings?: AppslabsSetting
   const errorClasses = 'text-xs text-red-500 mt-1';
 
   return (
-    <section id="contact" className="py-24 lg:py-32">
+    <section id="contact" className="bg-bg-alt py-20 lg:py-24">
       <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
         <div className="grid lg:grid-cols-[0.85fr_1fr] gap-12 lg:gap-20">
           <SectionReveal>
@@ -351,52 +349,28 @@ export function Contact({ bookingSettings }: { bookingSettings?: AppslabsSetting
                     </div>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label htmlFor="budget" className={labelClasses}>
-                        {t('formBudget')}
-                      </label>
-                      <select
-                        id="budget"
-                        className={inputClasses}
-                        {...register('budget')}
-                        defaultValue=""
-                      >
-                        <option value="" disabled>
-                          {t('formBudgetPlaceholder')}
+                  <div>
+                    <label htmlFor="projectType" className={labelClasses}>
+                      {t('formProjectType')}
+                    </label>
+                    <select
+                      id="projectType"
+                      className={inputClasses}
+                      {...register('projectType')}
+                      defaultValue=""
+                    >
+                      <option value="" disabled>
+                        {t('formProjectTypePlaceholder')}
+                      </option>
+                      {projectOptions.map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}
                         </option>
-                        {budgetOptions.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
-                      {errors.budget && <p className={errorClasses}>{t('formBudget')}</p>}
-                    </div>
-
-                    <div>
-                      <label htmlFor="projectType" className={labelClasses}>
-                        {t('formProjectType')}
-                      </label>
-                      <select
-                        id="projectType"
-                        className={inputClasses}
-                        {...register('projectType')}
-                        defaultValue=""
-                      >
-                        <option value="" disabled>
-                          {t('formProjectTypePlaceholder')}
-                        </option>
-                        {projectOptions.map((opt) => (
-                          <option key={opt} value={opt}>
-                            {opt}
-                          </option>
-                        ))}
-                      </select>
-                      {errors.projectType && (
-                        <p className={errorClasses}>{t('formProjectType')}</p>
-                      )}
-                    </div>
+                      ))}
+                    </select>
+                    {errors.projectType && (
+                      <p className={errorClasses}>{t('formProjectType')}</p>
+                    )}
                   </div>
 
                   <div>
@@ -410,8 +384,16 @@ export function Contact({ bookingSettings }: { bookingSettings?: AppslabsSetting
                       placeholder={t('formMessagePlaceholder')}
                       {...register('message')}
                     />
-                    {errors.message && <p className={errorClasses}>{t('formMessage')}</p>}
                     <p className="text-xs text-fg-tertiary mt-2">{t('formHint')}</p>
+                  </div>
+
+                  <div className="rounded-2xl border border-accent/20 bg-accent/5 p-4">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+                      {t('formReassuranceLabel')}
+                    </p>
+                    <p className="mt-2 text-sm leading-relaxed text-fg">
+                      {t('formReassurance')}
+                    </p>
                   </div>
 
                   <button
@@ -424,10 +406,6 @@ export function Contact({ bookingSettings }: { bookingSettings?: AppslabsSetting
                       className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 rtl:rotate-[270deg]"
                     />
                   </button>
-
-                  <p className="text-xs text-fg-tertiary leading-relaxed">
-                    {t('formReassurance')}
-                  </p>
                 </form>
               )}
             </div>

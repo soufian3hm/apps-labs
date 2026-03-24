@@ -9,7 +9,7 @@ export function ProblemSolutions() {
   const t = useTranslations('problems');
 
   return (
-    <section className="py-24 lg:py-32">
+    <section id="problems" className="scroll-mt-24 py-20 lg:py-24">
       <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
         <SectionReveal>
           <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-16 mb-16 lg:mb-20">

@@ -3,57 +3,47 @@
 import { useTranslations } from 'next-intl';
 import { SectionReveal } from './section-reveal';
 
-const allStepKeys = [1, 2, 3, 4, 5] as const;
+const stepKeys = [1, 2, 3] as const;
 
 export function ProcessSection() {
   const t = useTranslations('process');
 
   return (
-    <section id="process" className="py-24 lg:py-32 bg-bg">
+    <section id="process" className="bg-bg py-20 lg:py-24">
       <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
         <SectionReveal>
-          <div className="max-w-2xl mb-16 lg:mb-20">
-            <p className="inline-flex items-center gap-2 text-accent text-sm font-medium tracking-wide uppercase mb-4">
-              <span className="w-6 h-px bg-accent" />
-              {t('label')}
-            </p>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] tracking-tight text-fg mb-5">
-              {t('title')}
-            </h2>
-            <p className="text-fg-muted text-lg leading-relaxed">
-              {t('description')}
-            </p>
+          <div className="grid gap-6 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+            <div>
+              <p className="mb-4 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wide text-accent">
+                <span className="h-px w-6 bg-accent" />
+                {t('label')}
+              </p>
+              <h2 className="font-display text-3xl tracking-tight text-fg sm:text-4xl lg:text-[2.6rem]">
+                {t('title')}
+              </h2>
+            </div>
+            <div className="lg:pt-8">
+              <p className="max-w-2xl text-lg leading-relaxed text-fg-muted">
+                {t('description')}
+              </p>
+            </div>
           </div>
         </SectionReveal>
 
-        <div className="relative">
-          {/* Connection line (desktop) */}
-          <div className="hidden xl:block absolute top-16 left-0 right-0 h-px bg-edge" />
-
-          <div className="grid sm:grid-cols-2 xl:grid-cols-5 gap-8 xl:gap-0">
-            {allStepKeys.map((num, i) => (
-              <SectionReveal key={num} delay={i * 0.12}>
-                <div className={`relative ${i > 0 ? 'xl:ps-8' : ''} ${i < 4 ? 'xl:pe-8' : ''}`}>
-                  {/* Step number */}
-                  <div className="relative z-10 w-12 h-12 rounded-full border-2 border-edge bg-bg-alt flex items-center justify-center mb-6 lg:mb-8">
-                    <span className="text-sm font-bold text-accent">
-                      {t(`step${num}Num`)}
-                    </span>
-                  </div>
-
-                  {/* Connector dot on the line (desktop) */}
-                  <div className="hidden xl:block absolute top-[3.75rem] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-accent" />
-
-                  <h3 className="text-lg font-semibold text-fg mb-3">
-                    {t(`step${num}Title`)}
-                  </h3>
-                  <p className="text-sm text-fg-muted leading-relaxed">
-                    {t(`step${num}Desc`)}
-                  </p>
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {stepKeys.map((num, index) => (
+            <SectionReveal key={num} delay={index * 0.1}>
+              <div className="flex h-full flex-col rounded-2xl border border-edge bg-surface p-7 lg:p-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full border border-edge bg-bg-alt text-sm font-bold text-accent">
+                  {t(`step${num}Num`)}
                 </div>
-              </SectionReveal>
-            ))}
-          </div>
+                <h3 className="mt-6 text-xl font-semibold text-fg">{t(`step${num}Title`)}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-fg-muted">
+                  {t(`step${num}Desc`)}
+                </p>
+              </div>
+            </SectionReveal>
+          ))}
         </div>
       </div>
     </section>

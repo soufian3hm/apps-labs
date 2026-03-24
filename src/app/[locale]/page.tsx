@@ -1,10 +1,9 @@
 import { Header } from '@/components/header';
 import { Hero } from '@/components/hero';
-import { Services } from '@/components/services';
 import { ProblemSolutions } from '@/components/problem-solutions';
+import { ProofStrip } from '@/components/proof-strip';
 import { Projects } from '@/components/projects';
 import { ProcessSection } from '@/components/process-section';
-import { WhyChooseUs } from '@/components/why-choose-us';
 import { Testimonials } from '@/components/testimonials';
 import { Faq } from '@/components/faq';
 import { Contact } from '@/components/contact';
@@ -21,14 +20,13 @@ export default async function HomePage() {
       <Header />
       <main className="overflow-x-hidden overflow-y-clip">
         <Hero />
-        <Services />
         <ProblemSolutions />
-        <WhyChooseUs />
+        <ProofStrip />
+        <ProcessSection />
         <Projects />
         <Testimonials />
-        <ProcessSection />
-        <Faq />
         <Contact bookingSettings={normalizeAppslabsSettings(settings || {})} />
+        <Faq />
       </main>
       <Footer />
     </>

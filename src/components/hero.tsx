@@ -4,275 +4,95 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'motion/react';
 import { IconArrowRight, IconArrowUpRight } from './icons';
 
-function HeroVisual() {
+const supportPointKeys = [1, 2, 3, 4] as const;
+const panelCardKeys = [1, 2, 3] as const;
+
+function HeroPanel() {
+  const t = useTranslations('hero');
+
   return (
-    <div className="relative w-full h-full min-h-[400px] lg:min-h-[520px]" dir="ltr">
-      <svg
-        viewBox="0 0 480 520"
-        fill="none"
-        className="w-full h-full"
-        aria-hidden="true"
-      >
-        {/* Grid lines */}
-        <motion.line
-          x1="0" y1="130" x2="480" y2="130"
-          stroke="var(--border-color)" strokeWidth="0.5"
-          initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-          transition={{ duration: 1.2, delay: 0.3 }}
-        />
-        <motion.line
-          x1="0" y1="260" x2="480" y2="260"
-          stroke="var(--border-color)" strokeWidth="0.5"
-          initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
-        />
-        <motion.line
-          x1="0" y1="390" x2="480" y2="390"
-          stroke="var(--border-color)" strokeWidth="0.5"
-          initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-          transition={{ duration: 1.2, delay: 0.7 }}
-        />
-        <motion.line
-          x1="160" y1="0" x2="160" y2="520"
-          stroke="var(--border-color)" strokeWidth="0.5"
-          initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-          transition={{ duration: 1.2, delay: 0.4 }}
-        />
-        <motion.line
-          x1="320" y1="0" x2="320" y2="520"
-          stroke="var(--border-color)" strokeWidth="0.5"
-          initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-          transition={{ duration: 1.2, delay: 0.6 }}
-        />
+    <div className="relative">
+      <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_top_right,rgba(193,127,62,0.16),transparent_55%)]" />
+      <div className="relative rounded-[2rem] border border-edge bg-surface/95 p-7 shadow-[0_24px_70px_rgba(15,23,42,0.06)] xl:p-8">
+        <div className="mb-6 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-accent">
+          <span className="h-px w-6 bg-accent" />
+          {t('panelLabel')}
+        </div>
 
-        {/* Module blocks */}
-        <motion.rect
-          x="20" y="20" width="120" height="90" rx="6"
-          fill="var(--accent)" fillOpacity="0.08"
-          stroke="var(--accent)" strokeWidth="1"
-          initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        />
-        <motion.text
-          x="44" y="72" fill="var(--accent)"
-          fontSize="11" fontWeight="500" fontFamily="var(--font-body-active)"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.1 }}
-        >
-          WEBSITE
-        </motion.text>
+        <div className="space-y-4">
+          {panelCardKeys.map((num) => (
+            <div key={num} className="rounded-2xl border border-edge bg-bg p-5">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+                {t(`card${num}Label`)}
+              </p>
+              <h3 className="mt-2 text-base font-semibold text-fg">{t(`card${num}Title`)}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-fg-muted">
+                {t(`card${num}Desc`)}
+              </p>
+            </div>
+          ))}
+        </div>
 
-        <motion.rect
-          x="180" y="20" width="120" height="90" rx="6"
-          fill="var(--surface)" stroke="var(--border-color)" strokeWidth="1"
-          initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-        />
-        <motion.text
-          x="199" y="72" fill="var(--foreground-muted)"
-          fontSize="11" fontWeight="500" fontFamily="var(--font-body-active)"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-        >
-          WEB APP
-        </motion.text>
-
-        <motion.rect
-          x="340" y="20" width="120" height="90" rx="6"
-          fill="var(--surface)" stroke="var(--border-color)" strokeWidth="1"
-          initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-        />
-        <motion.text
-          x="370" y="72" fill="var(--foreground-muted)"
-          fontSize="11" fontWeight="500" fontFamily="var(--font-body-active)"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.3 }}
-        >
-          AI TOOL
-        </motion.text>
-
-        {/* Large feature panel */}
-        <motion.rect
-          x="20" y="150" width="280" height="190" rx="8"
-          fill="var(--surface)" stroke="var(--border-color)" strokeWidth="1"
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.1 }}
-        />
-        <motion.rect
-          x="36" y="170" width="100" height="6" rx="3"
-          fill="var(--accent)" fillOpacity="0.5"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-        />
-        <motion.rect
-          x="36" y="190" width="200" height="4" rx="2"
-          fill="var(--border-color)"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-        />
-        <motion.rect
-          x="36" y="204" width="160" height="4" rx="2"
-          fill="var(--border-color)"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.55 }}
-        />
-        {/* Mini chart bars */}
-        <motion.rect x="36" y="280" width="24" height="40" rx="3" fill="var(--accent)" fillOpacity="0.15"
-          initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} style={{ originY: '100%' }}
-          transition={{ delay: 1.6, duration: 0.4 }}
-        />
-        <motion.rect x="68" y="260" width="24" height="60" rx="3" fill="var(--accent)" fillOpacity="0.25"
-          initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} style={{ originY: '100%' }}
-          transition={{ delay: 1.7, duration: 0.4 }}
-        />
-        <motion.rect x="100" y="270" width="24" height="50" rx="3" fill="var(--accent)" fillOpacity="0.2"
-          initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} style={{ originY: '100%' }}
-          transition={{ delay: 1.8, duration: 0.4 }}
-        />
-        <motion.rect x="132" y="250" width="24" height="70" rx="3" fill="var(--accent)" fillOpacity="0.35"
-          initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} style={{ originY: '100%' }}
-          transition={{ delay: 1.9, duration: 0.4 }}
-        />
-
-        {/* Side panel */}
-        <motion.rect
-          x="320" y="150" width="140" height="90" rx="8"
-          fill="var(--accent)" fillOpacity="0.06"
-          stroke="var(--accent)" strokeWidth="1" strokeOpacity="0.3"
-          initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 1.2 }}
-        />
-        <motion.text
-          x="340" y="200" fill="var(--accent)"
-          fontSize="10" fontWeight="600" fontFamily="var(--font-body-active)"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-        >
-          DASHBOARD
-        </motion.text>
-
-        <motion.rect
-          x="320" y="260" width="140" height="80" rx="8"
-          fill="var(--surface)" stroke="var(--border-color)" strokeWidth="1"
-          initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 1.3 }}
-        />
-        <motion.text
-          x="340" y="306" fill="var(--foreground-muted)"
-          fontSize="10" fontWeight="500" fontFamily="var(--font-body-active)"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.6 }}
-        >
-          INTERNAL TOOL
-        </motion.text>
-
-        {/* Bottom wide panel */}
-        <motion.rect
-          x="20" y="370" width="440" height="70" rx="8"
-          fill="var(--surface)" stroke="var(--border-color)" strokeWidth="1"
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.4 }}
-        />
-        <motion.rect
-          x="36" y="390" width="60" height="6" rx="3"
-          fill="var(--accent)" fillOpacity="0.4"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.7 }}
-        />
-        <motion.rect
-          x="36" y="408" width="200" height="4" rx="2"
-          fill="var(--border-color)"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.75 }}
-        />
-        <motion.rect
-          x="36" y="420" width="140" height="4" rx="2"
-          fill="var(--border-color)"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 1.8 }}
-        />
-
-        {/* Connection dots */}
-        {[
-          [160, 130], [320, 130], [160, 260], [320, 260], [160, 390], [320, 390],
-        ].map(([cx, cy], i) => (
-          <motion.circle
-            key={i}
-            cx={cx} cy={cy} r="3"
-            fill="var(--accent)"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 0.6, scale: 1 }}
-            transition={{ delay: 1.5 + i * 0.1 }}
-          />
-        ))}
-
-        {/* Floating accent ring */}
-        <motion.circle
-          cx="440" cy="480" r="25"
-          stroke="var(--accent)" strokeWidth="1.5" fill="none" strokeOpacity="0.3"
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 2, duration: 0.5 }}
-        />
-        <motion.circle
-          cx="440" cy="480" r="6"
-          fill="var(--accent)" fillOpacity="0.3"
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          transition={{ delay: 2.2 }}
-        />
-      </svg>
+        <div className="mt-5 rounded-2xl border border-accent/15 bg-accent/5 p-5">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
+            {t('capacityLabel')}
+          </p>
+          <p className="mt-2 text-sm leading-relaxed text-fg">
+            {t('capacityText')}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
 
 export function Hero() {
   const t = useTranslations('hero');
-  const supportPointKeys = [1, 2, 3, 4] as const;
 
   return (
-    <section className="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
-      <div className="mx-auto max-w-[1280px] px-6 lg:px-10">
-        <div className="grid lg:grid-cols-[1fr_0.85fr] gap-12 lg:gap-16 items-start">
-          {/* Left content */}
-          <div className="max-w-2xl">
+    <section className="relative overflow-hidden pb-16 pt-28 lg:pb-20 lg:pt-36">
+      <div className="absolute inset-x-0 top-0 h-[34rem] bg-[radial-gradient(circle_at_top,rgba(193,127,62,0.12),transparent_62%)]" />
+
+      <div className="relative mx-auto max-w-[1280px] px-6 lg:px-10">
+        <div className="grid items-start gap-12 lg:grid-cols-[1fr_0.92fr] lg:gap-16">
+          <div className="max-w-3xl">
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 text-accent text-sm font-medium tracking-wide uppercase mb-6"
+              className="mb-6 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wide text-accent"
             >
-              <span className="w-6 h-px bg-accent" />
+              <span className="h-px w-6 bg-accent" />
               {t('label')}
             </motion.p>
 
             <motion.h1
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl leading-[1.1] tracking-tight text-fg mb-6"
+              transition={{ duration: 0.7, delay: 0.08 }}
+              className="font-display text-4xl leading-[1.08] tracking-tight text-fg sm:text-5xl lg:text-[3.4rem] xl:text-[4rem]"
             >
               {t('title')}
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-fg-muted text-lg leading-relaxed max-w-xl mb-8"
+              transition={{ duration: 0.7, delay: 0.16 }}
+              className="mt-6 max-w-2xl text-lg leading-relaxed text-fg-muted"
             >
               {t('description')}
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-wrap gap-4 mb-8"
+              transition={{ duration: 0.7, delay: 0.24 }}
+              className="mt-8 flex flex-wrap gap-4"
             >
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white hover:bg-accent-hover transition-colors duration-200"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-accent-hover"
               >
                 {t('cta1')}
                 <IconArrowRight
@@ -281,8 +101,8 @@ export function Hero() {
                 />
               </a>
               <a
-                href="#services"
-                className="group inline-flex items-center gap-2.5 rounded-full border border-edge px-7 py-3.5 text-sm font-medium text-fg hover:border-fg transition-colors duration-200"
+                href="#problems"
+                className="group inline-flex items-center gap-2.5 rounded-full border border-edge px-7 py-3.5 text-sm font-medium text-fg transition-colors duration-200 hover:border-fg"
               >
                 {t('cta2')}
                 <IconArrowUpRight
@@ -293,28 +113,29 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="grid sm:grid-cols-2 gap-3 max-w-2xl"
+              transition={{ duration: 0.7, delay: 0.32 }}
+              className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-2"
             >
               {supportPointKeys.map((num) => (
-                <div key={num} className="flex items-center gap-2.5 text-sm text-fg-muted">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                <div
+                  key={num}
+                  className="flex items-center gap-2.5 rounded-full border border-edge bg-surface/80 px-4 py-3 text-sm text-fg-muted"
+                >
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                   <span>{t(`point${num}Title`)}</span>
                 </div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right visual */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="hidden lg:block"
+            transition={{ duration: 0.9, delay: 0.28 }}
           >
-            <HeroVisual />
+            <HeroPanel />
           </motion.div>
         </div>
       </div>

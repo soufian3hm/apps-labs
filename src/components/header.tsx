@@ -8,7 +8,7 @@ import { ThemeToggle } from './theme-toggle';
 import { IconMenu, IconClose } from './icons';
 
 const navLinks = [
-  { key: 'services', href: '#services' },
+  { key: 'services', href: '#problems' },
   { key: 'projects', href: '#projects' },
   { key: 'process', href: '#process' },
   { key: 'faq', href: '#faq' },
