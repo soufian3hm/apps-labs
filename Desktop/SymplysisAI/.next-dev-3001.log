@@ -1,0 +1,14 @@
+
+> symplysis-ai@0.1.0 dev
+> next dev -p 3001
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.1.67:3001
+- Environments: .env.local
+✓ Ready in 747ms
+
+ GET /login 200 in 872ms (next.js: 203ms, proxy.ts: 9ms, application-code: 660ms)
+✓ Finished filesystem cache database compaction in 11.9s
+ GET /login 200 in 170ms (next.js: 11ms, proxy.ts: 10ms, application-code: 149ms)
+[?25h

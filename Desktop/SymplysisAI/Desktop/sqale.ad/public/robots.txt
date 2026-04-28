@@ -1,0 +1,37 @@
+# Symplysis Robots.txt - Allow all search engines to crawl
+User-agent: *
+Allow: /
+
+# Disallow private/auth routes
+Disallow: /dashboard
+Disallow: /home
+Disallow: /symplysis
+Disallow: /history
+Disallow: /billing
+Disallow: /settings
+Disallow: /success
+Disallow: /cancel
+Disallow: /auth/callback
+Disallow: /symplysis/*
+
+# Allow public pages
+Allow: /
+Allow: /features
+Allow: /pricing
+Allow: /about
+Allow: /faq
+Allow: /blog
+Allow: /how-it-works
+Allow: /features/ad-copy
+Allow: /features/landing-pages
+Allow: /features/voiceovers
+Allow: /features/posters
+Allow: /privacy
+Allow: /terms
+Allow: /cookies
+
+# Sitemap location
+Sitemap: https://symplysis.com/sitemap.xml
+
+# Crawl delay (optional, helps with server load)
+Crawl-delay: 1

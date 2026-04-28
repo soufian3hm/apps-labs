@@ -1,0 +1,159 @@
+/* SidebarPolaris.css */
+
+.sidebar-polaris-container {
+  width: 256px;
+  height: 100vh;
+  background-color: var(--p-color-bg-surface);
+  border-right: 1px solid var(--p-color-border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-shrink: 0;
+}
+
+.sidebar-polaris-header {
+  padding: var(--p-space-400);
+  flex-shrink: 0;
+}
+
+.sidebar-polaris-logo {
+  height: 32px;
+  width: 32px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.sidebar-polaris-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--p-space-400);
+  padding-top: var(--p-space-200);
+}
+
+.sidebar-polaris-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-polaris-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-polaris-content::-webkit-scrollbar-thumb {
+  background: var(--p-color-border);
+  border-radius: 3px;
+}
+
+.sidebar-polaris-content::-webkit-scrollbar-thumb:hover {
+  background: var(--p-color-border-subdued);
+}
+
+.sidebar-polaris-nav-button {
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s, color 0.2s;
+  color: var(--p-color-text-subdued);
+  font-weight: 400;
+}
+
+.sidebar-polaris-nav-button:hover {
+  background-color: var(--p-color-bg-surface-hover);
+}
+
+.sidebar-polaris-nav-button.active {
+  background: var(--p-color-bg-surface-secondary);
+  color: var(--p-color-text);
+  font-weight: 600;
+}
+
+.sidebar-polaris-user-menu-button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-polaris-user-menu-button:hover {
+  background-color: var(--p-color-bg-surface-hover);
+}
+
+.sidebar-polaris-footer {
+  padding: var(--p-space-400);
+  border-top: 1px solid var(--p-color-border);
+  flex-shrink: 0;
+  overflow-y: auto;
+  max-height: 40%;
+}
+
+.sidebar-polaris-footer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-polaris-footer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-polaris-footer::-webkit-scrollbar-thumb {
+  background: var(--p-color-border);
+  border-radius: 3px;
+}
+
+.refresh-button-polaris {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+
+.refresh-button-polaris:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.refresh-icon-spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.manage-credits-button-polaris {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.manage-credits-button-polaris:hover {
+  opacity: 0.7;
+}
+
+.sidebar-polaris-nav-section {
+  margin-bottom: var(--p-space-400);
+}
+
+.sidebar-polaris-nav-section-title {
+  margin-bottom: var(--p-space-100);
+  display: block;
+}

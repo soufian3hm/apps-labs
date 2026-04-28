@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* ========================================
+   DESIGN TOKENS — APPS LABS
+   ======================================== */
+
+:root {
+  --background: #FAFAF7;
+  --background-alt: #F0EDE8;
+  --surface: #FFFFFF;
+  --foreground: #1A1A17;
+  --foreground-muted: #71706B;
+  --foreground-tertiary: #A3A19C;
+  --accent: #C17F3E;
+  --accent-hover: #A66A2E;
+  --accent-light: #F5E6D3;
+  --border-color: #E5E2DC;
+  --border-strong: #D0CCC4;
+
+  --font-display-active: var(--font-display);
+  --font-body-active: var(--font-body);
+}
+
+.dark {
+  --background: #0A0A09;
+  --background-alt: #141413;
+  --surface: #1C1C1A;
+  --foreground: #F0EDE8;
+  --foreground-muted: #9C9A95;
+  --foreground-tertiary: #6B6963;
+  --accent: #D4943F;
+  --accent-hover: #E0A552;
+  --accent-light: #2A2012;
+  --border-color: #2A2926;
+  --border-strong: #3A3835;
+}
+
+[dir="rtl"] {
+  --font-display-active: var(--font-display-ar);
+  --font-body-active: var(--font-body-ar);
+}
+
+/* ========================================
+   TAILWIND THEME EXTENSION
+   ======================================== */
+
+@theme {
+  --color-bg: var(--background);
+  --color-bg-alt: var(--background-alt);
+  --color-surface: var(--surface);
+  --color-fg: var(--foreground);
+  --color-fg-muted: var(--foreground-muted);
+  --color-fg-tertiary: var(--foreground-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-edge: var(--border-color);
+  --color-edge-strong: var(--border-strong);
+
+  --font-heading: var(--font-display-active);
+  --font-sans: var(--font-body-active);
+}
+
+/* ========================================
+   BASE STYLES (inside @layer so Tailwind
+   utilities can always override them)
+   ======================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body-active), system-ui, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: #FFFFFF;
+  }
+
+  h1, h2, h3 {
+    line-height: 1.15;
+  }
+
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+
+  [dir="rtl"] {
+    text-align: right;
+  }
+}
+
+/* ========================================
+   COMPONENT LAYER
+   ======================================== */
+
+@layer components {
+  .font-display {
+    font-family: var(--font-display-active), Georgia, serif;
+  }
+  .font-display-en {
+    font-family: var(--font-display), Georgia, serif;
+  }
+}
+
+/* ========================================
+   SCROLLBAR (fine outside layers)
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground-muted);
+}

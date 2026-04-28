@@ -1,0 +1,313 @@
+/**
+ * Custom Polaris Theme Styles
+ * These styles override default Polaris components with custom branding
+ */
+
+:root {
+  /* Primary brand colors */
+  --p-color-bg-fill-brand: #008fe3;
+  --p-color-bg-fill-brand-hover: #0077c2;
+  --p-color-bg-fill-brand-active: #005f9e;
+  --p-color-bg-fill-brand-selected: #005f9e;
+  --p-color-bg-fill-brand-disabled: #b3e0ff;
+  
+  /* Text colors */
+  --p-color-text-brand: #008fe3;
+  --p-color-text-brand-hover: #0077c2;
+  --p-color-text-brand-on-bg-fill: #FFFFFF;
+  
+  /* Border colors */
+  --p-color-border-brand: #008fe3;
+  
+  /* Interactive colors */
+  --p-color-bg-fill-interactive: #008fe3;
+  --p-color-bg-fill-interactive-hover: #0077c2;
+  --p-color-bg-fill-interactive-active: #005f9e;
+  --p-color-bg-fill-interactive-selected: #005f9e;
+  
+  /* Surface colors */
+  --p-color-bg-surface: #FFFFFF;
+  --p-color-bg-surface-hover: #F9FAFB;
+  --p-color-bg-surface-active: #F3F4F6;
+  --p-color-bg-surface-selected: #F3F4F6;
+  --p-color-bg-surface-secondary: #F9FAFB;
+  --p-color-bg-surface-tertiary: #F3F4F6;
+  
+  /* Shadow and overlay */
+  --p-color-bg-fill-transparent: rgba(0, 143, 227, 0.08);
+  --p-color-bg-fill-transparent-hover: rgba(0, 143, 227, 0.12);
+  --p-color-bg-fill-transparent-active: rgba(0, 143, 227, 0.16);
+  --p-color-bg-fill-transparent-selected: rgba(0, 143, 227, 0.16);
+  
+  /* Success colors */
+  --p-color-bg-fill-success: #10B981;
+  --p-color-bg-fill-success-hover: #059669;
+  --p-color-bg-fill-success-active: #047857;
+  --p-color-text-success: #059669;
+  
+  /* Warning colors */
+  --p-color-bg-fill-warning: #F59E0B;
+  --p-color-text-warning: #D97706;
+  
+  /* Critical colors */
+  --p-color-bg-fill-critical: #EF4444;
+  --p-color-bg-fill-critical-hover: #DC2626;
+  --p-color-bg-fill-critical-active: #B91C1C;
+  --p-color-text-critical: #DC2626;
+  
+  /* Border radius */
+  --p-border-radius-base: 8px;
+  --p-border-radius-large: 12px;
+  --p-border-radius-full: 9999px;
+  
+  /* Spacing */
+  --p-space-1: 4px;
+  --p-space-2: 8px;
+  --p-space-3: 12px;
+  --p-space-4: 16px;
+  --p-space-5: 20px;
+  --p-space-6: 24px;
+  --p-space-8: 32px;
+  
+  /* Typography */
+  --p-font-family-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --p-font-size-300: 12px;
+  --p-font-size-400: 14px;
+  --p-font-size-500: 16px;
+  --p-font-size-600: 20px;
+  --p-font-size-700: 24px;
+}
+
+/* Custom card styling */
+.Polaris-Card {
+  border-radius: var(--p-border-radius-large) !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+  transition: box-shadow 0.2s ease;
+}
+
+.Polaris-Card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Button styling */
+.Polaris-Button--primary {
+  background: var(--p-color-bg-fill-brand) !important;
+  border-radius: var(--p-border-radius-base) !important;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.Polaris-Button--primary:hover:not(:disabled) {
+  background: var(--p-color-bg-fill-brand-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 143, 227, 0.3);
+}
+
+.Polaris-Button--primary:active:not(:disabled) {
+  background: var(--p-color-bg-fill-brand-active) !important;
+  transform: translateY(0);
+}
+
+.Polaris-Button {
+  border-radius: var(--p-border-radius-base) !important;
+  font-weight: 500;
+}
+
+/* Input field styling */
+.Polaris-TextField__Input,
+.Polaris-Select__Input {
+  border-radius: var(--p-border-radius-base) !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Polaris-TextField__Input:focus,
+.Polaris-Select__Input:focus {
+  border-color: var(--p-color-border-brand) !important;
+  box-shadow: 0 0 0 3px rgba(0, 143, 227, 0.1) !important;
+}
+
+/* Badge styling */
+.Polaris-Badge {
+  border-radius: var(--p-border-radius-base) !important;
+  font-weight: 600;
+}
+
+.Polaris-Badge--toneInfo {
+  background-color: rgba(0, 143, 227, 0.1) !important;
+  color: var(--p-color-text-brand) !important;
+}
+
+/* Tab styling */
+.Polaris-Tabs__Tab {
+  border-radius: var(--p-border-radius-base) var(--p-border-radius-base) 0 0 !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.Polaris-Tabs__Tab--selected {
+  border-bottom-color: var(--p-color-border-brand) !important;
+  color: var(--p-color-text-brand) !important;
+  font-weight: 600;
+}
+
+.Polaris-Tabs__Tab:hover {
+  background-color: var(--p-color-bg-surface-hover) !important;
+}
+
+/* Banner styling */
+.Polaris-Banner {
+  border-radius: var(--p-border-radius-base) !important;
+  border-left-width: 4px;
+}
+
+.Polaris-Banner--statusSuccess {
+  border-left-color: var(--p-color-bg-fill-success) !important;
+}
+
+.Polaris-Banner--statusCritical {
+  border-left-color: var(--p-color-bg-fill-critical) !important;
+}
+
+.Polaris-Banner--statusWarning {
+  border-left-color: var(--p-color-bg-fill-warning) !important;
+}
+
+/* Page styling */
+.Polaris-Page {
+  max-width: 100%;
+}
+
+.Polaris-Page-Header__Title {
+  font-size: var(--p-font-size-700);
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+/* EmptyState styling */
+.Polaris-EmptyState {
+  padding: var(--p-space-8);
+}
+
+.Polaris-EmptyState__Image {
+  max-width: 200px;
+  margin: 0 auto var(--p-space-6);
+}
+
+/* Spinner styling */
+.Polaris-Spinner svg {
+  color: var(--p-color-bg-fill-brand) !important;
+}
+
+/* Layout styling */
+.Polaris-Layout__Section {
+  padding: var(--p-space-4);
+}
+
+/* Box styling */
+.Polaris-Box {
+  border-radius: var(--p-border-radius-base);
+}
+
+/* InlineStack and BlockStack spacing */
+.Polaris-InlineStack,
+.Polaris-BlockStack {
+  gap: var(--p-space-4);
+}
+
+/* Text styling */
+.Polaris-Text--headingMd {
+  font-size: var(--p-font-size-600);
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.Polaris-Text--headingSm {
+  font-size: var(--p-font-size-500);
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+/* Link styling */
+.Polaris-Link {
+  color: var(--p-color-text-brand);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.Polaris-Link:hover {
+  color: var(--p-color-text-brand-hover);
+  text-decoration: underline;
+}
+
+/* Modal styling */
+.Polaris-Modal-Dialog {
+  border-radius: var(--p-border-radius-large) !important;
+}
+
+/* Tooltip styling */
+.Polaris-Tooltip {
+  border-radius: var(--p-border-radius-base) !important;
+}
+
+/* Popover styling */
+.Polaris-Popover {
+  border-radius: var(--p-border-radius-base) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Progress bar styling */
+.Polaris-ProgressBar__Progress {
+  background-color: var(--p-color-bg-fill-brand) !important;
+}
+
+/* Checkbox and Radio styling */
+.Polaris-Choice__Control {
+  border-radius: var(--p-border-radius-base) !important;
+}
+
+.Polaris-Choice__Control:checked {
+  background-color: var(--p-color-bg-fill-brand) !important;
+  border-color: var(--p-color-border-brand) !important;
+}
+
+/* Select dropdown styling */
+.Polaris-Select__Input {
+  border-radius: var(--p-border-radius-base) !important;
+}
+
+/* Scrollbar styling for Polaris components */
+.Polaris-Scrollable::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.Polaris-Scrollable::-webkit-scrollbar-track {
+  background: var(--p-color-bg-surface-secondary);
+  border-radius: var(--p-border-radius-base);
+}
+
+.Polaris-Scrollable::-webkit-scrollbar-thumb {
+  background: rgba(0, 143, 227, 0.3);
+  border-radius: var(--p-border-radius-base);
+}
+
+.Polaris-Scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 143, 227, 0.5);
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.Polaris-Card,
+.Polaris-Banner {
+  animation: fadeIn 0.3s ease;
+}
